@@ -1,0 +1,45 @@
+SELECT
+    si.barcode,
+    MAX(si.title) AS title,
+    MAX(si.vendor) AS vendor,
+    COUNT(*) AS supplier_count,
+    SUM(si.quantity) AS total_quantity,
+
+    JSON_AGG(
+        JSON_BUILD_OBJECT(
+            'supplier', si.supplier,
+            'quantity', si.quantity
+        )
+        ORDER BY si.supplier
+    ) AS suppliers
+
+FROM (
+    SELECT
+        barcode,
+        supplier,
+        MAX(title) AS title,
+        MAX(vendor) AS vendor,
+        MAX(quantity) AS quantity
+    FROM public.supplier_inventory
+    WHERE barcode IS NOT NULL
+      AND barcode <> ''
+    GROUP BY
+        barcode,
+        supplier
+) si
+
+LEFT JOIN public.products p
+    ON p.barcode = si.barcode
+
+WHERE p.barcode IS NULL
+  AND (
+      '{{SelectVendor.selectedOptionValue}}' = ''
+      OR si.vendor = '{{SelectVendor.selectedOptionValue}}'
+  )
+
+GROUP BY
+    si.barcode
+
+ORDER BY
+    vendor,
+    title;
