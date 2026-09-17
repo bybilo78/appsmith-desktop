@@ -5,6 +5,8 @@ SELECT
     p.variant,          
 		CONCAT(p.content_amount, ' ', p.content_unit) AS content,
     p.quantity AS shop_quantity,
+		p.inventory_tracked,
+		p.inventory_policy,
     s.supplier_count,
     s.supplier_quantity,
     s.suppliers
