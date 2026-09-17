@@ -6,7 +6,7 @@
       {
         "dsl": {
           "backgroundColor": "none",
-          "bottomRow": 840,
+          "bottomRow": 1110,
           "canExtend": true,
           "containerStyle": "none",
           "detachFromLayout": true,
@@ -27,7 +27,7 @@
         }
       }
     ],
-    "name": "Lieferanten",
-    "slug": "lieferanten"
+    "name": "Produktabgleich",
+    "slug": "produktabgleich"
   }
 }
