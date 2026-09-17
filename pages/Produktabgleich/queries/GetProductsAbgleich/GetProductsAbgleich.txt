@@ -48,5 +48,11 @@ WHERE p.barcode IS NOT NULL
   	'{{SelectVendor.selectedOptionValue}}' = ''
   	OR p.vendor = '{{SelectVendor.selectedOptionValue}}'
   )
+	
+	AND
+	(
+  	'{{SelectCategory.selectedOptionValue}}' = ''
+  	OR p.category = '{{SelectCategory.selectedOptionValue}}'
+  )
 
 ORDER BY p.vendor 
