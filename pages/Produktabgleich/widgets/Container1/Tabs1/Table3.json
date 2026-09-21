@@ -5,7 +5,7 @@
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
   "borderWidth": "0",
   "bottomRow": 98,
-  "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
+  "boxShadow": "none",
   "cachedTableData": {},
   "canFreezeColumn": true,
   "childStylesheet": {
@@ -57,9 +57,6 @@
     },
     {
       "key": "borderRadius"
-    },
-    {
-      "key": "boxShadow"
     },
     {
       "key": "tableData"
@@ -241,11 +238,13 @@
   "responsiveBehavior": "fill",
   "rightColumn": 64,
   "searchKey": "",
+  "serverSidePaginationEnabled": false,
   "tableData": "{{GetProductsNotInShop.data}}",
   "textSize": "0.875rem",
   "topRow": 0,
   "totalRecordsCount": 0,
   "type": "TABLE_WIDGET_V2",
+  "variant": "DEFAULT",
   "version": 2,
   "verticalAlignment": "CENTER",
   "widgetId": "h5kfa852wd",
