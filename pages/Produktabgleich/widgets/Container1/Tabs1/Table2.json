@@ -33,7 +33,7 @@
   },
   "columnOrder": [
     "status",
-    "barcode",
+    "barcodes",
     "vendor",
     "title",
     "variant",
@@ -41,7 +41,7 @@
     "quantity",
     "policy"
   ],
-  "columnUpdatedAt": 1790010198767,
+  "columnUpdatedAt": 1790021666275,
   "columnWidthMap": {
     "content": 110,
     "inventory_tracked": 89,
@@ -73,9 +73,6 @@
       "key": "primaryColumns.vendor.computedValue"
     },
     {
-      "key": "primaryColumns.barcode.computedValue"
-    },
-    {
       "key": "primaryColumns.title.computedValue"
     },
     {
@@ -92,6 +89,9 @@
     },
     {
       "key": "primaryColumns.status.computedValue"
+    },
+    {
+      "key": "primaryColumns.barcodes.computedValue"
     }
   ],
   "dynamicPropertyPathList": [
@@ -125,24 +125,26 @@
   "mobileRightColumn": 6,
   "mobileTopRow": 0,
   "needsErrorInfo": false,
-  "onRowSelected": "{{storeValue('product_barcode', Table2.selectedRow.barcode).then(() => {});\nstoreValue('product_title', Table2.selectedRow.title);\nstoreValue('product_variant', Table2.selectedRow.variant);\nstoreValue('product_content', Table2.selectedRow.content);}}",
+  "onRowSelected": "{{storeValue('product_barcodes', Table2.selectedRow.barcodes).then(() => {});\nstoreValue('product_embedding_text', Table2.selectedRow.title + ' ' + Table2.selectedRow.variant + ' ' + Table2.selectedRow.content);}}",
   "parentColumnSpace": 29.625,
   "parentId": "0dlhx835qg",
   "parentRowSpace": 10,
   "primaryColumns": {
-    "barcode": {
-      "alias": "barcode",
+    "barcodes": {
+      "alias": "barcodes",
       "allowCellWrapping": false,
       "allowSameOptionsInNewRow": true,
+      "cellBackground": "",
       "columnType": "text",
-      "computedValue": "{{(() => { const tableData = Table2.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"barcode\"])) : barcode })()}}",
+      "computedValue": "{{(() => { const tableData = Table2.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"barcodes\"])) : barcodes })()}}",
       "currencyCode": "USD",
       "decimals": 0,
       "enableFilter": true,
       "enableSort": true,
+      "fontStyle": "",
       "horizontalAlignment": "LEFT",
-      "id": "barcode",
-      "index": 1,
+      "id": "barcodes",
+      "index": 7,
       "isCellEditable": false,
       "isCellVisible": true,
       "isDerived": false,
@@ -151,10 +153,11 @@
       "isEditable": false,
       "isSaveVisible": true,
       "isVisible": true,
-      "label": "barcode",
+      "label": "barcodes",
       "notation": "standard",
-      "originalId": "barcode",
+      "originalId": "barcodes",
       "sticky": "",
+      "textColor": "",
       "textSize": "0.875rem",
       "thousandSeparator": true,
       "validation": {},
