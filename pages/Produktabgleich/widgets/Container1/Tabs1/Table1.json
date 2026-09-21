@@ -35,24 +35,24 @@
     "barcode",
     "vendor",
     "title",
-    "supplier_count",
+    "variant",
     "content",
     "quantity",
-    "supplier_quantity",
     "policy",
-    "variant",
-    "suppliers"
+    "supplier_quantity"
   ],
-  "columnUpdatedAt": 1789985741121,
+  "columnUpdatedAt": 1789988690365,
   "columnWidthMap": {
     "barcode": 163,
     "content": 117,
     "inventory_tracked": 124,
-    "quantity": 125,
+    "quantity": 112,
     "shop_quantity": 106.00000000000001,
     "supplier_count": 91,
     "supplier_quantity": 149,
+    "suppliers": 176,
     "title": 428,
+    "variant": 128,
     "vendor": 150
   },
   "compactMode": "SHORT",
@@ -81,19 +81,10 @@
       "key": "primaryColumns.vendor.computedValue"
     },
     {
-      "key": "primaryColumns.supplier_count.computedValue"
-    },
-    {
-      "key": "primaryColumns.suppliers.computedValue"
-    },
-    {
       "key": "primaryColumns.variant.computedValue"
     },
     {
       "key": "tableData"
-    },
-    {
-      "key": "primaryColumns.supplier_quantity.computedValue"
     },
     {
       "key": "primaryColumns.content.computedValue"
@@ -103,6 +94,9 @@
     },
     {
       "key": "primaryColumns.policy.computedValue"
+    },
+    {
+      "key": "primaryColumns.supplier_quantity.computedValue"
     }
   ],
   "dynamicPropertyPathList": [
@@ -110,7 +104,11 @@
       "key": "tableData"
     }
   ],
-  "dynamicTriggerPathList": [],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onRowSelected"
+    }
+  ],
   "enableClientSideSearch": true,
   "endOfData": false,
   "flexVerticalAlignment": "start",
@@ -132,6 +130,7 @@
   "mobileRightColumn": 10,
   "mobileTopRow": 0,
   "needsErrorInfo": false,
+  "onRowSelected": "{{copyToClipboard(Table1.selectedRow.barcode);}}",
   "parentColumnSpace": 29.9375,
   "parentId": "d3m5yqyrd3",
   "parentRowSpace": 10,
@@ -272,43 +271,12 @@
       "verticalAlignment": "TOP",
       "width": 150
     },
-    "supplier_count": {
-      "alias": "supplier_count",
-      "allowCellWrapping": false,
-      "allowSameOptionsInNewRow": true,
-      "columnType": "text",
-      "computedValue": "{{(() => { const tableData = Table1.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"variant\"] !== \"Default Title\" ? currentRow[\"variant\"] : \"\")) : currentRow[\"variant\"] !== \"Default Title\" ? currentRow[\"variant\"] : \"\" })()}}",
-      "currencyCode": "USD",
-      "decimals": 0,
-      "enableFilter": true,
-      "enableSort": true,
-      "horizontalAlignment": "LEFT",
-      "id": "supplier_count",
-      "index": 3,
-      "isCellEditable": false,
-      "isCellVisible": true,
-      "isDerived": false,
-      "isDisabled": false,
-      "isDiscardVisible": true,
-      "isEditable": false,
-      "isSaveVisible": true,
-      "isVisible": true,
-      "label": "variant",
-      "notation": "standard",
-      "originalId": "supplier_count",
-      "sticky": "",
-      "textSize": "0.875rem",
-      "thousandSeparator": true,
-      "validation": {},
-      "verticalAlignment": "TOP",
-      "width": 150
-    },
     "supplier_quantity": {
       "alias": "supplier_quantity",
       "allowCellWrapping": false,
       "allowSameOptionsInNewRow": true,
       "cellBackground": "",
-      "columnType": "number",
+      "columnType": "html",
       "computedValue": "{{(() => { const tableData = Table1.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"supplier_quantity\"])) : supplier_quantity })()}}",
       "currencyCode": "USD",
       "decimals": 0,
@@ -317,7 +285,7 @@
       "fontStyle": "",
       "horizontalAlignment": "LEFT",
       "id": "supplier_quantity",
-      "index": 6,
+      "index": 7,
       "isCellEditable": false,
       "isCellVisible": true,
       "isDerived": false,
@@ -326,42 +294,11 @@
       "isEditable": false,
       "isSaveVisible": true,
       "isVisible": true,
-      "label": "supplier",
+      "label": "supplier_quantity",
       "notation": "standard",
       "originalId": "supplier_quantity",
       "sticky": "",
       "textColor": "",
-      "textSize": "0.875rem",
-      "thousandSeparator": true,
-      "validation": {},
-      "verticalAlignment": "TOP",
-      "width": 150
-    },
-    "suppliers": {
-      "alias": "suppliers",
-      "allowCellWrapping": false,
-      "allowSameOptionsInNewRow": true,
-      "columnType": "text",
-      "computedValue": "{{(() => { const tableData = Table1.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"suppliers\"])) : suppliers })()}}",
-      "currencyCode": "USD",
-      "decimals": 0,
-      "enableFilter": true,
-      "enableSort": true,
-      "horizontalAlignment": "LEFT",
-      "id": "suppliers",
-      "index": 5,
-      "isCellEditable": false,
-      "isCellVisible": true,
-      "isDerived": false,
-      "isDisabled": false,
-      "isDiscardVisible": true,
-      "isEditable": false,
-      "isSaveVisible": true,
-      "isVisible": false,
-      "label": "supplier_quantity",
-      "notation": "standard",
-      "originalId": "suppliers",
-      "sticky": "",
       "textSize": "0.875rem",
       "thousandSeparator": true,
       "validation": {},
@@ -403,13 +340,13 @@
       "alias": "variant",
       "allowCellWrapping": false,
       "allowSameOptionsInNewRow": true,
-      "columnType": "number",
-      "computedValue": "{{(() => { const tableData = Table1.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow.supplier_count)) : currentRow.supplier_count })()}}",
+      "columnType": "text",
+      "computedValue": "{{(() => { const tableData = Table1.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow.variant)) : currentRow.variant })()}}",
       "currencyCode": "USD",
       "decimals": 0,
       "enableFilter": true,
       "enableSort": true,
-      "horizontalAlignment": "RIGHT",
+      "horizontalAlignment": "LEFT",
       "id": "variant",
       "index": 3,
       "isCellEditable": false,
@@ -419,8 +356,8 @@
       "isDiscardVisible": true,
       "isEditable": false,
       "isSaveVisible": true,
-      "isVisible": false,
-      "label": "supplier_count",
+      "isVisible": true,
+      "label": "variant",
       "notation": "standard",
       "originalId": "variant",
       "sticky": "",

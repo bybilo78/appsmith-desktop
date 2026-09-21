@@ -6,25 +6,21 @@ SELECT
 		CONCAT(p.content_amount, ' ', p.content_unit) AS content,
     p.quantity,	
 		p.inventory_policy AS policy,
-    s.supplier_count,
-    s.supplier_quantity,
-    s.suppliers
+		s.supplier_quantity   
 
 FROM public."products" p
 
 INNER JOIN (
     SELECT
-        barcode,
-        COUNT(*) AS supplier_count,
-        SUM(quantity) AS supplier_quantity,
-
-        JSON_AGG(
-            JSON_BUILD_OBJECT(
-                'supplier', supplier,
-                'quantity', quantity
-            )
-            ORDER BY supplier
-        ) AS suppliers
+       barcode,       
+       CONCAT(
+				'<strong>Gesamt:</strong> ', SUM(quantity), ', ',
+				STRING_AGG(
+					CONCAT('<strong>', supplier, '</strong>: ', quantity),
+					', '
+					ORDER BY supplier
+				)
+			) AS supplier_quantity
 
     FROM (
         SELECT
@@ -52,6 +48,12 @@ WHERE p.barcode IS NOT NULL
 	(
   	'{{SelectCategory.selectedOptionValue}}' = ''
   	OR p.category = '{{SelectCategory.selectedOptionValue}}'
+  )
+	
+	AND
+	(
+  	'{{SelectPolicy.selectedOptionValue}}' = ''
+  	OR p.inventory_policy = '{{SelectPolicy.selectedOptionValue}}'
   )
 
 ORDER BY p.vendor 
