@@ -13,7 +13,7 @@ SELECT
             ', '
             ORDER BY si.supplier
         )
-    ) AS supplier_quantity	
+    ) AS supplier_quantity
 
 FROM (
     SELECT
@@ -30,29 +30,37 @@ FROM (
         supplier
 ) si
 
-LEFT JOIN public.products p
-    ON p.barcode = si.barcode
+WHERE NOT EXISTS (
+    SELECT 1
+    FROM public.products p
+    WHERE si.barcode = ANY(p.barcodes)
+)
 
-WHERE p.barcode IS NULL
-  AND (
-      '{{SelectVendor.selectedOptionValue}}' = ''
-      OR si.vendor = '{{SelectVendor.selectedOptionValue}}'
-  )
-	
-	AND (
-			'{{InputWords.text}}' = ''
-			OR
-			string_to_array(
-					lower(regexp_replace(si.title, '[^a-zA-Z0-9äöüÄÖÜß]+', ' ', 'g')),
-					' '
-			)
-			@>
-			string_to_array(
-					lower(trim('{{InputWords.text}}')),
-					' '
-			)
-	)
+AND (
+    '{{SelectVendor.selectedOptionValue}}' = ''
+    OR si.vendor = '{{SelectVendor.selectedOptionValue}}'
+)
 
+AND (
+    '{{InputWords.text}}' = ''
+    OR
+    string_to_array(
+        lower(
+            regexp_replace(
+                si.title,
+                '[^a-zA-Z0-9äöüÄÖÜß]+',
+                ' ',
+                'g'
+            )
+        ),
+        ' '
+    )
+    @>
+    string_to_array(
+        lower(trim('{{InputWords.text}}')),
+        ' '
+    )
+)
 
 GROUP BY
     si.barcode
