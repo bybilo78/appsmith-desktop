@@ -31,8 +31,12 @@
   "icon": "plant",
   "pages": [
     {
-      "id": "Produktabgleich",
+      "id": "Lieferanten",
       "isDefault": true
+    },
+    {
+      "id": "Wettbewerber",
+      "isDefault": false
     }
   ],
   "unpublishedAppLayout": {

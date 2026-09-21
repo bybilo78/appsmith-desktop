@@ -1,0 +1,70 @@
+SELECT
+    si.barcode,
+    MAX(si.title) AS title,
+    MAX(si.vendor) AS vendor,
+
+    CONCAT(
+        '<strong>Gesamt</strong>: ', SUM(si.quantity), ', ',
+        STRING_AGG(
+            CONCAT(
+                '<strong>', si.supplier, '</strong>: ',
+                si.quantity
+            ),
+            ', '
+            ORDER BY si.supplier
+        )
+    ) AS supplier_quantity
+
+FROM (
+    SELECT
+        barcode,
+        supplier,
+        MAX(title) AS title,
+        MAX(vendor) AS vendor,
+        MAX(quantity) AS quantity
+    FROM public.supplier_inventory
+    WHERE barcode IS NOT NULL
+      AND barcode <> ''
+    GROUP BY
+        barcode,
+        supplier
+) si
+
+WHERE NOT EXISTS (
+    SELECT 1
+    FROM public.products p
+    WHERE si.barcode = ANY(p.barcodes)
+)
+
+AND (
+    '{{SelectVendor.selectedOptionValue}}' = ''
+    OR si.vendor = '{{SelectVendor.selectedOptionValue}}'
+)
+
+AND (
+    '{{InputWords.text}}' = ''
+    OR
+    string_to_array(
+        lower(
+            regexp_replace(
+                si.title,
+                '[^a-zA-Z0-9äöüÄÖÜß]+',
+                ' ',
+                'g'
+            )
+        ),
+        ' '
+    )
+    @>
+    string_to_array(
+        lower(trim('{{InputWords.text}}')),
+        ' '
+    )
+)
+
+GROUP BY
+    si.barcode
+
+ORDER BY
+    vendor,
+    title;

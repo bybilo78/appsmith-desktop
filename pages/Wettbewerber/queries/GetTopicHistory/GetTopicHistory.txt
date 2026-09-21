@@ -1,0 +1,10 @@
+SELECT
+    *,
+    TO_CHAR(
+        created_at AT TIME ZONE 'Europe/Berlin',
+        'DD.MM.YYYY HH24:MI:SS'
+    ) AS created_at_de
+FROM public."topic_history"
+WHERE service = 'competitor_analysis'
+ORDER BY created_at DESC
+LIMIT 50;

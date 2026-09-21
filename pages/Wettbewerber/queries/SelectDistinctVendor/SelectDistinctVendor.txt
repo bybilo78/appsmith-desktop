@@ -1,0 +1,2 @@
+SELECT DISTINCT vendor FROM public."products"
+ORDER BY vendor;
