@@ -1,4 +1,5 @@
 SELECT
+		p.status,
 		p.vendor, 
 		p.barcode,
     p.title,
@@ -42,20 +43,22 @@ INNER JOIN (
 WHERE p.barcode IS NOT NULL
   AND p.barcode <> ''
 	
-	AND
-	(
+	AND	(
+  	'{{SelectStatus.selectedOptionValue}}' = ''
+  	OR p.status = '{{SelectStatus.selectedOptionValue}}'
+  )
+	
+	AND	(
   	'{{SelectVendor.selectedOptionValue}}' = ''
   	OR p.vendor = '{{SelectVendor.selectedOptionValue}}'
   )
 	
-	AND
-	(
+	AND	(
   	'{{SelectCategory.selectedOptionValue}}' = ''
   	OR p.category = '{{SelectCategory.selectedOptionValue}}'
   )
 	
-	AND
-	(
+	AND	(
   	'{{SelectPolicy.selectedOptionValue}}' = ''
   	OR p.inventory_policy = '{{SelectPolicy.selectedOptionValue}}'
   )
