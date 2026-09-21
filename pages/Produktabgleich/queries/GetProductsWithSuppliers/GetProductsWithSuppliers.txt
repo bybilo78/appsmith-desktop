@@ -2,11 +2,15 @@ SELECT
 		p.vendor, 
 		p.barcode,
     p.title,
-    p.variant,          
+    CASE
+			WHEN p.variant = 'Default Title' THEN ''
+			ELSE p.variant
+		END AS variant,         
 		CONCAT(p.content_amount, ' ', p.content_unit) AS content,
     p.quantity,	
 		p.inventory_policy AS policy,
-		s.supplier_quantity   
+		s.supplier_quantity
+		
 
 FROM public."products" p
 

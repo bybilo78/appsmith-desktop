@@ -38,15 +38,14 @@
     "variant",
     "content",
     "quantity",
-    "tracked",
     "policy"
   ],
-  "columnUpdatedAt": 1789674610566,
+  "columnUpdatedAt": 1789993974600,
   "columnWidthMap": {
     "content": 110,
     "inventory_tracked": 89,
     "shop_quantity": 97,
-    "title": 506,
+    "title": 518,
     "vendor": 146
   },
   "compactMode": "SHORT",
@@ -87,9 +86,6 @@
       "key": "primaryColumns.quantity.computedValue"
     },
     {
-      "key": "primaryColumns.tracked.computedValue"
-    },
-    {
       "key": "primaryColumns.policy.computedValue"
     }
   ],
@@ -98,7 +94,11 @@
       "key": "tableData"
     }
   ],
-  "dynamicTriggerPathList": [],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onRowSelected"
+    }
+  ],
   "enableClientSideSearch": true,
   "endOfData": false,
   "flexVerticalAlignment": "start",
@@ -120,6 +120,7 @@
   "mobileRightColumn": 6,
   "mobileTopRow": 0,
   "needsErrorInfo": false,
+  "onRowSelected": "{{storeValue('product_barcode', Table2.selectedRow.barcode).then(() => {});\nstoreValue('product_title', Table2.selectedRow.title);\nstoreValue('product_variant', Table2.selectedRow.variant);\nstoreValue('product_content', Table2.selectedRow.content);}}",
   "parentColumnSpace": 29.625,
   "parentId": "0dlhx835qg",
   "parentRowSpace": 10,
@@ -272,37 +273,6 @@
       "label": "title",
       "notation": "standard",
       "originalId": "title",
-      "sticky": "",
-      "textSize": "0.875rem",
-      "thousandSeparator": true,
-      "validation": {},
-      "verticalAlignment": "CENTER",
-      "width": 150
-    },
-    "tracked": {
-      "alias": "tracked",
-      "allowCellWrapping": false,
-      "allowSameOptionsInNewRow": true,
-      "columnType": "checkbox",
-      "computedValue": "{{(() => { const tableData = Table2.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"tracked\"])) : tracked })()}}",
-      "currencyCode": "USD",
-      "decimals": 0,
-      "enableFilter": true,
-      "enableSort": true,
-      "horizontalAlignment": "LEFT",
-      "id": "tracked",
-      "index": 6,
-      "isCellEditable": false,
-      "isCellVisible": true,
-      "isDerived": false,
-      "isDisabled": false,
-      "isDiscardVisible": true,
-      "isEditable": false,
-      "isSaveVisible": true,
-      "isVisible": true,
-      "label": "tracked",
-      "notation": "standard",
-      "originalId": "tracked",
       "sticky": "",
       "textSize": "0.875rem",
       "thousandSeparator": true,
