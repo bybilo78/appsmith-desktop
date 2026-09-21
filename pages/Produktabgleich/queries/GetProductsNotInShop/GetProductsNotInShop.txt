@@ -13,7 +13,7 @@ SELECT
             ', '
             ORDER BY si.supplier
         )
-    ) AS supplier_quantity
+    ) AS supplier_quantity	
 
 FROM (
     SELECT
@@ -38,6 +38,21 @@ WHERE p.barcode IS NULL
       '{{SelectVendor.selectedOptionValue}}' = ''
       OR si.vendor = '{{SelectVendor.selectedOptionValue}}'
   )
+	
+	AND (
+			'{{InputWords.text}}' = ''
+			OR
+			string_to_array(
+					lower(regexp_replace(si.title, '[^a-zA-Z0-9äöüÄÖÜß]+', ' ', 'g')),
+					' '
+			)
+			@>
+			string_to_array(
+					lower(trim('{{InputWords.text}}')),
+					' '
+			)
+	)
+
 
 GROUP BY
     si.barcode
