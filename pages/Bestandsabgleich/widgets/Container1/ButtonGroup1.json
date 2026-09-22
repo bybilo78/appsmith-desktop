@@ -1,0 +1,116 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 13,
+  "boxShadow": "none",
+  "buttonVariant": "TERTIARY",
+  "childStylesheet": {
+    "button": {
+      "buttonColor": "{{appsmith.theme.colors.primaryColor}}"
+    }
+  },
+  "dynamicBindingPathList": [
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "groupButtons.groupButton3.buttonColor"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "groupButtons.groupButton3.menuItems.menuItem1.onClick"
+    },
+    {
+      "key": "groupButtons.groupButton3.menuItems.menuItem2.onClick"
+    },
+    {
+      "key": "groupButtons.groupButton3.menuItems.menuItem4zwura1ub7.onClick"
+    },
+    {
+      "key": "groupButtons.groupButton3.menuItems.menuItemcs8r8pn4qc.onClick"
+    }
+  ],
+  "groupButtons": {
+    "groupButton3": {
+      "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+      "buttonType": "MENU",
+      "disabledWhenInvalid": false,
+      "iconName": "more",
+      "id": "groupButton3",
+      "index": 0,
+      "isDisabled": false,
+      "isVisible": true,
+      "label": "Update Datasource",
+      "menuItems": {
+        "menuItem1": {
+          "backgroundColor": "#FFFFFF",
+          "disabledWhenInvalid": false,
+          "id": "menuItem1",
+          "index": 0,
+          "isDisabled": false,
+          "isVisible": true,
+          "label": "Topic History",
+          "onClick": "{{GetTopicHistory.run()}}",
+          "widgetId": ""
+        },
+        "menuItem2": {
+          "backgroundColor": "#FFFFFF",
+          "disabledWhenInvalid": false,
+          "id": "menuItem2",
+          "index": 1,
+          "isDisabled": false,
+          "isVisible": true,
+          "label": "Products with Supplier",
+          "onClick": "{{GetProductsWithSuppliers.run()}}",
+          "widgetId": ""
+        },
+        "menuItem4zwura1ub7": {
+          "id": "menuItem4zwura1ub7",
+          "index": 2,
+          "isDisabled": false,
+          "isVisible": true,
+          "label": "Products withpur Supplier",
+          "onClick": "{{GetProductsWithoutSuppliers.run()}}",
+          "widgetId": "72z04uf5to"
+        },
+        "menuItemcs8r8pn4qc": {
+          "id": "menuItemcs8r8pn4qc",
+          "index": 3,
+          "isDisabled": false,
+          "isVisible": true,
+          "label": "Not in Shop",
+          "onClick": "{{GetProductsNotInShop.run()}}",
+          "widgetId": "puqo1sms4q"
+        }
+      },
+      "placement": "CENTER",
+      "widgetId": ""
+    }
+  },
+  "isCanvas": false,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "k12dboqhk3",
+  "leftColumn": 58,
+  "minWidth": 450,
+  "mobileBottomRow": 13,
+  "mobileLeftColumn": 19,
+  "mobileRightColumn": 43,
+  "mobileTopRow": 9,
+  "needsErrorInfo": false,
+  "orientation": "vertical",
+  "originalBottomRow": 18,
+  "originalTopRow": 7,
+  "parentColumnSpace": 29.9375,
+  "parentId": "7k9juzu1ol",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 64,
+  "topRow": 0,
+  "type": "BUTTON_GROUP_WIDGET",
+  "version": 1,
+  "widgetId": "od70ig43wo",
+  "widgetName": "ButtonGroup1"
+}

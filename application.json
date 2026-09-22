@@ -31,11 +31,11 @@
   "icon": "plant",
   "pages": [
     {
-      "id": "Lieferanten",
+      "id": "Bestandsabgleich",
       "isDefault": true
     },
     {
-      "id": "Wettbewerber",
+      "id": "Preisstrategie",
       "isDefault": false
     }
   ],
