@@ -1,0 +1,12 @@
+SELECT 
+	status,
+	vendor,
+	title,
+	variant,
+	unit_cost,
+	price,
+	ROUND(price - unit_cost, 2) AS margin_eur,
+  ROUND (((price - unit_cost) / NULLIF(price, 0)) * 100,2) AS margin_percent
+	
+FROM public."products" 
+LIMIT 100;

@@ -31,11 +31,11 @@
   "icon": "plant",
   "pages": [
     {
-      "id": "Bestandsabgleich",
+      "id": "Inventory Sync",
       "isDefault": true
     },
     {
-      "id": "Preisstrategie",
+      "id": "Pricing Strategy",
       "isDefault": false
     }
   ],
