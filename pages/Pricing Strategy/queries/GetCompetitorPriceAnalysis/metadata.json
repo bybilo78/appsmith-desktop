@@ -1,11 +1,11 @@
 {
-  "gitSyncId": "6aab83e91270770ca42ebfb6_9d8a26b3-6a35-4217-af89-d172d4f3a16e",
-  "id": "Pricing Strategy_GetMatchScores",
+  "gitSyncId": "6aab83e91270770ca42ebfb6_85c8fe53-3abc-4f04-b773-f4b120d1bf8c",
+  "id": "Pricing Strategy_GetCompetitorPriceAnalysis",
   "pluginId": "postgres-plugin",
   "pluginType": "DB",
   "unpublishedAction": {
     "actionConfiguration": {
-      "body": "SELECT * FROM public.\"competitor_match_scores\";",
+      "body": "SELECT * FROM public.\"competitor_price_analysis\";",
       "encodeParamsToggle": true,
       "paginationType": "NONE",
       "pluginSpecifiedTemplates": [
@@ -23,7 +23,7 @@
       "pluginId": "postgres-plugin"
     },
     "dynamicBindingPathList": [],
-    "name": "GetMatchScores",
+    "name": "GetCompetitorPriceAnalysis",
     "pageId": "Pricing Strategy",
     "runBehaviour": "AUTOMATIC",
     "userSetOnLoad": false

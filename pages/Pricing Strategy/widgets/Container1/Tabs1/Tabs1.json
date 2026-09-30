@@ -5,7 +5,7 @@
   "borderColor": "#E0DEDE",
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
   "borderWidth": "0",
-  "bottomRow": 104,
+  "bottomRow": 111,
   "boxShadow": "none",
   "children": [
     {
@@ -154,7 +154,7 @@
     },
     {
       "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-      "bottomRow": 860,
+      "bottomRow": 930,
       "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
       "canExtend": false,
       "containerStyle": "none",
@@ -196,6 +196,51 @@
       "version": 1,
       "widgetId": "95uopph09m",
       "widgetName": "Canvas7"
+    },
+    {
+      "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+      "bottomRow": 930,
+      "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
+      "canExtend": false,
+      "containerStyle": "none",
+      "detachFromLayout": true,
+      "dynamicBindingPathList": [
+        {
+          "key": "borderRadius"
+        },
+        {
+          "key": "boxShadow"
+        }
+      ],
+      "dynamicHeight": "AUTO_HEIGHT",
+      "dynamicTriggerPathList": [],
+      "flexLayers": [],
+      "isLoading": false,
+      "isVisible": true,
+      "key": "nls1n23vl4",
+      "leftColumn": 0,
+      "maxDynamicHeight": 9000,
+      "minDynamicHeight": 4,
+      "minHeight": 1020,
+      "minWidth": 450,
+      "mobileBottomRow": 1021,
+      "mobileLeftColumn": 0,
+      "mobileRightColumn": 1936,
+      "mobileTopRow": 1,
+      "needsErrorInfo": false,
+      "parentColumnSpace": 1,
+      "parentId": "99v1mpjsb0",
+      "parentRowSpace": 1,
+      "renderMode": "CANVAS",
+      "responsiveBehavior": "fill",
+      "rightColumn": 1936,
+      "tabId": "tabb5yaj1ikhk",
+      "tabName": "Price Analysis",
+      "topRow": 1,
+      "type": "CANVAS_WIDGET",
+      "version": 1,
+      "widgetId": "ratsnig1ip",
+      "widgetName": "Canvas8"
     }
   ],
   "defaultTab": "Topic History",
@@ -223,7 +268,7 @@
   "mobileRightColumn": 13,
   "mobileTopRow": 19,
   "needsErrorInfo": false,
-  "originalBottomRow": 112,
+  "originalBottomRow": 47,
   "originalTopRow": 14,
   "parentColumnSpace": 30.25,
   "parentId": "fxnek2stux",
@@ -258,6 +303,13 @@
       "isVisible": true,
       "label": "Match Scores",
       "widgetId": "95uopph09m"
+    },
+    "tabb5yaj1ikhk": {
+      "id": "tabb5yaj1ikhk",
+      "index": 4,
+      "isVisible": true,
+      "label": "Price Analysis",
+      "widgetId": "ratsnig1ip"
     },
     "tabtjn98hpf9v": {
       "id": "tabtjn98hpf9v",

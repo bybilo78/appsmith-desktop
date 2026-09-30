@@ -1,1 +1,1 @@
-SELECT * FROM public."competitor_match_scores" LIMIT 10;
+SELECT * FROM public."competitor_match_scores";
