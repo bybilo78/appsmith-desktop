@@ -1,7 +1,7 @@
 {
   "animateLoading": true,
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-  "bottomRow": 13,
+  "bottomRow": 11,
   "boxShadow": "none",
   "buttonVariant": "TERTIARY",
   "childStylesheet": {
@@ -62,7 +62,7 @@
           "isDisabled": false,
           "isVisible": true,
           "label": "Products with Supplier",
-          "onClick": "{{GetProductsWithSuppliers.run()}}",
+          "onClick": "{{GetShopProducts.run()}}",
           "widgetId": ""
         },
         "menuItem4zwura1ub7": {
@@ -80,7 +80,7 @@
           "isDisabled": false,
           "isVisible": true,
           "label": "Not in Shop",
-          "onClick": "{{GetProductsNotInShop.run()}}",
+          "onClick": "{{GetSupplierProducts.run()}}",
           "widgetId": "puqo1sms4q"
         }
       },

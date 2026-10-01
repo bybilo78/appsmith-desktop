@@ -202,7 +202,7 @@
       "isEditable": false,
       "isSaveVisible": true,
       "isVisible": true,
-      "label": "created_at_de",
+      "label": "created",
       "notation": "standard",
       "originalId": "created_at_de",
       "sticky": "",

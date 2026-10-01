@@ -1,6 +1,6 @@
 {
   "gitSyncId": "6aab83e91270770ca42ebfb6_de02f005-a8f2-453e-a5b1-744996cf31d6",
-  "id": "Inventory Sync_SelectDistinctCategory",
+  "id": "Inventory Sync_GetDistinctCategory",
   "pluginId": "postgres-plugin",
   "pluginType": "DB",
   "unpublishedAction": {
@@ -23,7 +23,7 @@
       "pluginId": "postgres-plugin"
     },
     "dynamicBindingPathList": [],
-    "name": "SelectDistinctCategory",
+    "name": "GetDistinctCategory",
     "pageId": "Inventory Sync",
     "runBehaviour": "AUTOMATIC",
     "userSetOnLoad": false

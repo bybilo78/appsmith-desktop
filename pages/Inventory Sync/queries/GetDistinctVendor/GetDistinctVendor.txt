@@ -1,0 +1,2 @@
+SELECT DISTINCT vendor_normalized FROM public."products"
+ORDER BY vendor_normalized;

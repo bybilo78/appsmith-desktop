@@ -5,7 +5,7 @@
   "borderColor": "#E0DEDE",
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
   "borderWidth": "0",
-  "bottomRow": 117,
+  "bottomRow": 115,
   "boxShadow": "none",
   "children": [
     {
@@ -49,7 +49,7 @@
       "rightColumn": 393.25,
       "shouldScrollContents": true,
       "tabId": "tab1",
-      "tabName": "Products with Supplier",
+      "tabName": "Shop Products",
       "topRow": 0,
       "type": "CANVAS_WIDGET",
       "version": 1,
@@ -97,60 +97,12 @@
       "rightColumn": 393.25,
       "shouldScrollContents": true,
       "tabId": "tab2",
-      "tabName": "Not in Shop",
+      "tabName": "Supplier Products",
       "topRow": 0,
       "type": "CANVAS_WIDGET",
       "version": 1,
       "widgetId": "0xiqna6psg",
       "widgetName": "Canvas2"
-    },
-    {
-      "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-      "bottomRow": 990,
-      "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
-      "canExtend": false,
-      "containerStyle": "none",
-      "detachFromLayout": true,
-      "dynamicBindingPathList": [
-        {
-          "key": "borderRadius"
-        },
-        {
-          "key": "boxShadow"
-        }
-      ],
-      "dynamicHeight": "AUTO_HEIGHT",
-      "dynamicTriggerPathList": [],
-      "flexLayers": [],
-      "isLoading": false,
-      "isVisible": true,
-      "key": "soihlbdtc9",
-      "leftColumn": 0,
-      "maxDynamicHeight": 9000,
-      "minDynamicHeight": 4,
-      "minHeight": 190,
-      "minWidth": 450,
-      "mobileBottomRow": 191,
-      "mobileLeftColumn": 0,
-      "mobileRightColumn": 1936,
-      "mobileTopRow": 1,
-      "needsErrorInfo": false,
-      "originalBottomRow": 970,
-      "originalTopRow": 1,
-      "parentColumnSpace": 1,
-      "parentId": "klkhm0uiob",
-      "parentRowSpace": 1,
-      "renderMode": "CANVAS",
-      "responsiveBehavior": "fill",
-      "rightColumn": 1936,
-      "shouldScrollContents": true,
-      "tabId": "tab8itwjp1xaf",
-      "tabName": "Products without Supplier",
-      "topRow": 1,
-      "type": "CANVAS_WIDGET",
-      "version": 1,
-      "widgetId": "0dlhx835qg",
-      "widgetName": "Canvas3"
     },
     {
       "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
@@ -226,8 +178,8 @@
   "mobileRightColumn": 13,
   "mobileTopRow": 19,
   "needsErrorInfo": false,
-  "originalBottomRow": 116,
-  "originalTopRow": 14,
+  "originalBottomRow": 115,
+  "originalTopRow": 12,
   "parentColumnSpace": 30.25,
   "parentId": "7k9juzu1ol",
   "parentRowSpace": 10,
@@ -242,26 +194,18 @@
       "index": 1,
       "isDuplicateLabel": false,
       "isVisible": true,
-      "label": "Products with Supplier",
+      "label": "Shop Products",
       "positioning": "vertical",
       "widgetId": "d3m5yqyrd3"
     },
     "tab2": {
       "id": "tab2",
-      "index": 3,
-      "isDuplicateLabel": false,
-      "isVisible": true,
-      "label": "Not in Shop",
-      "positioning": "vertical",
-      "widgetId": "0xiqna6psg"
-    },
-    "tab8itwjp1xaf": {
-      "id": "tab8itwjp1xaf",
       "index": 2,
       "isDuplicateLabel": false,
       "isVisible": true,
-      "label": "Products without Supplier",
-      "widgetId": "0dlhx835qg"
+      "label": "Supplier Products",
+      "positioning": "vertical",
+      "widgetId": "0xiqna6psg"
     },
     "tabtjn98hpf9v": {
       "id": "tabtjn98hpf9v",
@@ -272,7 +216,7 @@
       "widgetId": "jk57hc24c0"
     }
   },
-  "topRow": 14,
+  "topRow": 12,
   "type": "TABS_WIDGET",
   "version": 3,
   "widgetId": "klkhm0uiob",

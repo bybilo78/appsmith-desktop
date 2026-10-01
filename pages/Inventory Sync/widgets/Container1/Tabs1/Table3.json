@@ -32,15 +32,18 @@
     }
   },
   "columnOrder": [
+    "shop_product_assigned",
     "barcode",
     "vendor",
     "title",
     "supplier_quantity"
   ],
-  "columnUpdatedAt": 1789989867360,
+  "columnUpdatedAt": 1790835404062,
   "columnWidthMap": {
-    "title": 703,
-    "vendor": 125
+    "shop_product_assigned": 100,
+    "supplier_quantity": 194,
+    "title": 700,
+    "vendor": 102
   },
   "compactMode": "SHORT",
   "customIsLoading": false,
@@ -72,6 +75,9 @@
     },
     {
       "key": "primaryColumns.supplier_quantity.computedValue"
+    },
+    {
+      "key": "primaryColumns.shop_product_assigned.computedValue"
     }
   ],
   "dynamicPropertyPathList": [
@@ -135,6 +141,40 @@
       "notation": "standard",
       "originalId": "barcode",
       "sticky": "",
+      "textSize": "0.875rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "shop_product_assigned": {
+      "alias": "shop_product_assigned",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "",
+      "columnType": "checkbox",
+      "computedValue": "{{(() => { const tableData = Table3.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"shop_product_assigned\"])) : shop_product_assigned })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "",
+      "horizontalAlignment": "LEFT",
+      "id": "shop_product_assigned",
+      "index": 4,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": true,
+      "label": "assigned",
+      "notation": "standard",
+      "originalId": "shop_product_assigned",
+      "sticky": "",
+      "textColor": "",
       "textSize": "0.875rem",
       "thousandSeparator": true,
       "validation": {},
@@ -243,7 +283,7 @@
   "rightColumn": 64,
   "searchKey": "",
   "serverSidePaginationEnabled": false,
-  "tableData": "{{GetProductsNotInShop.data}}",
+  "tableData": "{{GetSupplierProducts.data}}",
   "textSize": "0.875rem",
   "topRow": 0,
   "totalRecordsCount": 0,
