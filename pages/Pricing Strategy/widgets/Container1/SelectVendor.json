@@ -14,16 +14,22 @@
     },
     {
       "key": "sourceData"
+    },
+    {
+      "key": "isDisabled"
     }
   ],
   "dynamicHeight": "FIXED",
   "dynamicPropertyPathList": [
     {
       "key": "sourceData"
+    },
+    {
+      "key": "isDisabled"
     }
   ],
   "dynamicTriggerPathList": [],
-  "isDisabled": false,
+  "isDisabled": "{{ Tabs1.selectedTab !== \"Shop Products\" && Tabs1.selectedTab !== \"Supplier Products\" }}",
   "isFilterable": true,
   "isLoading": false,
   "isRequired": false,
@@ -44,7 +50,7 @@
   "mobileTopRow": 0,
   "needsErrorInfo": false,
   "optionLabel": "vendor",
-  "optionValue": "vendor",
+  "optionValue": "vendor_normalized",
   "parentColumnSpace": 29.9375,
   "parentId": "fxnek2stux",
   "parentRowSpace": 10,

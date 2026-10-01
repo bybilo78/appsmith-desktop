@@ -14,16 +14,22 @@
     },
     {
       "key": "sourceData"
+    },
+    {
+      "key": "isDisabled"
     }
   ],
   "dynamicHeight": "FIXED",
   "dynamicPropertyPathList": [
     {
       "key": "sourceData"
+    },
+    {
+      "key": "isDisabled"
     }
   ],
   "dynamicTriggerPathList": [],
-  "isDisabled": false,
+  "isDisabled": "{{ Tabs1.selectedTab !== \"Shop Products\" }}",
   "isFilterable": true,
   "isLoading": false,
   "isRequired": false,

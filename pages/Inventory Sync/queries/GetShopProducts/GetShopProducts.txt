@@ -1,8 +1,7 @@
 SELECT
     p.status,
     p.barcodes,
-    p.vendor,    
-		p.vendor_normalized,    
+    p.vendor,    		
     p.title,
 
     CASE

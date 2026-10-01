@@ -1,12 +1,64 @@
 SELECT 
-	status,
-	vendor_normalized as vendor,
-	title,
-	variant,
-	unit_cost,
-	price,
-	ROUND(price - unit_cost, 2) AS margin_eur,
-  ROUND (((price - unit_cost) / NULLIF(price, 0)) * 100,2) AS margin_percent
-	
-FROM public."products" 
-LIMIT 100;
+    p.status,
+    p.vendor,
+    p.title,
+
+    CASE
+        WHEN p.variant = 'Default Title' THEN ''
+        ELSE p.variant
+    END AS variant,
+
+    p.unit_cost,
+    p.price,
+
+    -- Eigene Marge
+    ROUND(p.price - p.unit_cost, 2) AS margin_eur,
+
+    ROUND(
+        ((p.price - p.unit_cost) / NULLIF(p.price, 0)) * 100,
+        2
+    ) AS margin_percent,
+
+    -- Competitor Price Analysis
+    cpa.match_count,
+    cpa.valid_match_count,
+    cpa.competitor_min_price,
+    cpa.competitor_average_price,
+    cpa.competitor_median_price,
+    cpa.competitor_max_price,
+
+    -- Pricing Strategy
+    cpa.reference_price,
+    cpa.target_margin,
+    cpa.minimum_price,
+    cpa.target_price,
+    cpa.final_price,
+    cpa.final_action,
+    cpa.final_price_change,
+    cpa.final_price_change_percent,
+    cpa.price_strategy
+
+FROM public."products" p
+
+LEFT JOIN public."competitor_price_analysis" cpa
+    ON cpa.variant_id = p.variant_id
+
+WHERE
+    (
+        '{{SelectStatus.selectedOptionValue}}' = ''
+        OR p.status = '{{SelectStatus.selectedOptionValue}}'
+    )
+
+    AND (
+        '{{SelectVendor.selectedOptionValue}}' = ''
+        OR p.vendor_normalized = '{{SelectVendor.selectedOptionValue}}'
+    )
+
+    AND (
+        '{{SelectCategory.selectedOptionValue}}' = ''
+        OR p.category = '{{SelectCategory.selectedOptionValue}}'
+    )
+
+ORDER BY
+    p.vendor,
+    p.title;
