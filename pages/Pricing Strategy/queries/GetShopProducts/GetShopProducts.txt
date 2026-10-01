@@ -1,6 +1,6 @@
 SELECT 
 	status,
-	vendor,
+	vendor_normalized as vendor,
 	title,
 	variant,
 	unit_cost,

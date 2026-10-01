@@ -5,7 +5,7 @@
   "pluginType": "DB",
   "unpublishedAction": {
     "actionConfiguration": {
-      "body": "SELECT DISTINCT vendor FROM public.\"products\"\nORDER BY vendor;",
+      "body": "SELECT DISTINCT vendor_normalized as vendor FROM public.\"products\"\nORDER BY vendor_normalized;",
       "encodeParamsToggle": true,
       "paginationType": "NONE",
       "pluginSpecifiedTemplates": [

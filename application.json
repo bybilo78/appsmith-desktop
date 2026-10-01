@@ -32,11 +32,11 @@
   "pages": [
     {
       "id": "Inventory Sync",
-      "isDefault": true
+      "isDefault": false
     },
     {
       "id": "Pricing Strategy",
-      "isDefault": false
+      "isDefault": true
     }
   ],
   "unpublishedAppLayout": {

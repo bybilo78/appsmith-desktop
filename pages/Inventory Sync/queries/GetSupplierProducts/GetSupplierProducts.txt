@@ -1,7 +1,8 @@
 SELECT
     si.barcode,
-    MAX(si.title_normalized) AS title,
-    MAX(si.vendor_normalized) AS vendor,
+    MAX(si.title) AS title,
+    MAX(si.vendor) AS vendor,
+    MAX(si.vendor_normalized) AS vendor_normalized,
 
     CONCAT(
         '<strong>Gesamt</strong>: ', SUM(si.quantity), ', ',
@@ -25,7 +26,8 @@ FROM (
     SELECT
         barcode,
         supplier,
-        MAX(title_normalized) AS title_normalized,
+        MAX(title) AS title,
+        MAX(vendor) AS vendor,
         MAX(vendor_normalized) AS vendor_normalized,
         MAX(quantity) AS quantity
     FROM public.supplier_inventory
@@ -59,7 +61,7 @@ WHERE
         string_to_array(
             lower(
                 regexp_replace(
-                    si.title_normalized,
+                    si.title,
                     '[^a-zA-Z0-9äöüÄÖÜß]+',
                     ' ',
                     'g'
