@@ -5,7 +5,7 @@
   "pluginType": "DB",
   "unpublishedAction": {
     "actionConfiguration": {
-      "body": "SELECT * FROM public.\"competitor_match_scores\";",
+      "body": "SELECT \n\t*,\n\tTO_CHAR(created_at AT TIME ZONE 'Europe/Berlin', 'DD.MM.YYYY HH24:MI:SS') AS created_at_de\n\t\t\nFROM public.\"competitor_match_scores\"\nWHERE \n\tvariant_id = '{{Table1.selectedRow.variant_id}}'\nORDER BY score DESC;",
       "encodeParamsToggle": true,
       "paginationType": "NONE",
       "pluginSpecifiedTemplates": [
@@ -22,7 +22,11 @@
       "name": "postgres",
       "pluginId": "postgres-plugin"
     },
-    "dynamicBindingPathList": [],
+    "dynamicBindingPathList": [
+      {
+        "key": "body"
+      }
+    ],
     "name": "GetMatchScores",
     "pageId": "Pricing Strategy",
     "runBehaviour": "AUTOMATIC",

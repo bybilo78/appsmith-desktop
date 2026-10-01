@@ -1,1 +1,8 @@
-SELECT * FROM public."competitor_match_scores";
+SELECT 
+	*,
+	TO_CHAR(created_at AT TIME ZONE 'Europe/Berlin', 'DD.MM.YYYY HH24:MI:SS') AS created_at_de
+		
+FROM public."competitor_match_scores"
+WHERE 
+	variant_id = '{{Table1.selectedRow.variant_id}}'
+ORDER BY score DESC;

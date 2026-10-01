@@ -1,7 +1,10 @@
 SELECT 
     p.status,
+    p.variant_id,
     p.vendor,
     p.title,
+		p.content_amount,
+		p.content_unit,
 
     CASE
         WHEN p.variant = 'Default Title' THEN ''
