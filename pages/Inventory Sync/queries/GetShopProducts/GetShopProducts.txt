@@ -57,7 +57,7 @@ WHERE
 
     AND (
         '{{SelectVendor.selectedOptionValue}}' = ''
-        OR p.vendor = '{{SelectVendor.selectedOptionValue}}'
+        OR p.vendor_normalized = '{{SelectVendor.selectedOptionValue}}'
     )
 
     AND (

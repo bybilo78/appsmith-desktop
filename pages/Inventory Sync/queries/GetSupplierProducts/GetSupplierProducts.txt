@@ -1,7 +1,7 @@
 SELECT
     si.barcode,
-    MAX(si.title) AS title,
-    MAX(si.vendor) AS vendor,
+    MAX(si.title_normalized) AS title,
+    MAX(si.vendor_normalized) AS vendor,
 
     CONCAT(
         '<strong>Gesamt</strong>: ', SUM(si.quantity), ', ',
@@ -25,8 +25,8 @@ FROM (
     SELECT
         barcode,
         supplier,
-        MAX(title) AS title,
-        MAX(vendor) AS vendor,
+        MAX(title_normalized) AS title_normalized,
+        MAX(vendor_normalized) AS vendor_normalized,
         MAX(quantity) AS quantity
     FROM public.supplier_inventory
     WHERE barcode IS NOT NULL
@@ -39,7 +39,7 @@ FROM (
 WHERE
     (
         '{{SelectVendor.selectedOptionValue}}' = ''
-        OR si.vendor = '{{SelectVendor.selectedOptionValue}}'
+        OR si.vendor_normalized = '{{SelectVendor.selectedOptionValue}}'
     )
 
     AND (
@@ -59,7 +59,7 @@ WHERE
         string_to_array(
             lower(
                 regexp_replace(
-                    si.title,
+                    si.title_normalized,
                     '[^a-zA-Z0-9äöüÄÖÜß]+',
                     ' ',
                     'g'
