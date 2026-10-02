@@ -128,6 +128,9 @@
   "dynamicTriggerPathList": [
     {
       "key": "primaryColumns.customColumn1.menuItems.menuItemyggavgmd9x.onClick"
+    },
+    {
+      "key": "primaryColumns.customColumn1.menuItems.menuItem8ak27f9y1j.onClick"
     }
   ],
   "enableClientSideSearch": true,
@@ -139,7 +142,7 @@
   "isSortable": true,
   "isVisible": true,
   "isVisibleDownload": true,
-  "isVisibleFilters": false,
+  "isVisibleFilters": true,
   "isVisiblePagination": true,
   "isVisibleSearch": true,
   "key": "ushk3rs09f",
@@ -260,13 +263,22 @@
       "menuButtoniconName": "menu",
       "menuColor": "{{TableShopProducts.processedTableData.map((currentRow, currentIndex) => ( (appsmith.theme.colors.primaryColor)))}}",
       "menuItems": {
+        "menuItem8ak27f9y1j": {
+          "id": "menuItem8ak27f9y1j",
+          "index": 1,
+          "isDisabled": false,
+          "isVisible": true,
+          "label": "Filter Supplier Products",
+          "onClick": "{{JSObject1.filterCurrentRowToSupplierProducts();}}",
+          "widgetId": "xz8f6645lq"
+        },
         "menuItemyggavgmd9x": {
           "id": "menuItemyggavgmd9x",
           "index": 0,
           "isDisabled": false,
           "isVisible": true,
           "label": "Copy Shop Product",
-          "onClick": "{{JSObject1.loadSelectedRowToForm();}}",
+          "onClick": "{{JSObject1.loadCurrentRowToForm();}}",
           "widgetId": "9nvh2e1xwc"
         }
       },

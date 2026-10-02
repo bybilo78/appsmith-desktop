@@ -5,32 +5,35 @@
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
   "bottomRow": 12,
   "boxShadow": "none",
-  "defaultText": "",
+  "defaultText": "{{\n  appsmith.store.supplierBarcodes?.length\n    ? appsmith.store.supplierBarcodes.length + \" Barcode(s)\"\n    : \"\"\n}}",
   "dynamicBindingPathList": [
     {
       "key": "accentColor"
     },
     {
       "key": "borderRadius"
+    },
+    {
+      "key": "defaultText"
     }
   ],
   "dynamicHeight": "FIXED",
   "dynamicTriggerPathList": [],
   "iconAlign": "left",
-  "iconName": "search",
+  "iconName": "filter",
   "inputType": "TEXT",
-  "isDisabled": false,
+  "isDisabled": true,
   "isLoading": false,
   "isRequired": false,
   "isVisible": true,
   "key": "ssdt0xdelo",
-  "label": "Supplier Search",
+  "label": "Supplier Filter",
   "labelAlignment": "left",
   "labelPosition": "Left",
   "labelStyle": "",
   "labelTextSize": "0.875rem",
   "labelWidth": "4",
-  "leftColumn": 22,
+  "leftColumn": 36,
   "maxDynamicHeight": 9000,
   "minDynamicHeight": 4,
   "minWidth": 450,
@@ -44,15 +47,15 @@
   "parentColumnSpace": 29.9375,
   "parentId": "7k9juzu1ol",
   "parentRowSpace": 10,
-  "placeholderText": "Searchable columns: title",
+  "placeholderText": "",
   "renderMode": "CANVAS",
   "resetOnSubmit": true,
   "responsiveBehavior": "fill",
-  "rightColumn": 36,
+  "rightColumn": 46,
   "showStepArrows": false,
   "topRow": 8,
   "type": "INPUT_WIDGET_V2",
   "version": 2,
-  "widgetId": "wus6ms49hi",
-  "widgetName": "InputWords"
+  "widgetId": "t8gkfufofr",
+  "widgetName": "InputSupplierFilter"
 }

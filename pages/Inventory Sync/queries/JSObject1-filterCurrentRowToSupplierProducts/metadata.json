@@ -1,6 +1,6 @@
 {
-  "gitSyncId": "6aab83e91270770ca42ebfb6_562fc402-50f0-4464-839f-30c493d29b6d",
-  "id": "Inventory Sync_JSObject1.loadSelectedRowToForm",
+  "gitSyncId": "6aab83e91270770ca42ebfb6_6a01900a-c483-46ae-b0f9-1ac8271d8083",
+  "id": "Inventory Sync_JSObject1.filterCurrentRowToSupplierProducts",
   "pluginId": "js-plugin",
   "pluginType": "JS",
   "unpublishedAction": {
@@ -10,7 +10,6 @@
       "paginationType": "NONE",
       "timeoutInMillisecond": 10000
     },
-    "clientSideExecution": true,
     "collectionId": "Inventory Sync_JSObject1",
     "confirmBeforeExecute": false,
     "datasource": {
@@ -23,8 +22,8 @@
         "key": "body"
       }
     ],
-    "fullyQualifiedName": "JSObject1.loadSelectedRowToForm",
-    "name": "loadSelectedRowToForm",
+    "fullyQualifiedName": "JSObject1.filterCurrentRowToSupplierProducts",
+    "name": "filterCurrentRowToSupplierProducts",
     "pageId": "Inventory Sync",
     "runBehaviour": "MANUAL",
     "userSetOnLoad": false

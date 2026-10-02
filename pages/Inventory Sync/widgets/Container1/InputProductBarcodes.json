@@ -17,6 +17,7 @@
   "dynamicHeight": "FIXED",
   "dynamicTriggerPathList": [],
   "iconAlign": "left",
+  "iconName": "info-sign",
   "inputType": "TEXT",
   "isDisabled": false,
   "isLoading": false,

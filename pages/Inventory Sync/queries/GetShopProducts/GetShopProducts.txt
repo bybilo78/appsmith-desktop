@@ -1,9 +1,9 @@
 SELECT
     p.status,
     p.barcodes,
-    p.vendor,    		
+    p.vendor,
     p.title,
-		p.type,
+    p.type,
 
     CASE
         WHEN p.variant = 'Default Title' THEN ''
@@ -20,27 +20,19 @@ FROM public."products" p
 LEFT JOIN (
     SELECT
         barcode,
-
-        CONCAT(
-            '<strong>Gesamt:</strong> ', SUM(quantity), ', ',
-            STRING_AGG(
-                CONCAT(
-                    '<strong>', supplier, '</strong>: ',
-                    quantity
-                ),
-                ', '
-                ORDER BY supplier
-            )
-        ) AS supplier_quantity
+        SUM(quantity) AS supplier_quantity
 
     FROM (
         SELECT
             barcode,
             supplier,
             MAX(quantity) AS quantity
+
         FROM public."supplier_inventory"
+
         WHERE barcode IS NOT NULL
           AND barcode <> ''
+
         GROUP BY
             barcode,
             supplier
@@ -70,10 +62,10 @@ WHERE
         '{{SelectPolicy.selectedOptionValue}}' = ''
         OR p.inventory_policy = '{{SelectPolicy.selectedOptionValue}}'
     )
-		
-		AND (
+
+    AND (
         '{{SelectType.selectedOptionValue}}' = ''
-        OR p.type = '{{SelectPolicy.selectedOptionValue}}'
+        OR p.type = '{{SelectType.selectedOptionValue}}'
     )
 
 ORDER BY
