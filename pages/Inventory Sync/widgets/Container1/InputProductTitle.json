@@ -5,16 +5,13 @@
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
   "bottomRow": 4,
   "boxShadow": "none",
-  "defaultText": "{{appsmith.store.product_embedding_text}}",
+  "defaultText": "",
   "dynamicBindingPathList": [
     {
       "key": "accentColor"
     },
     {
       "key": "borderRadius"
-    },
-    {
-      "key": "defaultText"
     }
   ],
   "dynamicHeight": "AUTO_HEIGHT",
@@ -26,12 +23,12 @@
   "isRequired": false,
   "isVisible": true,
   "key": "ssdt0xdelo",
-  "label": "Shop Product Title",
+  "label": "Product Title",
   "labelAlignment": "left",
   "labelPosition": "Left",
   "labelStyle": "",
   "labelTextSize": "0.875rem",
-  "labelWidth": "6",
+  "labelWidth": "4",
   "leftColumn": 22,
   "maxDynamicHeight": 9000,
   "minDynamicHeight": 4,
@@ -49,12 +46,12 @@
   "renderMode": "CANVAS",
   "resetOnSubmit": true,
   "responsiveBehavior": "fill",
-  "rightColumn": 43,
+  "rightColumn": 46,
   "shouldAllowAutofill": false,
   "showStepArrows": false,
   "topRow": 0,
   "type": "INPUT_WIDGET_V2",
   "version": 2,
   "widgetId": "g19qjtw2d8",
-  "widgetName": "InputProduct"
+  "widgetName": "InputProductTitle"
 }

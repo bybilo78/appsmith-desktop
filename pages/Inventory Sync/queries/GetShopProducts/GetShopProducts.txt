@@ -3,6 +3,7 @@ SELECT
     p.barcodes,
     p.vendor,    		
     p.title,
+		p.type,
 
     CASE
         WHEN p.variant = 'Default Title' THEN ''
@@ -68,6 +69,11 @@ WHERE
     AND (
         '{{SelectPolicy.selectedOptionValue}}' = ''
         OR p.inventory_policy = '{{SelectPolicy.selectedOptionValue}}'
+    )
+		
+		AND (
+        '{{SelectType.selectedOptionValue}}' = ''
+        OR p.type = '{{SelectPolicy.selectedOptionValue}}'
     )
 
 ORDER BY

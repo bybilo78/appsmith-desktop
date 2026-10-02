@@ -32,6 +32,7 @@
     }
   },
   "columnOrder": [
+    "customColumn1",
     "status",
     "barcodes",
     "vendor",
@@ -40,13 +41,15 @@
     "content",
     "quantity",
     "policy",
-    "supplier_quantity"
+    "supplier_quantity",
+    "type"
   ],
-  "columnUpdatedAt": 1790845903012,
+  "columnUpdatedAt": 1790914615759,
   "columnWidthMap": {
     "barcode": 163,
     "barcodes": 160,
     "content": 117,
+    "customColumn1": 101,
     "inventory_tracked": 124,
     "quantity": 106,
     "shop_quantity": 106.00000000000001,
@@ -56,7 +59,7 @@
     "suppliers": 176,
     "title": 428,
     "variant": 128,
-    "vendor": 140
+    "vendor": 112
   },
   "compactMode": "SHORT",
   "customIsLoading": false,
@@ -103,6 +106,18 @@
     },
     {
       "key": "primaryColumns.barcodes.computedValue"
+    },
+    {
+      "key": "primaryColumns.type.computedValue"
+    },
+    {
+      "key": "primaryColumns.customColumn1.menuColor"
+    },
+    {
+      "key": "primaryColumns.customColumn1.borderRadius"
+    },
+    {
+      "key": "primaryColumns.customColumn1.boxShadow"
     }
   ],
   "dynamicPropertyPathList": [
@@ -112,7 +127,7 @@
   ],
   "dynamicTriggerPathList": [
     {
-      "key": "onRowSelected"
+      "key": "primaryColumns.customColumn1.menuItems.menuItemyggavgmd9x.onClick"
     }
   ],
   "enableClientSideSearch": true,
@@ -136,7 +151,7 @@
   "mobileRightColumn": 10,
   "mobileTopRow": 0,
   "needsErrorInfo": false,
-  "onRowSelected": "{{storeValue('product_embedding_text', Table1.selectedRow.title + ' ' + Table1.selectedRow.variant + ' ' + Table1.selectedRow.content);\nstoreValue('product_barcodes', Table1.selectedRow.barcodes);}}",
+  "onRowSelected": "",
   "parentColumnSpace": 29.9375,
   "parentId": "d3m5yqyrd3",
   "parentRowSpace": 10,
@@ -148,7 +163,7 @@
       "allowSameOptionsInNewRow": true,
       "cellBackground": "",
       "columnType": "text",
-      "computedValue": "{{(() => { const tableData = Table1.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"barcodes\"])) : barcodes })()}}",
+      "computedValue": "{{(() => { const tableData = TableShopProducts.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"barcodes\"])) : barcodes })()}}",
       "currencyCode": "USD",
       "decimals": 0,
       "enableFilter": true,
@@ -182,7 +197,7 @@
       "allowSameOptionsInNewRow": true,
       "cellBackground": "",
       "columnType": "text",
-      "computedValue": "{{(() => { const tableData = Table1.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"content\"])) : content })()}}",
+      "computedValue": "{{(() => { const tableData = TableShopProducts.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"content\"])) : content })()}}",
       "currencyCode": "USD",
       "customAlias": "",
       "decimals": 0,
@@ -212,13 +227,67 @@
       "verticalAlignment": "TOP",
       "width": 150
     },
+    "customColumn1": {
+      "alias": "menu",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "borderRadius": "{{TableShopProducts.processedTableData.map((currentRow, currentIndex) => ( (appsmith.theme.borderRadius.appBorderRadius)))}}",
+      "boxShadow": "{{TableShopProducts.processedTableData.map((currentRow, currentIndex) => ( \"none\"))}}",
+      "buttonStyle": "rgb(3, 179, 101)",
+      "columnType": "menuButton",
+      "computedValue": "",
+      "currencyCode": "USD",
+      "customAlias": "",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "horizontalAlignment": "LEFT",
+      "iconAlign": "right",
+      "id": "customColumn1",
+      "index": 10,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isCompact": false,
+      "isDerived": true,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": true,
+      "label": "menu",
+      "labelColor": "#FFFFFF",
+      "menuButtonLabel": "Menu",
+      "menuButtoniconName": "menu",
+      "menuColor": "{{TableShopProducts.processedTableData.map((currentRow, currentIndex) => ( (appsmith.theme.colors.primaryColor)))}}",
+      "menuItems": {
+        "menuItemyggavgmd9x": {
+          "id": "menuItemyggavgmd9x",
+          "index": 0,
+          "isDisabled": false,
+          "isVisible": true,
+          "label": "Copy Shop Product",
+          "onClick": "{{JSObject1.loadSelectedRowToForm();}}",
+          "widgetId": "9nvh2e1xwc"
+        }
+      },
+      "menuItemsSource": "STATIC",
+      "menuVariant": "PRIMARY",
+      "notation": "standard",
+      "originalId": "customColumn1",
+      "sticky": "",
+      "textSize": "0.875rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "TOP",
+      "width": 150
+    },
     "policy": {
       "alias": "policy",
       "allowCellWrapping": false,
       "allowSameOptionsInNewRow": true,
       "cellBackground": "",
       "columnType": "text",
-      "computedValue": "{{(() => { const tableData = Table1.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"policy\"])) : policy })()}}",
+      "computedValue": "{{(() => { const tableData = TableShopProducts.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"policy\"])) : policy })()}}",
       "currencyCode": "USD",
       "decimals": 0,
       "enableFilter": true,
@@ -252,7 +321,7 @@
       "allowSameOptionsInNewRow": true,
       "cellBackground": "",
       "columnType": "number",
-      "computedValue": "{{(() => { const tableData = Table1.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"quantity\"])) : quantity })()}}",
+      "computedValue": "{{(() => { const tableData = TableShopProducts.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"quantity\"])) : quantity })()}}",
       "currencyCode": "USD",
       "decimals": 0,
       "enableFilter": true,
@@ -286,7 +355,7 @@
       "allowSameOptionsInNewRow": true,
       "cellBackground": "",
       "columnType": "text",
-      "computedValue": "{{(() => { const tableData = Table1.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"status\"])) : status })()}}",
+      "computedValue": "{{(() => { const tableData = TableShopProducts.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"status\"])) : status })()}}",
       "currencyCode": "USD",
       "decimals": 0,
       "enableFilter": true,
@@ -320,7 +389,7 @@
       "allowSameOptionsInNewRow": true,
       "cellBackground": "",
       "columnType": "html",
-      "computedValue": "{{(() => { const tableData = Table1.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"supplier_quantity\"])) : supplier_quantity })()}}",
+      "computedValue": "{{(() => { const tableData = TableShopProducts.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"supplier_quantity\"])) : supplier_quantity })()}}",
       "currencyCode": "USD",
       "decimals": 0,
       "enableFilter": true,
@@ -353,7 +422,7 @@
       "allowCellWrapping": false,
       "allowSameOptionsInNewRow": true,
       "columnType": "text",
-      "computedValue": "{{(() => { const tableData = Table1.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"title\"])) : title })()}}",
+      "computedValue": "{{(() => { const tableData = TableShopProducts.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"title\"])) : title })()}}",
       "currencyCode": "USD",
       "decimals": 0,
       "enableFilter": true,
@@ -379,12 +448,46 @@
       "verticalAlignment": "TOP",
       "width": 150
     },
+    "type": {
+      "alias": "type",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "",
+      "columnType": "text",
+      "computedValue": "{{(() => { const tableData = TableShopProducts.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"type\"])) : type })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "",
+      "horizontalAlignment": "LEFT",
+      "id": "type",
+      "index": 9,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": false,
+      "label": "type",
+      "notation": "standard",
+      "originalId": "type",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "0.875rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "TOP",
+      "width": 150
+    },
     "variant": {
       "alias": "variant",
       "allowCellWrapping": false,
       "allowSameOptionsInNewRow": true,
       "columnType": "text",
-      "computedValue": "{{(() => { const tableData = Table1.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow.variant)) : currentRow.variant })()}}",
+      "computedValue": "{{(() => { const tableData = TableShopProducts.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow.variant)) : currentRow.variant })()}}",
       "currencyCode": "USD",
       "decimals": 0,
       "enableFilter": true,
@@ -415,7 +518,7 @@
       "allowCellWrapping": false,
       "allowSameOptionsInNewRow": true,
       "columnType": "text",
-      "computedValue": "{{(() => { const tableData = Table1.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"vendor\"])) : vendor })()}}",
+      "computedValue": "{{(() => { const tableData = TableShopProducts.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"vendor\"])) : vendor })()}}",
       "currencyCode": "USD",
       "decimals": 0,
       "enableFilter": true,
@@ -455,5 +558,5 @@
   "version": 2,
   "verticalAlignment": "TOP",
   "widgetId": "pwc2ok0s8d",
-  "widgetName": "Table1"
+  "widgetName": "TableShopProducts"
 }
