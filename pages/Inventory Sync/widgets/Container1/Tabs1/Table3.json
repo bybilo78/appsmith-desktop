@@ -36,10 +36,11 @@
     "barcode",
     "vendor",
     "title",
-    "supplier_quantity",
-    "vendor_normalized"
+    "vendor_normalized",
+    "supplier",
+    "quantity"
   ],
-  "columnUpdatedAt": 1790913724527,
+  "columnUpdatedAt": 1790918032115,
   "columnWidthMap": {
     "shop_product_assigned": 100,
     "supplier_quantity": 194,
@@ -75,13 +76,16 @@
       "key": "primaryColumns.vendor.computedValue"
     },
     {
-      "key": "primaryColumns.supplier_quantity.computedValue"
-    },
-    {
       "key": "primaryColumns.shop_product_assigned.computedValue"
     },
     {
       "key": "primaryColumns.vendor_normalized.computedValue"
+    },
+    {
+      "key": "primaryColumns.supplier.computedValue"
+    },
+    {
+      "key": "primaryColumns.quantity.computedValue"
     }
   ],
   "dynamicPropertyPathList": [
@@ -151,6 +155,40 @@
       "verticalAlignment": "CENTER",
       "width": 150
     },
+    "quantity": {
+      "alias": "quantity",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "",
+      "columnType": "number",
+      "computedValue": "{{(() => { const tableData = Table3.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"quantity\"])) : quantity })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "",
+      "horizontalAlignment": "LEFT",
+      "id": "quantity",
+      "index": 5,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": true,
+      "label": "quantity",
+      "notation": "standard",
+      "originalId": "quantity",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "0.875rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
     "shop_product_assigned": {
       "alias": "shop_product_assigned",
       "allowCellWrapping": false,
@@ -185,21 +223,21 @@
       "verticalAlignment": "CENTER",
       "width": 150
     },
-    "supplier_quantity": {
-      "alias": "supplier_quantity",
+    "supplier": {
+      "alias": "supplier",
       "allowCellWrapping": false,
       "allowSameOptionsInNewRow": true,
       "cellBackground": "",
-      "columnType": "html",
-      "computedValue": "{{(() => { const tableData = Table3.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"supplier_quantity\"])) : supplier_quantity })()}}",
+      "columnType": "text",
+      "computedValue": "{{(() => { const tableData = Table3.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"supplier\"])) : supplier })()}}",
       "currencyCode": "USD",
       "decimals": 0,
       "enableFilter": true,
       "enableSort": true,
       "fontStyle": "",
       "horizontalAlignment": "LEFT",
-      "id": "supplier_quantity",
-      "index": 3,
+      "id": "supplier",
+      "index": 4,
       "isCellEditable": false,
       "isCellVisible": true,
       "isDerived": false,
@@ -208,9 +246,9 @@
       "isEditable": false,
       "isSaveVisible": true,
       "isVisible": true,
-      "label": "supplier_quantity",
+      "label": "supplier",
       "notation": "standard",
-      "originalId": "supplier_quantity",
+      "originalId": "supplier",
       "sticky": "",
       "textColor": "",
       "textSize": "0.875rem",

@@ -242,7 +242,7 @@
       "enableFilter": true,
       "enableSort": true,
       "horizontalAlignment": "LEFT",
-      "iconAlign": "right",
+      "iconAlign": "left",
       "id": "customColumn1",
       "index": 10,
       "isCellEditable": false,

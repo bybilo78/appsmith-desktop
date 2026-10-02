@@ -1,20 +1,10 @@
 SELECT
     si.barcode,
-    MAX(si.title) AS title,
-    MAX(si.vendor) AS vendor,
-    MAX(si.vendor_normalized) AS vendor_normalized,
-
-    CONCAT(
-        '<strong>Gesamt</strong>: ', SUM(si.quantity), ', ',
-        STRING_AGG(
-            CONCAT(
-                '<strong>', si.supplier, '</strong>: ',
-                si.quantity
-            ),
-            ', '
-            ORDER BY si.supplier
-        )
-    ) AS supplier_quantity,
+    si.title,
+    si.vendor,
+    si.vendor_normalized,
+    si.supplier,
+    si.quantity,
 
     EXISTS (
         SELECT 1
@@ -22,24 +12,13 @@ SELECT
         WHERE si.barcode = ANY(p.barcodes)
     ) AS shop_product_assigned
 
-FROM (
-    SELECT
-        barcode,
-        supplier,
-        MAX(title) AS title,
-        MAX(vendor) AS vendor,
-        MAX(vendor_normalized) AS vendor_normalized,
-        MAX(quantity) AS quantity
-    FROM public.supplier_inventory
-    WHERE barcode IS NOT NULL
-      AND barcode <> ''
-    GROUP BY
-        barcode,
-        supplier
-) si
+FROM public.supplier_inventory si
 
 WHERE
-    (
+    si.barcode IS NOT NULL
+    AND si.barcode <> ''
+
+    AND (
         '{{SelectVendor.selectedOptionValue}}' = ''
         OR si.vendor_normalized = '{{SelectVendor.selectedOptionValue}}'
     )
@@ -57,8 +36,7 @@ WHERE
 
     AND (
         '{{InputWords.text}}' = ''
-        OR
-        string_to_array(
+        OR string_to_array(
             lower(
                 regexp_replace(
                     si.title,
@@ -76,9 +54,7 @@ WHERE
         )
     )
 
-GROUP BY
-    si.barcode
-
 ORDER BY
-    vendor,
-    title;
+    si.vendor,
+    si.title,
+    si.supplier;
