@@ -1,10 +1,10 @@
 {
   "animateLoading": true,
-  "backgroundColor": "white",
-  "borderColor": "#E0DEDE",
+  "backgroundColor": "{{\n  GetInventoryKPIs.data[0].without_supplier_match > 0\n    ? \"#FDECEC\"\n    : \"#EAF7EE\"\n}}",
+  "borderColor": "#e0dede",
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
   "borderWidth": "1",
-  "bottomRow": 42,
+  "bottomRow": 28,
   "boxShadow": "none",
   "children": [
     {
@@ -38,7 +38,7 @@
       "mobileTopRow": 0,
       "needsErrorInfo": false,
       "parentColumnSpace": 1,
-      "parentId": "awozm18gg8",
+      "parentId": "e3p8dxpkd6",
       "parentRowSpace": 1,
       "renderMode": "CANVAS",
       "responsiveBehavior": "fill",
@@ -46,23 +46,31 @@
       "topRow": 0,
       "type": "CANVAS_WIDGET",
       "version": 1,
-      "widgetId": "c8pls11z2y",
-      "widgetName": "Canvas7CopyCopyCopy1"
+      "widgetId": "d4friasa5c",
+      "widgetName": "Canvas7CopyCopyCopy1CopyCopy"
     }
   ],
   "dynamicBindingPathList": [
     {
       "key": "borderRadius"
+    },
+    {
+      "key": "backgroundColor"
     }
   ],
   "dynamicHeight": "AUTO_HEIGHT",
+  "dynamicPropertyPathList": [
+    {
+      "key": "backgroundColor"
+    }
+  ],
   "dynamicTriggerPathList": [],
   "flexVerticalAlignment": "stretch",
   "isCanvas": true,
   "isLoading": false,
   "isVisible": true,
   "key": "xhl6q663aa",
-  "leftColumn": 0,
+  "leftColumn": 14,
   "maxDynamicHeight": 9000,
   "minDynamicHeight": 10,
   "mobileBottomRow": 14,
@@ -70,18 +78,18 @@
   "mobileRightColumn": 13,
   "mobileTopRow": 0,
   "needsErrorInfo": false,
-  "originalBottomRow": 42,
-  "originalTopRow": 32,
+  "originalBottomRow": 28,
+  "originalTopRow": 18,
   "parentColumnSpace": 29.625,
   "parentId": "jk57hc24c0",
   "parentRowSpace": 10,
   "positioning": "fixed",
   "renderMode": "CANVAS",
   "responsiveBehavior": "fill",
-  "rightColumn": 8,
+  "rightColumn": 21,
   "shouldScrollContents": true,
-  "topRow": 32,
+  "topRow": 18,
   "type": "STATBOX_WIDGET",
-  "widgetId": "awozm18gg8",
-  "widgetName": "Statbox1CopyCopyCopy1"
+  "widgetId": "e3p8dxpkd6",
+  "widgetName": "Statbox8"
 }
