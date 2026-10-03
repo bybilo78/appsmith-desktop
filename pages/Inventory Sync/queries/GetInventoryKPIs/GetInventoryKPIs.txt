@@ -46,6 +46,27 @@ SELECT
 										AND TRIM(barcode) <> ''
 							)
 					)
-		) AS active_without_barcode
+		) AS active_without_barcode,
+		
+		COUNT(DISTINCT p.variant_id) FILTER (
+				WHERE p.status = 'ACTIVE'
+					AND p.inventory_policy = 'CONTINUE'
+					AND (
+							p.quantity
+							+ COALESCE((
+									SELECT SUM(x.quantity)
+									FROM (
+											SELECT
+													si.supplier,
+													MAX(si.quantity) AS quantity
+											FROM public."supplier_inventory" si
+											WHERE si.barcode IS NOT NULL
+												AND si.barcode <> ''
+												AND si.barcode = ANY(p.barcodes)
+											GROUP BY si.supplier
+									) x
+							), 0)
+					) < 30
+		) AS active_continue_low_stock
 
 FROM public."products" p;
