@@ -1,0 +1,25 @@
+SELECT
+    UPPER(SUBSTRING(sku FROM 1 FOR 1)) AS shelf,
+    CAST(SUBSTRING(sku FROM 2 FOR 1) AS INTEGER) AS level,
+
+    COALESCE(SUM(quantity) FILTER (
+        WHERE UPPER(SUBSTRING(sku FROM 3 FOR 1)) = 'V'
+    ), 0) AS front_quantity,
+
+    COALESCE(SUM(quantity) FILTER (
+        WHERE UPPER(SUBSTRING(sku FROM 3 FOR 1)) = 'H'
+    ), 0) AS back_quantity,
+
+    COALESCE(SUM(quantity), 0) AS total_quantity
+
+FROM products
+
+WHERE sku ~ '^[A-Za-z][0-9][VHvh][0-9]+$'
+
+GROUP BY
+    SUBSTRING(sku FROM 1 FOR 1),
+    SUBSTRING(sku FROM 2 FOR 1)
+
+ORDER BY
+    shelf,
+    level;
