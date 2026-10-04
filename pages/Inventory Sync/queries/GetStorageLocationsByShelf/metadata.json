@@ -5,7 +5,7 @@
   "pluginType": "DB",
   "unpublishedAction": {
     "actionConfiguration": {
-      "body": "SELECT\n    UPPER(SUBSTRING(sku FROM 1 FOR 1)) AS shelf,\n    CAST(SUBSTRING(sku FROM 2 FOR 1) AS INTEGER) AS level,\n\n    COALESCE(SUM(quantity) FILTER (\n        WHERE UPPER(SUBSTRING(sku FROM 3 FOR 1)) = 'V'\n    ), 0) AS front_quantity,\n\n    COALESCE(SUM(quantity) FILTER (\n        WHERE UPPER(SUBSTRING(sku FROM 3 FOR 1)) = 'H'\n    ), 0) AS back_quantity,\n\n    COALESCE(SUM(quantity), 0) AS total_quantity\n\nFROM products\n\nWHERE sku ~ '^[A-Za-z][0-9][VHvh][0-9]+$'\n\nGROUP BY\n    SUBSTRING(sku FROM 1 FOR 1),\n    SUBSTRING(sku FROM 2 FOR 1)\n\nORDER BY\n    shelf,\n    level;",
+      "body": "SELECT\n    UPPER(SUBSTRING(sku FROM 1 FOR 1)) AS shelf,\n    CAST(SUBSTRING(sku FROM 2 FOR 1) AS INTEGER) AS level,\n\n    COALESCE(SUM(quantity) FILTER (\n        WHERE UPPER(SUBSTRING(sku FROM 3 FOR 1)) = 'V'\n    ), 0) AS front,\n\n    COALESCE(SUM(quantity) FILTER (\n        WHERE UPPER(SUBSTRING(sku FROM 3 FOR 1)) = 'H'\n    ), 0) AS back,\n\n    COALESCE(SUM(quantity), 0) AS total\n\nFROM products\n\nWHERE sku ~ '^[A-Za-z][0-9][VHvh][0-9]+$'\n\nGROUP BY\n    SUBSTRING(sku FROM 1 FOR 1),\n    SUBSTRING(sku FROM 2 FOR 1)\n\nORDER BY\n    shelf,\n    level;",
       "encodeParamsToggle": true,
       "paginationType": "NONE",
       "pluginSpecifiedTemplates": [

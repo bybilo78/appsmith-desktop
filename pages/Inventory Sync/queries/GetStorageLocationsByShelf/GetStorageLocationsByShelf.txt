@@ -4,13 +4,13 @@ SELECT
 
     COALESCE(SUM(quantity) FILTER (
         WHERE UPPER(SUBSTRING(sku FROM 3 FOR 1)) = 'V'
-    ), 0) AS front_quantity,
+    ), 0) AS front,
 
     COALESCE(SUM(quantity) FILTER (
         WHERE UPPER(SUBSTRING(sku FROM 3 FOR 1)) = 'H'
-    ), 0) AS back_quantity,
+    ), 0) AS back,
 
-    COALESCE(SUM(quantity), 0) AS total_quantity
+    COALESCE(SUM(quantity), 0) AS total
 
 FROM products
 
