@@ -1,6 +1,6 @@
 {
-  "gitSyncId": "6aab83e91270770ca42ebfb6_23221cf1-9b19-48b9-918d-997b7cb83819",
-  "id": "Pricing Strategy_JSObject1.filterCurrentRowToSupplierProducts",
+  "gitSyncId": "6aab83e91270770ca42ebfb6_fccec112-a903-4120-90cc-04c45caa5232",
+  "id": "Pricing Strategy_JSObject1.filterCurrentRowToMatchScores",
   "pluginId": "js-plugin",
   "pluginType": "JS",
   "unpublishedAction": {
@@ -22,8 +22,8 @@
         "key": "body"
       }
     ],
-    "fullyQualifiedName": "JSObject1.filterCurrentRowToSupplierProducts",
-    "name": "filterCurrentRowToSupplierProducts",
+    "fullyQualifiedName": "JSObject1.filterCurrentRowToMatchScores",
+    "name": "filterCurrentRowToMatchScores",
     "pageId": "Pricing Strategy",
     "runBehaviour": "MANUAL",
     "userSetOnLoad": false

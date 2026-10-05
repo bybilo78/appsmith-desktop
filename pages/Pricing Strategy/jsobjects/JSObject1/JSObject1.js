@@ -19,15 +19,11 @@ export default {
 		InputProductContent.setValue("");
 	},
 	
-	filterCurrentRowToSupplierProducts () {
+	filterCurrentRowToMatchScores () {
 		const row = TableShopProducts.triggeredRow;
 
 		this.loadCurrentRowToForm();
 
-		const barcodes = Array.isArray(row.barcodes)
-			? row.barcodes.filter(Boolean)
-			: [row.barcodes].filter(Boolean);
-
-		storeValue("supplierBarcodes", barcodes);
+		storeValue("matchScoreVariantId", row.variant_id);
 	}
 }

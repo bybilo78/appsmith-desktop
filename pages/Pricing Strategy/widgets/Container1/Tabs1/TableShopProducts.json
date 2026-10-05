@@ -56,13 +56,13 @@
     "final_action",
     "final_price_change_percent",
     "price_strategy",
-    "variant_id",
     "content_amount",
     "content_unit",
     "barcodes",
-    "content"
+    "content",
+    "variant_id"
   ],
-  "columnUpdatedAt": 1791179843940,
+  "columnUpdatedAt": 1791181596458,
   "columnWidthMap": {
     "barcode": 163,
     "barcodes": 158,
@@ -209,6 +209,9 @@
     },
     {
       "key": "primaryColumns.customColumn1.menuItems.menuItemwcopkrwqcr.onClick"
+    },
+    {
+      "key": "primaryColumns.customColumn1.menuItems.menuItemisfvfxmoab.onClick"
     }
   ],
   "enableClientSideSearch": true,
@@ -551,6 +554,15 @@
       "menuButtoniconName": "menu",
       "menuColor": "{{TableShopProducts.processedTableData.map((currentRow, currentIndex) => ( (appsmith.theme.colors.primaryColor)))}}",
       "menuItems": {
+        "menuItemisfvfxmoab": {
+          "id": "menuItemisfvfxmoab",
+          "index": 1,
+          "isDisabled": false,
+          "isVisible": true,
+          "label": "Filter Match Scores",
+          "onClick": "{{JSObject1.filterCurrentRowToMatchScores();}}",
+          "widgetId": "jusc2yn9aq"
+        },
         "menuItemwcopkrwqcr": {
           "iconAlign": "left",
           "id": "menuItemwcopkrwqcr",
