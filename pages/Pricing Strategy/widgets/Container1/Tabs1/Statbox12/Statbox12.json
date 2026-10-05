@@ -1,6 +1,6 @@
 {
   "animateLoading": true,
-  "backgroundColor": "{{\n  GetCompetitorPriceAnalysis.data[0].no_competitor > 0\n    ? \"#FDECEC\"\n    : \"#EAF7EE\"\n}}",
+  "backgroundColor": "white",
   "borderColor": "#E0DEDE",
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
   "borderWidth": "1",
@@ -38,7 +38,7 @@
       "mobileTopRow": 0,
       "needsErrorInfo": false,
       "parentColumnSpace": 1,
-      "parentId": "zfoalas26u",
+      "parentId": "9hiourr8ux",
       "parentRowSpace": 1,
       "renderMode": "CANVAS",
       "responsiveBehavior": "fill",
@@ -46,31 +46,23 @@
       "topRow": 0,
       "type": "CANVAS_WIDGET",
       "version": 1,
-      "widgetId": "4mndrc5ivh",
-      "widgetName": "Canvas7Copy2"
+      "widgetId": "2zo11d9e97",
+      "widgetName": "Canvas7Copy1CopyCopy"
     }
   ],
   "dynamicBindingPathList": [
     {
       "key": "borderRadius"
-    },
-    {
-      "key": "backgroundColor"
     }
   ],
   "dynamicHeight": "AUTO_HEIGHT",
-  "dynamicPropertyPathList": [
-    {
-      "key": "backgroundColor"
-    }
-  ],
   "dynamicTriggerPathList": [],
   "flexVerticalAlignment": "stretch",
   "isCanvas": true,
   "isLoading": false,
   "isVisible": true,
   "key": "xhl6q663aa",
-  "leftColumn": 14,
+  "leftColumn": 7,
   "maxDynamicHeight": 9000,
   "minDynamicHeight": 10,
   "mobileBottomRow": 14,
@@ -86,10 +78,10 @@
   "positioning": "fixed",
   "renderMode": "CANVAS",
   "responsiveBehavior": "fill",
-  "rightColumn": 21,
+  "rightColumn": 14,
   "shouldScrollContents": true,
   "topRow": 28,
   "type": "STATBOX_WIDGET",
-  "widgetId": "zfoalas26u",
-  "widgetName": "Statbox6"
+  "widgetId": "9hiourr8ux",
+  "widgetName": "Statbox12"
 }

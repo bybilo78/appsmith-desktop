@@ -40,15 +40,22 @@ SELECT
 
 
     -- ACTIVE: kein Eintrag in competitor_price_analysis
-    COUNT(DISTINCT p.variant_id) FILTER (
-        WHERE p.status = 'ACTIVE'
-        AND NOT EXISTS (
-            SELECT 1
-            FROM public.competitor_price_analysis cpa
-            WHERE cpa.variant_id = p.variant_id
-        )
-    ) AS no_competitor,
-
+		-- und Wettbewerber-Abgleich nicht deaktiviert
+		COUNT(DISTINCT p.variant_id) FILTER (
+				WHERE p.status = 'ACTIVE'
+					AND p.competitor_sync_active IS NOT FALSE
+					AND NOT EXISTS (
+							SELECT 1
+							FROM public.competitor_price_analysis cpa
+							WHERE cpa.variant_id = p.variant_id
+					)
+		) AS no_competitor,
+		
+		-- ACTIVE: Wettbewerber-Abgleich deaktiviert
+		COUNT(DISTINCT p.variant_id) FILTER (
+				WHERE p.status = 'ACTIVE'
+					AND p.competitor_sync_active = FALSE
+		) AS competitor_sync_disabled,
 
     -- ACTIVE: mindestens 1 gültiger Match
     COUNT(DISTINCT p.variant_id) FILTER (
