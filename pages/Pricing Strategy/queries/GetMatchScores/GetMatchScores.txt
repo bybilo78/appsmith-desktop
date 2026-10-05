@@ -1,5 +1,6 @@
 SELECT 
-		  -- Shop Produkt
+		-- Shop Produkt
+		p.vendor_normalized AS shop_vendor,
     p.title_normalized AS shop_title,
     p.price AS shop_price,
     cms.*,  
@@ -8,6 +9,7 @@ SELECT
     cp.title_normalized AS cp_title,
     cp.shop_url AS cp_shop_url,
     cp.price AS cp_price,
+		cp.handle AS cp_handle,
 
     -- Deutsche Darstellung des Zeitstempels
     TO_CHAR(
