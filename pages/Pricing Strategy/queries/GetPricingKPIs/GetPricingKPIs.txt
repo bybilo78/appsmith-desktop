@@ -1,27 +1,88 @@
 SELECT    
-    COUNT(DISTINCT variant_id) FILTER (WHERE status = 'ACTIVE') AS active,
-    COUNT(DISTINCT variant_id) FILTER (WHERE status = 'DRAFT') AS draft,
-    COUNT(DISTINCT variant_id) FILTER (WHERE status = 'ARCHIVED') AS archive,
+    COUNT(DISTINCT variant_id) FILTER (
+        WHERE status = 'ACTIVE'
+    ) AS active,
+
+    COUNT(DISTINCT variant_id) FILTER (
+        WHERE status = 'DRAFT'
+    ) AS draft,
+
+    COUNT(DISTINCT variant_id) FILTER (
+        WHERE status = 'ARCHIVED'
+    ) AS archive,
+
     COUNT(DISTINCT variant_id) AS shop_variants,
 
-    -- Aktive Varianten mit mindestens einem Competitor-Match
+
+    -- Mindestens ein gültiger Match
     COUNT(DISTINCT variant_id) FILTER (
         WHERE status = 'ACTIVE'
         AND EXISTS (
             SELECT 1
-            FROM public.competitor_match_scores cms
-            WHERE cms.variant_id = p.variant_id
+            FROM public.competitor_price_analysis cpa
+            WHERE cpa.variant_id = p.variant_id
+              AND cpa.valid_match_count > 0
         )
-    ) AS active_with_competitor_match,
+    ) AS active_with_valid_match,
 
-    -- Aktive Varianten ohne Competitor-Match
+
+    -- Keine Matches ermittelt (NULL)
     COUNT(DISTINCT variant_id) FILTER (
         WHERE status = 'ACTIVE'
-        AND NOT EXISTS (
+        AND EXISTS (
             SELECT 1
-            FROM public.competitor_match_scores cms
-            WHERE cms.variant_id = p.variant_id
+            FROM public.competitor_price_analysis cpa
+            WHERE cpa.variant_id = p.variant_id
+              AND cpa.valid_match_count IS NULL
         )
-    ) AS active_without_competitor_match
+    ) AS active_without_match,
+
+
+    -- Matches vorhanden, aber keiner gültig (0)
+    COUNT(DISTINCT variant_id) FILTER (
+        WHERE status = 'ACTIVE'
+        AND EXISTS (
+            SELECT 1
+            FROM public.competitor_price_analysis cpa
+            WHERE cpa.variant_id = p.variant_id
+              AND cpa.valid_match_count = 0
+        )
+    ) AS active_without_valid_match,
+
+
+    -- Genau 1 gültiger Match
+    COUNT(DISTINCT variant_id) FILTER (
+        WHERE status = 'ACTIVE'
+        AND EXISTS (
+            SELECT 1
+            FROM public.competitor_price_analysis cpa
+            WHERE cpa.variant_id = p.variant_id
+              AND cpa.valid_match_count = 1
+        )
+    ) AS active_with_1_valid_match,
+
+
+    -- Genau 2 gültige Matches
+    COUNT(DISTINCT variant_id) FILTER (
+        WHERE status = 'ACTIVE'
+        AND EXISTS (
+            SELECT 1
+            FROM public.competitor_price_analysis cpa
+            WHERE cpa.variant_id = p.variant_id
+              AND cpa.valid_match_count = 2
+        )
+    ) AS active_with_2_valid_matches,
+
+
+    -- Mehr als 2 gültige Matches = Fehler
+    COUNT(DISTINCT variant_id) FILTER (
+        WHERE status = 'ACTIVE'
+        AND EXISTS (
+            SELECT 1
+            FROM public.competitor_price_analysis cpa
+            WHERE cpa.variant_id = p.variant_id
+              AND cpa.valid_match_count > 2
+        )
+    ) AS active_with_more_than_2_valid_matches
 
 FROM public."products" p;
