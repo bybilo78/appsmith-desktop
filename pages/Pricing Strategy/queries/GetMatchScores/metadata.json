@@ -5,7 +5,7 @@
   "pluginType": "DB",
   "unpublishedAction": {
     "actionConfiguration": {
-      "body": "SELECT \n\t*,\n\tTO_CHAR(created_at AT TIME ZONE 'Europe/Berlin', 'DD.MM.YYYY HH24:MI:SS') AS created_at_de\n\t\t\nFROM public.\"competitor_match_scores\"\n\nORDER BY score DESC;",
+      "body": "SELECT \n\t\t  -- Shop Produkt\n    p.title_normalized AS shop_title,\n    p.price AS shop_price,\n    cms.*,  \n    -- Wettbewerber\n\t\tcp.vendor_normalized AS cp_vendor,\n    cp.title_normalized AS cp_title,\n    cp.shop_url AS cp_shop_url,\n    cp.price AS cp_price,\n\n    -- Deutsche Darstellung des Zeitstempels\n    TO_CHAR(\n        cms.created_at AT TIME ZONE 'Europe/Berlin',\n        'DD.MM.YYYY HH24:MI:SS'\n    ) AS created_at_de\n\nFROM public.\"competitor_match_scores\" cms\n\nLEFT JOIN public.\"products\" p\n    ON p.variant_id = cms.variant_id\n\nLEFT JOIN public.\"competitor_products\" cp\n    ON cp.id = cms.competitor_id\n\nORDER BY cms.score DESC;",
       "encodeParamsToggle": true,
       "paginationType": "NONE",
       "pluginSpecifiedTemplates": [

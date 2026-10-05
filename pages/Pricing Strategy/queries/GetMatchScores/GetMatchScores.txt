@@ -1,7 +1,26 @@
 SELECT 
-	*,
-	TO_CHAR(created_at AT TIME ZONE 'Europe/Berlin', 'DD.MM.YYYY HH24:MI:SS') AS created_at_de
-		
-FROM public."competitor_match_scores"
+		  -- Shop Produkt
+    p.title_normalized AS shop_title,
+    p.price AS shop_price,
+    cms.*,  
+    -- Wettbewerber
+		cp.vendor_normalized AS cp_vendor,
+    cp.title_normalized AS cp_title,
+    cp.shop_url AS cp_shop_url,
+    cp.price AS cp_price,
 
-ORDER BY score DESC;
+    -- Deutsche Darstellung des Zeitstempels
+    TO_CHAR(
+        cms.created_at AT TIME ZONE 'Europe/Berlin',
+        'DD.MM.YYYY HH24:MI:SS'
+    ) AS created_at_de
+
+FROM public."competitor_match_scores" cms
+
+LEFT JOIN public."products" p
+    ON p.variant_id = cms.variant_id
+
+LEFT JOIN public."competitor_products" cp
+    ON cp.id = cms.competitor_id
+
+ORDER BY cms.score DESC;
