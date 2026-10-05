@@ -5,6 +5,8 @@ SELECT
     p.title,
 		p.content_amount,
 		p.content_unit,
+		p.barcodes,
+		CONCAT(p.content_amount, ' ', p.content_unit) AS content,		
 
     CASE
         WHEN p.variant = 'Default Title' THEN ''

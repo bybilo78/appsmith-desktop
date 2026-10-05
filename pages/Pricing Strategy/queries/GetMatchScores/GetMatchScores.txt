@@ -4,5 +4,5 @@ SELECT
 		
 FROM public."competitor_match_scores"
 WHERE 
-	variant_id = '{{Table1.selectedRow.variant_id}}'
+	variant_id = '{{TableShopProducts.selectedRow.variant_id}}'
 ORDER BY score DESC;

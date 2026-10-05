@@ -5,7 +5,7 @@
   "borderColor": "#E0DEDE",
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
   "borderWidth": "0",
-  "bottomRow": 113,
+  "bottomRow": 115,
   "boxShadow": "none",
   "children": [
     {
@@ -97,15 +97,60 @@
       "rightColumn": 1936,
       "shouldScrollContents": true,
       "tabId": "tabtjn98hpf9v",
-      "tabName": "Topic History",
+      "tabName": "Dashboard",
       "topRow": 1,
       "type": "CANVAS_WIDGET",
       "version": 1,
       "widgetId": "fgcxnte9z0",
       "widgetName": "Canvas6"
+    },
+    {
+      "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+      "bottomRow": 970,
+      "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
+      "canExtend": false,
+      "containerStyle": "none",
+      "detachFromLayout": true,
+      "dynamicBindingPathList": [
+        {
+          "key": "borderRadius"
+        },
+        {
+          "key": "boxShadow"
+        }
+      ],
+      "dynamicHeight": "AUTO_HEIGHT",
+      "dynamicTriggerPathList": [],
+      "flexLayers": [],
+      "isLoading": false,
+      "isVisible": true,
+      "key": "sg3i4gcux2",
+      "leftColumn": 0,
+      "maxDynamicHeight": 9000,
+      "minDynamicHeight": 4,
+      "minHeight": 1010,
+      "minWidth": 450,
+      "mobileBottomRow": 1011,
+      "mobileLeftColumn": 0,
+      "mobileRightColumn": 1936,
+      "mobileTopRow": 1,
+      "needsErrorInfo": false,
+      "parentColumnSpace": 1,
+      "parentId": "99v1mpjsb0",
+      "parentRowSpace": 1,
+      "renderMode": "CANVAS",
+      "responsiveBehavior": "fill",
+      "rightColumn": 1936,
+      "tabId": "tabpqtsrw6kua",
+      "tabName": "Match Scores",
+      "topRow": 1,
+      "type": "CANVAS_WIDGET",
+      "version": 1,
+      "widgetId": "vcv1d57bk5",
+      "widgetName": "Canvas10"
     }
   ],
-  "defaultTab": "Topic History",
+  "defaultTab": "Dashboard",
   "dynamicBindingPathList": [
     {
       "key": "accentColor"
@@ -130,8 +175,8 @@
   "mobileRightColumn": 13,
   "mobileTopRow": 19,
   "needsErrorInfo": false,
-  "originalBottomRow": 113,
-  "originalTopRow": 12,
+  "originalBottomRow": 116,
+  "originalTopRow": 14,
   "parentColumnSpace": 30.25,
   "parentId": "fxnek2stux",
   "parentRowSpace": 10,
@@ -150,16 +195,23 @@
       "positioning": "vertical",
       "widgetId": "siewbv4g2b"
     },
+    "tabpqtsrw6kua": {
+      "id": "tabpqtsrw6kua",
+      "index": 2,
+      "isVisible": true,
+      "label": "Match Scores",
+      "widgetId": "vcv1d57bk5"
+    },
     "tabtjn98hpf9v": {
       "id": "tabtjn98hpf9v",
       "index": 0,
       "isDuplicateLabel": false,
       "isVisible": true,
-      "label": "Topic History",
+      "label": "Dashboard",
       "widgetId": "fgcxnte9z0"
     }
   },
-  "topRow": 12,
+  "topRow": 14,
   "type": "TABS_WIDGET",
   "version": 3,
   "widgetId": "99v1mpjsb0",
