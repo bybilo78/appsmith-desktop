@@ -41,7 +41,7 @@
   "responsiveBehavior": "fill",
   "rightColumn": 37,
   "shouldTruncate": false,
-  "text": "{{ GetInventoryKPIs.data[0].active_without_competitor_match }}",
+  "text": "{{ GetPricingKPIs.data[0].active_without_competitor_match }}",
   "textAlign": "LEFT",
   "textColor": "#231F20",
   "topRow": 4,

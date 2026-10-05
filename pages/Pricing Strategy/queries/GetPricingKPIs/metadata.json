@@ -1,6 +1,6 @@
 {
   "gitSyncId": "6aab83e91270770ca42ebfb6_bb34eca6-e743-4bff-aba6-319e4977e265",
-  "id": "Pricing Strategy_GetInventoryKPIs",
+  "id": "Pricing Strategy_GetPricingKPIs",
   "pluginId": "postgres-plugin",
   "pluginType": "DB",
   "unpublishedAction": {
@@ -23,7 +23,7 @@
       "pluginId": "postgres-plugin"
     },
     "dynamicBindingPathList": [],
-    "name": "GetInventoryKPIs",
+    "name": "GetPricingKPIs",
     "pageId": "Pricing Strategy",
     "runBehaviour": "AUTOMATIC",
     "userSetOnLoad": false

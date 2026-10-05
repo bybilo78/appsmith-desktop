@@ -1,7 +1,7 @@
 {
   "animateLoading": true,
   "borderRadius": "0.375rem",
-  "bottomRow": 11,
+  "bottomRow": 12,
   "boxShadow": "none",
   "buttonVariant": "PRIMARY",
   "childStylesheet": {
@@ -17,7 +17,13 @@
       "key": "groupButtons.groupButtonzd519vjc05.buttonColor"
     },
     {
-      "key": "groupButtons.groupButtoneo5juefiy9.buttonColor"
+      "key": "groupButtons.groupButton3.menuItems.menuItem1.onClick"
+    },
+    {
+      "key": "groupButtons.groupButton3l0k43t9fo.buttonColor"
+    },
+    {
+      "key": "groupButtons.groupButton3l0k43t9fo.onClick"
     }
   ],
   "dynamicTriggerPathList": [
@@ -25,13 +31,19 @@
       "key": "groupButtons.groupButton3.menuItems.menuItem1.onClick"
     },
     {
-      "key": "groupButtons.groupButtonzd519vjc05.onClick"
+      "key": "groupButtons.groupButton3l0k43t9fo.onClick"
     },
     {
-      "key": "groupButtons.groupButton3.onClick"
+      "key": "groupButtons.groupButton3l0k43t9fo.menuItems.menuItemuthxzcy2rp.onClick"
     },
     {
-      "key": "groupButtons.groupButtoneo5juefiy9.onClick"
+      "key": "groupButtons.groupButton3l0k43t9fo.menuItems.menuItemcfrs0e4hui.onClick"
+    },
+    {
+      "key": "groupButtons.groupButton3l0k43t9fo.menuItems.menuItem8zz1c375ei.onClick"
+    },
+    {
+      "key": "groupButtons.groupButton3l0k43t9fo.menuItems.menuItemdbulvxsd1j.onClick"
     }
   ],
   "groupButtons": {
@@ -39,12 +51,12 @@
       "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
       "buttonType": "SIMPLE",
       "disabledWhenInvalid": false,
-      "iconName": "refresh",
+      "iconName": "menu",
       "id": "groupButton3",
-      "index": 0,
+      "index": 1,
       "isDisabled": false,
       "isVisible": true,
-      "label": "Topic History",
+      "label": "Not Implemented",
       "menuItems": {
         "menuItem1": {
           "backgroundColor": "#FFFFFF",
@@ -58,40 +70,77 @@
           "widgetId": ""
         }
       },
-      "onClick": "{{GetTopicHistory.run()}}",
+      "onClick": "",
       "placement": "START",
       "widgetId": ""
     },
-    "groupButtoneo5juefiy9": {
+    "groupButton3l0k43t9fo": {
+      "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+      "buttonType": "MENU",
+      "iconName": "menu",
+      "id": "groupButton3l0k43t9fo",
+      "index": 0,
+      "isDisabled": false,
+      "isSeparator": false,
+      "isVisible": true,
+      "itemType": "BUTTON",
+      "label": "Refresh Data",
+      "menuItems": {
+        "menuItem8zz1c375ei": {
+          "id": "menuItem8zz1c375ei",
+          "index": 2,
+          "isDisabled": false,
+          "isVisible": true,
+          "label": "Shop Products",
+          "onClick": "{{GetShopProducts.run()}}",
+          "widgetId": "q2wnyqmh16"
+        },
+        "menuItemcfrs0e4hui": {
+          "id": "menuItemcfrs0e4hui",
+          "index": 1,
+          "isDisabled": false,
+          "isVisible": true,
+          "label": "Topic History",
+          "onClick": "{{GetTopicHistory.run()}}",
+          "widgetId": "4zzc1vsgy3"
+        },
+        "menuItemdbulvxsd1j": {
+          "id": "menuItemdbulvxsd1j",
+          "index": 3,
+          "isDisabled": false,
+          "isVisible": true,
+          "label": "Match Scores",
+          "onClick": "{{GetMatchScores.run()}}",
+          "widgetId": "eguh2grkqi"
+        },
+        "menuItemuthxzcy2rp": {
+          "id": "menuItemuthxzcy2rp",
+          "index": 0,
+          "isDisabled": false,
+          "isVisible": true,
+          "label": "KPI",
+          "onClick": "{{GetPricingKPIs.run()}}",
+          "widgetId": "bbw3fa7ka7"
+        }
+      },
+      "onClick": "{{GetPricingKPIs.run()}}",
+      "placement": "START",
+      "variant": "filled",
+      "widgetId": "z7g9rwi4kn"
+    },
+    "groupButtonzd519vjc05": {
       "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
       "buttonType": "SIMPLE",
-      "iconName": "refresh",
-      "id": "groupButtoneo5juefiy9",
+      "iconName": "menu",
+      "id": "groupButtonzd519vjc05",
       "index": 2,
       "isDisabled": false,
       "isSeparator": false,
       "isVisible": true,
       "itemType": "BUTTON",
-      "label": "Match Scores",
+      "label": "Not Implemented",
       "menuItems": {},
-      "onClick": "{{GetMatchScores.run()}}",
-      "placement": "START",
-      "variant": "filled",
-      "widgetId": "qpbs0d6niq"
-    },
-    "groupButtonzd519vjc05": {
-      "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
-      "buttonType": "SIMPLE",
-      "iconName": "refresh",
-      "id": "groupButtonzd519vjc05",
-      "index": 1,
-      "isDisabled": false,
-      "isSeparator": false,
-      "isVisible": true,
-      "itemType": "BUTTON",
-      "label": "Shop Products",
-      "menuItems": {},
-      "onClick": "{{GetShopProducts.run()}}",
+      "onClick": "",
       "placement": "START",
       "variant": "filled",
       "widgetId": "pnrcxpxcfa"
