@@ -43,13 +43,14 @@
     "created_at",
     "created_at_de",
     "variant_id",
-    "id"
+    "id",
+    "competitor_handle"
   ],
-  "columnUpdatedAt": 1791181664932,
+  "columnUpdatedAt": 1791201882240,
   "columnWidthMap": {
     "barcode": 163,
     "barcodes": 158,
-    "competitor_shop_url": 204,
+    "competitor_shop_url": 319,
     "competitor_title": 408,
     "content": 117,
     "created_at": 251,
@@ -60,6 +61,7 @@
     "margin_percent": 166,
     "price": 86,
     "quantity": 112,
+    "ranking": 113,
     "shop_quantity": 106.00000000000001,
     "shopify_title": 462,
     "status": 94,
@@ -127,6 +129,12 @@
     },
     {
       "key": "primaryColumns.created_at_de.computedValue"
+    },
+    {
+      "key": "primaryColumns.competitor_handle.computedValue"
+    },
+    {
+      "key": "primaryColumns.competitor_title.displayText"
     }
   ],
   "dynamicPropertyPathList": [
@@ -166,6 +174,40 @@
   "parentRowSpace": 10,
   "primaryColumnId": "sku",
   "primaryColumns": {
+    "competitor_handle": {
+      "alias": "competitor_handle",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "",
+      "columnType": "url",
+      "computedValue": "{{(() => { const tableData = TableMatchScores.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"competitor_handle\"])) : competitor_handle })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "",
+      "horizontalAlignment": "LEFT",
+      "id": "competitor_handle",
+      "index": 11,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": false,
+      "label": "competitor_handle",
+      "notation": "standard",
+      "originalId": "competitor_handle",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "0.875rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "TOP",
+      "width": 150
+    },
     "competitor_id": {
       "alias": "competitor_id",
       "allowCellWrapping": false,
@@ -263,10 +305,11 @@
       "alias": "competitor_title",
       "allowCellWrapping": false,
       "allowSameOptionsInNewRow": true,
-      "columnType": "text",
-      "computedValue": "{{(() => { const tableData = TableMatchScores.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"competitor_title\"])) : competitor_title })()}}",
+      "columnType": "url",
+      "computedValue": "{{(() => { const tableData = TableMatchScores.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"competitor_shop_url\"] + \"/products/\" + currentRow[\"competitor_handle\"]\n)) : currentRow[\"competitor_shop_url\"] + \"/products/\" + currentRow[\"competitor_handle\"]\n })()}}",
       "currencyCode": "USD",
       "decimals": 0,
+      "displayText": "{{(() => { const tableData = TableMatchScores.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"competitor_title\"])) : currentRow[\"competitor_title\"] })()}}",
       "enableFilter": true,
       "enableSort": true,
       "horizontalAlignment": "LEFT",
