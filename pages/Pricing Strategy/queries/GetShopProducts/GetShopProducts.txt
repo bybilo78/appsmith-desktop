@@ -17,12 +17,18 @@ SELECT
     p.price,
 
     -- Eigene Marge
-    ROUND(p.price - p.unit_cost, 2) AS margin_eur,
+		ROUND(
+				(p.price / 1.19) - p.unit_cost,
+				2
+		) AS margin_eur,
 
-    ROUND(
-        ((p.price - p.unit_cost) / NULLIF(p.price, 0)) * 100,
-        2
-    ) AS margin_percent,
+		ROUND(
+				(
+						((p.price / 1.19) - p.unit_cost)
+						/ NULLIF((p.price / 1.19), 0)
+				) * 100,
+				2
+		) AS margin_percent,
 
     -- Competitor Price Analysis
     cpa.match_count,
