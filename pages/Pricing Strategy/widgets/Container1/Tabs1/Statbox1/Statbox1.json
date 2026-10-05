@@ -78,7 +78,7 @@
   "positioning": "fixed",
   "renderMode": "CANVAS",
   "responsiveBehavior": "fill",
-  "rightColumn": 6,
+  "rightColumn": 7,
   "shouldScrollContents": true,
   "topRow": 4,
   "type": "STATBOX_WIDGET",

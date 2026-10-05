@@ -34,10 +34,10 @@
   "columnOrder": [
     "created_at_de",
     "status",
-    "created_at",
-    "service",
     "action",
-    "message"
+    "message",
+    "created_at",
+    "service"
   ],
   "columnUpdatedAt": 1790933279275,
   "columnWidthMap": {

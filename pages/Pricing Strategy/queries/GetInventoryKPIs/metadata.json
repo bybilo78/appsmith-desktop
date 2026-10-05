@@ -5,7 +5,7 @@
   "pluginType": "DB",
   "unpublishedAction": {
     "actionConfiguration": {
-      "body": "SELECT    \n    COUNT(DISTINCT variant_id) FILTER (WHERE status = 'ACTIVE') AS active,\n    COUNT(DISTINCT variant_id) FILTER (WHERE status = 'DRAFT') AS draft,\n    COUNT(DISTINCT variant_id) FILTER (WHERE status = 'ARCHIVED') AS archive,    \n    COUNT(DISTINCT variant_id) AS shop_variants   \n  \nFROM public.\"products\" p;",
+      "body": "SELECT    \n    COUNT(DISTINCT variant_id) FILTER (WHERE status = 'ACTIVE') AS active,\n    COUNT(DISTINCT variant_id) FILTER (WHERE status = 'DRAFT') AS draft,\n    COUNT(DISTINCT variant_id) FILTER (WHERE status = 'ARCHIVED') AS archive,\n    COUNT(DISTINCT variant_id) AS shop_variants,\n\n    -- Aktive Varianten mit mindestens einem Competitor-Match\n    COUNT(DISTINCT variant_id) FILTER (\n        WHERE status = 'ACTIVE'\n        AND EXISTS (\n            SELECT 1\n            FROM public.competitor_match_scores cms\n            WHERE cms.variant_id = p.variant_id\n        )\n    ) AS active_with_competitor_match,\n\n    -- Aktive Varianten ohne Competitor-Match\n    COUNT(DISTINCT variant_id) FILTER (\n        WHERE status = 'ACTIVE'\n        AND NOT EXISTS (\n            SELECT 1\n            FROM public.competitor_match_scores cms\n            WHERE cms.variant_id = p.variant_id\n        )\n    ) AS active_without_competitor_match\n\nFROM public.\"products\" p;",
       "encodeParamsToggle": true,
       "paginationType": "NONE",
       "pluginSpecifiedTemplates": [

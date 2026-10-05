@@ -1,6 +1,6 @@
 {
   "animateLoading": true,
-  "backgroundColor": "white",
+  "backgroundColor": "{{\n  GetInventoryKPIs.data[0].active_without_competitor_match > 0\n    ? \"#FDECEC\"\n    : \"#EAF7EE\"\n}}",
   "borderColor": "#E0DEDE",
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
   "borderWidth": "1",
@@ -38,7 +38,7 @@
       "mobileTopRow": 0,
       "needsErrorInfo": false,
       "parentColumnSpace": 1,
-      "parentId": "0lxnsborhn",
+      "parentId": "zfoalas26u",
       "parentRowSpace": 1,
       "renderMode": "CANVAS",
       "responsiveBehavior": "fill",
@@ -46,23 +46,31 @@
       "topRow": 0,
       "type": "CANVAS_WIDGET",
       "version": 1,
-      "widgetId": "2hy751unsp",
-      "widgetName": "Canvas7Copy"
+      "widgetId": "4mndrc5ivh",
+      "widgetName": "Canvas7Copy2"
     }
   ],
   "dynamicBindingPathList": [
     {
       "key": "borderRadius"
+    },
+    {
+      "key": "backgroundColor"
     }
   ],
   "dynamicHeight": "AUTO_HEIGHT",
+  "dynamicPropertyPathList": [
+    {
+      "key": "backgroundColor"
+    }
+  ],
   "dynamicTriggerPathList": [],
   "flexVerticalAlignment": "stretch",
   "isCanvas": true,
   "isLoading": false,
   "isVisible": true,
   "key": "xhl6q663aa",
-  "leftColumn": 0,
+  "leftColumn": 14,
   "maxDynamicHeight": 9000,
   "minDynamicHeight": 10,
   "mobileBottomRow": 14,
@@ -78,10 +86,10 @@
   "positioning": "fixed",
   "renderMode": "CANVAS",
   "responsiveBehavior": "fill",
-  "rightColumn": 7,
+  "rightColumn": 21,
   "shouldScrollContents": true,
   "topRow": 18,
   "type": "STATBOX_WIDGET",
-  "widgetId": "0lxnsborhn",
-  "widgetName": "Statbox2"
+  "widgetId": "zfoalas26u",
+  "widgetName": "Statbox6"
 }
