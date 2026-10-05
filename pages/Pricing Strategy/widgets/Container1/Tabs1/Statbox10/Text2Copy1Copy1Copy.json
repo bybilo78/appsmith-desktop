@@ -36,18 +36,18 @@
   "originalBottomRow": 8,
   "originalTopRow": 4,
   "overflow": "NONE",
-  "parentId": "ezjoxihv38",
+  "parentId": "iewkrqv76o",
   "renderMode": "CANVAS",
   "responsiveBehavior": "fill",
   "rightColumn": 37,
   "shouldTruncate": false,
-  "text": "{{ GetPricingKPIs.data[0].active_with_more_than_2_valid_matches }}",
+  "text": "{{ GetPricingKPIs.data[0].valid_match_2 }}",
   "textAlign": "LEFT",
   "textColor": "#231F20",
   "topRow": 4,
   "truncateButtonColor": "{{appsmith.theme.colors.primaryColor}}",
   "type": "TEXT_WIDGET",
   "version": 1,
-  "widgetId": "9q13lwrcv4",
-  "widgetName": "Text2Copy1Copy2"
+  "widgetId": "tmhn0b760c",
+  "widgetName": "Text2Copy1Copy1Copy"
 }

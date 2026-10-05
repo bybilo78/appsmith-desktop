@@ -1,6 +1,6 @@
 {
   "animateLoading": true,
-  "backgroundColor": "white",
+  "backgroundColor": "{{\n  GetPricingKPIs.data[0].invalid_matches > 0\n    ? \"#FDECEC\"\n    : \"#EAF7EE\"\n}}",
   "borderColor": "#E0DEDE",
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
   "borderWidth": "1",
@@ -38,7 +38,7 @@
       "mobileTopRow": 0,
       "needsErrorInfo": false,
       "parentColumnSpace": 1,
-      "parentId": "437kflowc1",
+      "parentId": "3ohxq1kjkx",
       "parentRowSpace": 1,
       "renderMode": "CANVAS",
       "responsiveBehavior": "fill",
@@ -46,16 +46,24 @@
       "topRow": 0,
       "type": "CANVAS_WIDGET",
       "version": 1,
-      "widgetId": "5qj9jip99u",
-      "widgetName": "Canvas7Copy1Copy1"
+      "widgetId": "ezjoxihv38",
+      "widgetName": "Canvas7Copy1Copy2"
     }
   ],
   "dynamicBindingPathList": [
     {
       "key": "borderRadius"
+    },
+    {
+      "key": "backgroundColor"
     }
   ],
   "dynamicHeight": "AUTO_HEIGHT",
+  "dynamicPropertyPathList": [
+    {
+      "key": "backgroundColor"
+    }
+  ],
   "dynamicTriggerPathList": [],
   "flexVerticalAlignment": "stretch",
   "isCanvas": true,
@@ -82,6 +90,6 @@
   "shouldScrollContents": true,
   "topRow": 18,
   "type": "STATBOX_WIDGET",
-  "widgetId": "437kflowc1",
-  "widgetName": "Statbox5Copy1"
+  "widgetId": "3ohxq1kjkx",
+  "widgetName": "Statbox8"
 }

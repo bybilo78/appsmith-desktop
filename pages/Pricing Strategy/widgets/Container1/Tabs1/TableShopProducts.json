@@ -62,7 +62,7 @@
     "content",
     "variant_id"
   ],
-  "columnUpdatedAt": 1791181596458,
+  "columnUpdatedAt": 1791224808967,
   "columnWidthMap": {
     "barcode": 163,
     "barcodes": 158,
@@ -812,7 +812,7 @@
       "isDiscardVisible": true,
       "isEditable": false,
       "isSaveVisible": true,
-      "isVisible": false,
+      "isVisible": true,
       "label": "match_count",
       "notation": "standard",
       "originalId": "match_count",

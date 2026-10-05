@@ -41,7 +41,7 @@
   "responsiveBehavior": "fill",
   "rightColumn": 37,
   "shouldTruncate": false,
-  "text": "{{ GetPricingKPIs.data[0].active_with_valid_match }}",
+  "text": "{{ GetPricingKPIs.data[0].match_count }}",
   "textAlign": "LEFT",
   "textColor": "#231F20",
   "topRow": 4,
