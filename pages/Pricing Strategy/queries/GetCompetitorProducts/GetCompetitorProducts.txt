@@ -1,7 +1,0 @@
-SELECT 
-	shop_url,
-	embedding_text,
-	price
-
-FROM public."competitor_products" 
-LIMIT 10;

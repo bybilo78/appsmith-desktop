@@ -1,11 +1,11 @@
 {
-  "gitSyncId": "6aab83e91270770ca42ebfb6_85c8fe53-3abc-4f04-b773-f4b120d1bf8c",
+  "gitSyncId": "6aab83e91270770ca42ebfb6_bb34eca6-e743-4bff-aba6-319e4977e265",
   "id": "Pricing Strategy_GetCompetitorPriceAnalysis",
   "pluginId": "postgres-plugin",
   "pluginType": "DB",
   "unpublishedAction": {
     "actionConfiguration": {
-      "body": "SELECT * FROM public.\"competitor_price_analysis\";",
+      "body": "SELECT\n\n    -- Alle Varianten\n    COUNT(DISTINCT p.variant_id) AS variants,\n\n    -- Status\n    COUNT(DISTINCT p.variant_id) FILTER (\n        WHERE p.status = 'ACTIVE'\n    ) AS active,\n\n    COUNT(DISTINCT p.variant_id) FILTER (\n        WHERE p.status = 'DRAFT'\n    ) AS draft,\n\n    COUNT(DISTINCT p.variant_id) FILTER (\n        WHERE p.status = 'ARCHIVED'\n    ) AS archive,\n\n\n    -- ACTIVE: Match vorhanden\n    COUNT(DISTINCT p.variant_id) FILTER (\n        WHERE p.status = 'ACTIVE'\n        AND EXISTS (\n            SELECT 1\n            FROM public.competitor_match_scores cms\n            WHERE cms.variant_id = p.variant_id\n        )\n    ) AS match_count,\n\t\t\n\t\t-- ACTIVE: Matches vorhanden, aber kein einziger gültiger Match\n\t\tCOUNT(DISTINCT p.variant_id) FILTER (\n\t\t\t\tWHERE p.status = 'ACTIVE'\n\t\t\t\tAND EXISTS (\n\t\t\t\t\t\tSELECT 1\n\t\t\t\t\t\tFROM public.competitor_price_analysis cpa\n\t\t\t\t\t\tWHERE cpa.variant_id = p.variant_id\n\t\t\t\t\t\t\tAND cpa.valid_match_count = 0\n\t\t\t\t)\n\t\t) AS invalid_matches,\n\n\n    -- ACTIVE: kein Eintrag in competitor_price_analysis\n    COUNT(DISTINCT p.variant_id) FILTER (\n        WHERE p.status = 'ACTIVE'\n        AND NOT EXISTS (\n            SELECT 1\n            FROM public.competitor_price_analysis cpa\n            WHERE cpa.variant_id = p.variant_id\n        )\n    ) AS no_competitor,\n\n\n    -- ACTIVE: mindestens 1 gültiger Match\n    COUNT(DISTINCT p.variant_id) FILTER (\n        WHERE p.status = 'ACTIVE'\n        AND EXISTS (\n            SELECT 1\n            FROM public.competitor_price_analysis cpa\n            WHERE cpa.variant_id = p.variant_id\n              AND cpa.valid_match_count > 0\n        )\n    ) AS valid_matches,\n\n\n    -- ACTIVE: genau 1 gültiger Competitor\n    COUNT(DISTINCT p.variant_id) FILTER (\n        WHERE p.status = 'ACTIVE'\n        AND EXISTS (\n            SELECT 1\n            FROM public.competitor_price_analysis cpa\n            WHERE cpa.variant_id = p.variant_id\n              AND cpa.valid_match_count = 1\n        )\n    ) AS valid_match_1,\n\n\n    -- ACTIVE: genau 2 gültige Competitors\n    COUNT(DISTINCT p.variant_id) FILTER (\n        WHERE p.status = 'ACTIVE'\n        AND EXISTS (\n            SELECT 1\n            FROM public.competitor_price_analysis cpa\n            WHERE cpa.variant_id = p.variant_id\n              AND cpa.valid_match_count = 2\n        )\n    ) AS valid_match_2,\n\n\n    -- ACTIVE: mehr als 2 gültige Competitors\n    COUNT(DISTINCT p.variant_id) FILTER (\n        WHERE p.status = 'ACTIVE'\n        AND EXISTS (\n            SELECT 1\n            FROM public.competitor_price_analysis cpa\n            WHERE cpa.variant_id = p.variant_id\n              AND cpa.valid_match_count > 2\n        )\n    ) AS valid_match_more_than_2\n\nFROM public.products p;",
       "encodeParamsToggle": true,
       "paginationType": "NONE",
       "pluginSpecifiedTemplates": [
@@ -25,7 +25,7 @@
     "dynamicBindingPathList": [],
     "name": "GetCompetitorPriceAnalysis",
     "pageId": "Pricing Strategy",
-    "runBehaviour": "MANUAL",
+    "runBehaviour": "AUTOMATIC",
     "userSetOnLoad": false
   }
 }

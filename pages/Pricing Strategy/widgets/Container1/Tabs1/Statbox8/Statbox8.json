@@ -1,6 +1,6 @@
 {
   "animateLoading": true,
-  "backgroundColor": "{{\n  GetPricingKPIs.data[0].invalid_matches > 0\n    ? \"#FDECEC\"\n    : \"#EAF7EE\"\n}}",
+  "backgroundColor": "{{\n  GetCompetitorPriceAnalysis.data[0].invalid_matches > 0\n    ? \"#FDECEC\"\n    : \"#EAF7EE\"\n}}",
   "borderColor": "#E0DEDE",
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
   "borderWidth": "1",

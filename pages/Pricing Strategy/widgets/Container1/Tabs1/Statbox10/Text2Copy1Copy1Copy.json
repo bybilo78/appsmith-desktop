@@ -41,7 +41,7 @@
   "responsiveBehavior": "fill",
   "rightColumn": 37,
   "shouldTruncate": false,
-  "text": "{{ GetPricingKPIs.data[0].valid_match_2 }}",
+  "text": "{{ GetCompetitorPriceAnalysis.data[0].valid_match_2 }}",
   "textAlign": "LEFT",
   "textColor": "#231F20",
   "topRow": 4,

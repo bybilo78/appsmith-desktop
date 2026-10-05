@@ -43,12 +43,10 @@
     "ranking",
     "created_at_de",
     "competitor_id",
-    "created_at",
     "variant_id",
-    "id",
     "cp_handle"
   ],
-  "columnUpdatedAt": 1791208266165,
+  "columnUpdatedAt": 1791229355298,
   "columnWidthMap": {
     "barcode": 163,
     "barcodes": 158,
@@ -106,9 +104,6 @@
       "key": "primaryColumns.variant_id.computedValue"
     },
     {
-      "key": "primaryColumns.id.computedValue"
-    },
-    {
       "key": "primaryColumns.competitor_id.computedValue"
     },
     {
@@ -116,9 +111,6 @@
     },
     {
       "key": "primaryColumns.ranking.computedValue"
-    },
-    {
-      "key": "primaryColumns.created_at.computedValue"
     },
     {
       "key": "primaryColumns.created_at_de.computedValue"
@@ -390,37 +382,6 @@
       "verticalAlignment": "TOP",
       "width": 150
     },
-    "created_at": {
-      "alias": "created_at",
-      "allowCellWrapping": false,
-      "allowSameOptionsInNewRow": true,
-      "columnType": "text",
-      "computedValue": "{{(() => { const tableData = TableMatchScores.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"created_at\"])) : created_at })()}}",
-      "currencyCode": "USD",
-      "decimals": 0,
-      "enableFilter": true,
-      "enableSort": true,
-      "horizontalAlignment": "LEFT",
-      "id": "created_at",
-      "index": 10,
-      "isCellEditable": false,
-      "isCellVisible": true,
-      "isDerived": false,
-      "isDisabled": false,
-      "isDiscardVisible": true,
-      "isEditable": false,
-      "isSaveVisible": true,
-      "isVisible": false,
-      "label": "created_at",
-      "notation": "standard",
-      "originalId": "created_at",
-      "sticky": "",
-      "textSize": "0.875rem",
-      "thousandSeparator": true,
-      "validation": {},
-      "verticalAlignment": "TOP",
-      "width": 150
-    },
     "created_at_de": {
       "alias": "created_at_de",
       "allowCellWrapping": false,
@@ -445,37 +406,6 @@
       "label": "created_at_de",
       "notation": "standard",
       "originalId": "created_at_de",
-      "sticky": "",
-      "textSize": "0.875rem",
-      "thousandSeparator": true,
-      "validation": {},
-      "verticalAlignment": "TOP",
-      "width": 150
-    },
-    "id": {
-      "alias": "id",
-      "allowCellWrapping": false,
-      "allowSameOptionsInNewRow": true,
-      "columnType": "number",
-      "computedValue": "{{(() => { const tableData = TableMatchScores.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"id\"])) : id })()}}",
-      "currencyCode": "USD",
-      "decimals": 0,
-      "enableFilter": true,
-      "enableSort": true,
-      "horizontalAlignment": "LEFT",
-      "id": "id",
-      "index": 0,
-      "isCellEditable": false,
-      "isCellVisible": true,
-      "isDerived": false,
-      "isDisabled": false,
-      "isDiscardVisible": true,
-      "isEditable": false,
-      "isSaveVisible": true,
-      "isVisible": false,
-      "label": "id",
-      "notation": "standard",
-      "originalId": "id",
       "sticky": "",
       "textSize": "0.875rem",
       "thousandSeparator": true,
@@ -669,7 +599,7 @@
       "isDiscardVisible": true,
       "isEditable": false,
       "isSaveVisible": true,
-      "isVisible": false,
+      "isVisible": true,
       "label": "variant_id",
       "notation": "standard",
       "originalId": "variant_id",
@@ -686,7 +616,7 @@
   "responsiveBehavior": "fill",
   "rightColumn": 64,
   "searchKey": "",
-  "tableData": "{{\n  GetMatchScores.data.filter(row =>\n    !appsmith.store.matchScoreVariantId ||\n    String(row.variant_id) === String(appsmith.store.matchScoreVariantId)\n  )\n}}",
+  "tableData": "{{\n  GetCompetitorMatchScores.data.filter(row =>\n    !appsmith.store.matchScoreVariantId ||\n    String(row.variant_id) === String(appsmith.store.matchScoreVariantId)\n  )\n}}",
   "textSize": "0.875rem",
   "topRow": 0,
   "totalRecordsCount": 0,

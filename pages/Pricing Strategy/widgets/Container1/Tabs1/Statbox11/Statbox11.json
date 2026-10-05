@@ -1,6 +1,6 @@
 {
   "animateLoading": true,
-  "backgroundColor": "{{\n  GetPricingKPIs.data[0].valid_match_more_than_2 > 0\n    ? \"#FDECEC\"\n    : \"#EAF7EE\"\n}}",
+  "backgroundColor": "{{\n  GetCompetitorPriceAnalysis.data[0].valid_match_more_than_2 > 0\n    ? \"#FDECEC\"\n    : \"#EAF7EE\"\n}}",
   "borderColor": "#E0DEDE",
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
   "borderWidth": "1",
@@ -78,7 +78,7 @@
   "mobileRightColumn": 13,
   "mobileTopRow": 0,
   "needsErrorInfo": false,
-  "originalBottomRow": 43,
+  "originalBottomRow": 42,
   "originalTopRow": 32,
   "parentColumnSpace": 29.625,
   "parentId": "fgcxnte9z0",

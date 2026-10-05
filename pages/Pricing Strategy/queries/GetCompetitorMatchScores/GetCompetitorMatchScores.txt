@@ -1,9 +1,15 @@
 SELECT 
 		-- Shop Produkt
+		cms.variant_id,
 		p.vendor_normalized AS shop_vendor,
     p.title_normalized AS shop_title,
     p.price AS shop_price,
-    cms.*,  
+  
+		-- Match
+    cms.competitor_id,
+    cms.score,
+    cms.ranking,
+		
     -- Wettbewerber
 		cp.vendor_normalized AS cp_vendor,
     cp.title_normalized AS cp_title,
