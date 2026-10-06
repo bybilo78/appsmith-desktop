@@ -60,6 +60,27 @@ SELECT
               JOIN public.competitor_products cp
                 ON cp.handle = u.handle
           ) > 2
-    ) AS too_many_matches
+    ) AS too_many_matches,
+		
+		-- ACTIVE: Anzahl ungültiger Competitor-URLs
+		SUM(
+				CASE
+						WHEN p.status = 'ACTIVE'
+							AND p.competitor_sync_active IS NOT FALSE
+						THEN
+								GREATEST(
+										COALESCE(array_length(p.competitor_urls, 1), 0)
+										-
+										(
+												SELECT COUNT(DISTINCT cp.id)
+												FROM unnest(p.competitor_urls) AS u(handle)
+												JOIN public.competitor_products cp
+														ON cp.handle = u.handle
+										),
+										0
+								)
+						ELSE 0
+				END
+		) AS invalid_competitor_urls
 
 FROM public.products p;
