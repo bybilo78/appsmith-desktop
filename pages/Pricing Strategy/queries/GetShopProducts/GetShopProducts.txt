@@ -3,6 +3,7 @@ SELECT
     p.competitor_sync_active,
     p.variant_id,
     p.vendor,
+		p.type,
     p.title,
     p.content_amount,
     p.content_unit,
@@ -66,4 +67,5 @@ WHERE
 
 ORDER BY
     p.vendor,
+		p.title,
     p.title;
