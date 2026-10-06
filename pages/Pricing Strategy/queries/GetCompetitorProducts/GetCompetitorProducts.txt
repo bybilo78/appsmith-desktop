@@ -1,0 +1,12 @@
+SELECT * 
+FROM public."competitor_products" 
+
+WHERE  
+		(
+        '{{SelectVendor.selectedOptionValue}}' = ''
+        OR vendor_normalized = '{{SelectVendor.selectedOptionValue}}'
+    )    
+
+ORDER BY
+    vendor_normalized,
+    title;

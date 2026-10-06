@@ -5,12 +5,12 @@
   "borderColor": "#E0DEDE",
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
   "borderWidth": "0",
-  "bottomRow": 118,
+  "bottomRow": 110,
   "boxShadow": "none",
   "children": [
     {
       "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-      "bottomRow": 1020,
+      "bottomRow": 950,
       "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
       "canExtend": true,
       "detachFromLayout": true,
@@ -58,7 +58,7 @@
     },
     {
       "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-      "bottomRow": 1020,
+      "bottomRow": 1000,
       "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
       "canExtend": false,
       "containerStyle": "none",
@@ -106,7 +106,7 @@
     },
     {
       "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-      "bottomRow": 1020,
+      "bottomRow": 950,
       "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
       "canExtend": false,
       "containerStyle": "none",
@@ -148,6 +148,51 @@
       "version": 1,
       "widgetId": "vcv1d57bk5",
       "widgetName": "Canvas10"
+    },
+    {
+      "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+      "bottomRow": 940,
+      "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
+      "canExtend": false,
+      "containerStyle": "none",
+      "detachFromLayout": true,
+      "dynamicBindingPathList": [
+        {
+          "key": "borderRadius"
+        },
+        {
+          "key": "boxShadow"
+        }
+      ],
+      "dynamicHeight": "AUTO_HEIGHT",
+      "dynamicTriggerPathList": [],
+      "flexLayers": [],
+      "isLoading": false,
+      "isVisible": true,
+      "key": "eruz7grump",
+      "leftColumn": 0,
+      "maxDynamicHeight": 9000,
+      "minDynamicHeight": 4,
+      "minHeight": 1060,
+      "minWidth": 450,
+      "mobileBottomRow": 1061,
+      "mobileLeftColumn": 0,
+      "mobileRightColumn": 1936,
+      "mobileTopRow": 1,
+      "needsErrorInfo": false,
+      "parentColumnSpace": 1,
+      "parentId": "99v1mpjsb0",
+      "parentRowSpace": 1,
+      "renderMode": "CANVAS",
+      "responsiveBehavior": "fill",
+      "rightColumn": 1936,
+      "tabId": "tabmclbbz0dgu",
+      "tabName": "Competitor Products",
+      "topRow": 1,
+      "type": "CANVAS_WIDGET",
+      "version": 1,
+      "widgetId": "y9d5xqh2n5",
+      "widgetName": "Canvas11"
     }
   ],
   "defaultTab": "Dashboard",
@@ -175,7 +220,7 @@
   "mobileRightColumn": 13,
   "mobileTopRow": 19,
   "needsErrorInfo": false,
-  "originalBottomRow": 118,
+  "originalBottomRow": 110,
   "originalTopRow": 12,
   "parentColumnSpace": 30.25,
   "parentId": "fxnek2stux",
@@ -194,6 +239,13 @@
       "label": "Shop Products",
       "positioning": "vertical",
       "widgetId": "siewbv4g2b"
+    },
+    "tabmclbbz0dgu": {
+      "id": "tabmclbbz0dgu",
+      "index": 3,
+      "isVisible": true,
+      "label": "Competitor Products",
+      "widgetId": "y9d5xqh2n5"
     },
     "tabpqtsrw6kua": {
       "id": "tabpqtsrw6kua",

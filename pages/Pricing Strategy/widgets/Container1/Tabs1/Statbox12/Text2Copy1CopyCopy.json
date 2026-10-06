@@ -41,7 +41,7 @@
   "responsiveBehavior": "fill",
   "rightColumn": 37,
   "shouldTruncate": false,
-  "text": "{{ GetCompetitorPriceAnalysis.competitor_sync_disabled }}",
+  "text": "{{ GetCompetitorPriceAnalysis.data[0].competitor_sync_disabled }}",
   "textAlign": "LEFT",
   "textColor": "#231F20",
   "topRow": 4,

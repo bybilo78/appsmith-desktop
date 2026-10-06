@@ -29,7 +29,7 @@
     }
   ],
   "dynamicTriggerPathList": [],
-  "isDisabled": "{{ Tabs1.selectedTab !== \"Shop Products\" && Tabs1.selectedTab !== \"Match Scores\" }}",
+  "isDisabled": "{{ Tabs1.selectedTab !== \"Shop Products\" && Tabs1.selectedTab !== \"Competitor Products\" }}",
   "isFilterable": true,
   "isLoading": false,
   "isRequired": false,
