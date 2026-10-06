@@ -25,7 +25,7 @@
     "dynamicBindingPathList": [],
     "name": "GetCompetitorMatchScores",
     "pageId": "Pricing Strategy",
-    "runBehaviour": "AUTOMATIC",
+    "runBehaviour": "MANUAL",
     "userSetOnLoad": false
   }
 }

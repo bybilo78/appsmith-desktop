@@ -1,13 +1,15 @@
 SELECT 
     p.status,
-		p.competitor_sync_active,
+    p.competitor_sync_active,
     p.variant_id,
     p.vendor,
     p.title,
-		p.content_amount,
-		p.content_unit,
-		p.barcodes,
-		CONCAT(p.content_amount, ' ', p.content_unit) AS content,		
+    p.content_amount,
+    p.content_unit,
+    p.barcodes,
+    p.competitor_urls,
+
+    CONCAT(p.content_amount, ' ', p.content_unit) AS content,
 
     CASE
         WHEN p.variant = 'Default Title' THEN ''
@@ -18,42 +20,33 @@ SELECT
     p.price,
 
     -- Eigene Marge
-		ROUND(
-				(p.price / 1.19) - p.unit_cost,
-				2
-		) AS margin_eur,
+    ROUND(
+        (p.price / 1.19) - p.unit_cost,
+        2
+    ) AS margin_eur,
 
-		ROUND(
-				(
-						((p.price / 1.19) - p.unit_cost)
-						/ NULLIF((p.price / 1.19), 0)
-				) * 100,
-				2
-		) AS margin_percent,
+    ROUND(
+        (
+            ((p.price / 1.19) - p.unit_cost)
+            / NULLIF((p.price / 1.19), 0)
+        ) * 100,
+        2
+    ) AS margin_percent,
 
-    -- Competitor Price Analysis
-    cpa.match_count,
-    cpa.valid_match_count,
-    cpa.competitor_min_price,
-    cpa.competitor_average_price,
-    cpa.competitor_median_price,
-    cpa.competitor_max_price,
+    -- Anzahl gefundener Wettbewerber
+    (
+        SELECT COUNT(DISTINCT cp.id)
+        FROM unnest(p.competitor_urls) AS u(url)
+        JOIN public.competitor_products cp
+            ON split_part(cp.handle, CHR(63), 1) =
+               split_part(
+                   split_part(u.url, '/products/', 2),
+                   CHR(63),
+                   1
+               )
+    ) AS competitors
 
-    -- Pricing Strategy
-    cpa.reference_price,
-    cpa.target_margin,
-    cpa.minimum_price,
-    cpa.target_price,
-    cpa.final_price,
-    cpa.final_action,
-    cpa.final_price_change,
-    cpa.final_price_change_percent,
-    cpa.price_strategy
-
-FROM public."products" p
-
-LEFT JOIN public."competitor_price_analysis" cpa
-    ON cpa.variant_id = p.variant_id
+FROM public.products p
 
 WHERE
     (

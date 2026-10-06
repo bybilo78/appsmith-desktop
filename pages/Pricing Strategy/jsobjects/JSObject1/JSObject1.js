@@ -25,5 +25,20 @@ export default {
 		this.loadCurrentRowToForm();
 
 		storeValue("matchScoreVariantId", row.variant_id);
-	}
+	},
+	
+filterCurrentRowToCompetitorProducts () {
+    const row = TableShopProducts.triggeredRow;
+
+    this.loadCurrentRowToForm();
+
+    const handles = (row.competitor_urls || [])
+        .map(url => {
+            const match = url.match(/\/products\/([^?]+)/);
+            return match ? match[1] : null;
+        })
+        .filter(Boolean);
+
+    storeValue("competitorHandles", handles);
+}
 }
