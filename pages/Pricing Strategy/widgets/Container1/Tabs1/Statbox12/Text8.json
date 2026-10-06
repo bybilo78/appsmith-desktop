@@ -41,7 +41,7 @@
   "responsiveBehavior": "fill",
   "rightColumn": 37,
   "shouldTruncate": false,
-  "text": "{{ GetCompetitorPriceAnalysis.data[0].competitor_sync_disabled }}",
+  "text": "{{ GetPricingKPIs.data[0].competitor_sync_disabled }}",
   "textAlign": "LEFT",
   "textColor": "#231F20",
   "topRow": 4,
@@ -49,5 +49,5 @@
   "type": "TEXT_WIDGET",
   "version": 1,
   "widgetId": "ej2ezuubqd",
-  "widgetName": "Text2Copy1CopyCopy"
+  "widgetName": "Text8"
 }

@@ -109,8 +109,8 @@
           "index": 3,
           "isDisabled": false,
           "isVisible": true,
-          "label": "Match Scores",
-          "onClick": "{{GetCompetitorMatchScores.run()}}",
+          "label": "Competitor Products",
+          "onClick": "{{GetCompetitorProducts.run()}}",
           "widgetId": "eguh2grkqi"
         },
         "menuItemuthxzcy2rp": {
@@ -119,11 +119,11 @@
           "isDisabled": false,
           "isVisible": true,
           "label": "KPI",
-          "onClick": "{{GetCompetitorPriceAnalysis.run()}}",
+          "onClick": "{{GetPricingKPIs.run()}}",
           "widgetId": "bbw3fa7ka7"
         }
       },
-      "onClick": "{{GetCompetitorPriceAnalysis.run()}}",
+      "onClick": "{{GetPricingKPIs.run()}}",
       "placement": "START",
       "variant": "filled",
       "widgetId": "z7g9rwi4kn"
