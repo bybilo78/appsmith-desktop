@@ -30,14 +30,9 @@ SELECT
           AND p.competitor_sync_active IS NOT FALSE
           AND EXISTS (
               SELECT 1
-              FROM unnest(p.competitor_urls) AS u(url)
+              FROM unnest(p.competitor_urls) AS u(handle)
               JOIN public.competitor_products cp
-                ON split_part(cp.handle, CHR(63), 1) =
-                   split_part(
-                       split_part(u.url, '/products/', 2),
-                       CHR(63),
-                       1
-                   )
+                ON cp.handle = u.handle
           )
     ) AS handle_match,
 
@@ -48,31 +43,22 @@ SELECT
           AND p.competitor_sync_active IS NOT FALSE
           AND NOT EXISTS (
               SELECT 1
-              FROM unnest(p.competitor_urls) AS u(url)
+              FROM unnest(p.competitor_urls) AS u(handle)
               JOIN public.competitor_products cp
-                ON split_part(cp.handle, CHR(63), 1) =
-                   split_part(
-                       split_part(u.url, '/products/', 2),
-                       CHR(63),
-                       1
-                   )
+                ON cp.handle = u.handle
           )
     ) AS no_handle_match,
-		
-		-- ACTIVE: mehr als 2 valide Competitor-Matches
+
+
+    -- ACTIVE: mehr als 2 valide Competitor-Matches
     COUNT(DISTINCT p.variant_id) FILTER (
         WHERE p.status = 'ACTIVE'
           AND p.competitor_sync_active IS NOT FALSE
           AND (
               SELECT COUNT(DISTINCT cp.id)
-              FROM unnest(p.competitor_urls) AS u(url)
+              FROM unnest(p.competitor_urls) AS u(handle)
               JOIN public.competitor_products cp
-                ON split_part(cp.handle, CHR(63), 1) =
-                   split_part(
-                       split_part(u.url, '/products/', 2),
-                       CHR(63),
-                       1
-                   )
+                ON cp.handle = u.handle
           ) > 2
     ) AS too_many_matches
 

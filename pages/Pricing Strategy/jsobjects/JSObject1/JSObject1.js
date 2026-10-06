@@ -33,10 +33,6 @@ filterCurrentRowToCompetitorProducts () {
     this.loadCurrentRowToForm();
 
     const handles = (row.competitor_urls || [])
-        .map(url => {
-            const match = url.match(/\/products\/([^?]+)/);
-            return match ? match[1] : null;
-        })
         .filter(Boolean);
 
     storeValue("competitorHandles", handles);
