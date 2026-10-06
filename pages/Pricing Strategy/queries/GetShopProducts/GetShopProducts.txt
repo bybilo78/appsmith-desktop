@@ -3,7 +3,7 @@ SELECT
     p.competitor_sync_active,
     p.variant_id,
     p.vendor,
-		p.type,
+    p.type,
     p.title,
     p.content_amount,
     p.content_unit,
@@ -34,6 +34,23 @@ SELECT
         2
     ) AS margin_percent,
 
+    -- Competitor Pricing
+    cpa.match_count,
+    cpa.competitor_min_price,
+    cpa.competitor_average_price,
+    cpa.competitor_median_price,
+    cpa.competitor_max_price,
+    cpa.reference_price,
+
+    cpa.target_margin,
+    cpa.minimum_price,
+    cpa.target_price,
+
+    cpa.final_price,
+    cpa.final_action,
+    cpa.final_price_change,
+    cpa.final_price_change_percent,
+
     -- Anzahl gefundener Wettbewerber
     (
         SELECT COUNT(DISTINCT cp.id)
@@ -48,6 +65,9 @@ SELECT
     ) AS competitors
 
 FROM public.products p
+
+LEFT JOIN public.competitor_price_analysis cpa
+    ON cpa.variant_id = p.variant_id
 
 WHERE
     (
@@ -67,5 +87,4 @@ WHERE
 
 ORDER BY
     p.vendor,
-		p.title,
     p.title;
