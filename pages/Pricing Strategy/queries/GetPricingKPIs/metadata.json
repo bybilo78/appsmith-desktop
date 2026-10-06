@@ -1,11 +1,11 @@
 {
-  "gitSyncId": "6aab83e91270770ca42ebfb6_bb34eca6-e743-4bff-aba6-319e4977e265",
+  "gitSyncId": "6aab83e91270770ca42ebfb6_0d1d0576-212d-46f6-acdf-677dc11550d9",
   "id": "Pricing Strategy_GetPricingKPIs",
   "pluginId": "postgres-plugin",
   "pluginType": "DB",
   "unpublishedAction": {
     "actionConfiguration": {
-      "body": "SELECT\n\n    -- Alle Varianten\n    COUNT(DISTINCT p.variant_id) AS variants,\n\n    -- Status\n    COUNT(DISTINCT p.variant_id) FILTER (\n        WHERE p.status = 'ACTIVE'\n    ) AS active,\n\n    COUNT(DISTINCT p.variant_id) FILTER (\n        WHERE p.status = 'DRAFT'\n    ) AS draft,\n\n    COUNT(DISTINCT p.variant_id) FILTER (\n        WHERE p.status = 'ARCHIVED'\n    ) AS archive,\n\n\n    -- ACTIVE: Wettbewerber-Abgleich deaktiviert\n    COUNT(DISTINCT p.variant_id) FILTER (\n        WHERE p.status = 'ACTIVE'\n          AND p.competitor_sync_active = FALSE\n    ) AS competitor_sync_disabled,\n\n\n    -- ACTIVE: Abgleich aktiv + mindestens ein valider Handle-Match\n    COUNT(DISTINCT p.variant_id) FILTER (\n        WHERE p.status = 'ACTIVE'\n          AND p.competitor_sync_active IS NOT FALSE\n          AND EXISTS (\n              SELECT 1\n              FROM unnest(p.competitor_urls) AS u(url)\n              JOIN public.competitor_products cp\n                ON split_part(cp.handle, CHR(63), 1) =\n                   split_part(\n                       split_part(u.url, '/products/', 2),\n                       CHR(63),\n                       1\n                   )\n          )\n    ) AS handle_match,\n\n\n    -- ACTIVE: Abgleich aktiv + kein valider Handle-Match\n    COUNT(DISTINCT p.variant_id) FILTER (\n        WHERE p.status = 'ACTIVE'\n          AND p.competitor_sync_active IS NOT FALSE\n          AND NOT EXISTS (\n              SELECT 1\n              FROM unnest(p.competitor_urls) AS u(url)\n              JOIN public.competitor_products cp\n                ON split_part(cp.handle, CHR(63), 1) =\n                   split_part(\n                       split_part(u.url, '/products/', 2),\n                       CHR(63),\n                       1\n                   )\n          )\n    ) AS no_handle_match\n\nFROM public.products p;",
+      "body": "SELECT\n    COUNT(DISTINCT variant_id) AS total_variants,\n\n    COUNT(DISTINCT variant_id) FILTER (\n        WHERE final_action = 'increase'\n    ) AS price_increase,\n\n    COUNT(DISTINCT variant_id) FILTER (\n        WHERE final_action = 'decrease'\n    ) AS price_decrease,\n\n    COUNT(DISTINCT variant_id) FILTER (\n        WHERE final_action = 'no_change'\n    ) AS price_no_change\n\nFROM public.competitor_price_analysis;",
       "encodeParamsToggle": true,
       "paginationType": "NONE",
       "pluginSpecifiedTemplates": [

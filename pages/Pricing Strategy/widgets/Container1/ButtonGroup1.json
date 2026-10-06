@@ -119,11 +119,11 @@
           "isDisabled": false,
           "isVisible": true,
           "label": "KPI",
-          "onClick": "{{GetPricingKPIs.run()}}",
+          "onClick": "{{GetMatchingKPIs.run();\nGetPricingKPIs.run()}}",
           "widgetId": "bbw3fa7ka7"
         }
       },
-      "onClick": "{{GetPricingKPIs.run()}}",
+      "onClick": "{{GetMatchingKPIs.run()}}",
       "placement": "START",
       "variant": "filled",
       "widgetId": "z7g9rwi4kn"
