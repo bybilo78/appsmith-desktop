@@ -1,1 +1,1 @@
-SELECT * FROM public."validation_issues" LIMIT 10;
+SELECT * FROM public."validation_issues";
