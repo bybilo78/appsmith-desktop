@@ -100,8 +100,8 @@
           "index": 1,
           "isDisabled": false,
           "isVisible": true,
-          "label": "Topic History",
-          "onClick": "{{GetTopicHistory.run()}}",
+          "label": "Validation Issues",
+          "onClick": "{{GetValidationIssues.run()}}",
           "widgetId": "4zzc1vsgy3"
         },
         "menuItemdbulvxsd1j": {
@@ -118,8 +118,8 @@
           "index": 0,
           "isDisabled": false,
           "isVisible": true,
-          "label": "KPI",
-          "onClick": "{{GetMatchingKPIs.run();\nGetPricingKPIs.run()}}",
+          "label": "Topic History",
+          "onClick": "{{GetTopicHistory.run()}}",
           "widgetId": "bbw3fa7ka7"
         }
       },
