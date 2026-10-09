@@ -359,7 +359,7 @@
   "rightColumn": 64,
   "searchKey": "",
   "serverSidePaginationEnabled": false,
-  "tableData": "{{\n\tGetSupplierProducts.data.filter(row =>\n\t\t!appsmith.store.supplierBarcodes?.length ||\n\t\tappsmith.store.supplierBarcodes.includes(row.barcode)\n\t)\n}}",
+  "tableData": "{{GetSupplierProducts.data}}",
   "textSize": "0.875rem",
   "topRow": 0,
   "totalRecordsCount": 0,

@@ -1,0 +1,57 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "alignment": "left",
+  "animateLoading": true,
+  "bottomRow": 4,
+  "boxShadow": "none",
+  "defaultOptionValue": "all",
+  "dynamicBindingPathList": [
+    {
+      "key": "accentColor"
+    }
+  ],
+  "dynamicHeight": "AUTO_HEIGHT",
+  "dynamicTriggerPathList": [],
+  "flexVerticalAlignment": "start",
+  "isDisabled": false,
+  "isInline": true,
+  "isLoading": false,
+  "isRequired": false,
+  "isVisible": true,
+  "key": "270rnerjda",
+  "label": "Filter",
+  "labelAlignment": "left",
+  "labelPosition": "Left",
+  "labelTextSize": "0.875rem",
+  "labelWidth": "3",
+  "leftColumn": 26,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "mobileBottomRow": 19,
+  "mobileLeftColumn": 29,
+  "mobileRightColumn": 49,
+  "mobileTopRow": 13,
+  "needsErrorInfo": false,
+  "options": [
+    {
+      "label": "All",
+      "value": "all"
+    },
+    {
+      "label": "Selected",
+      "value": "selected"
+    }
+  ],
+  "originalBottomRow": 4,
+  "originalTopRow": 0,
+  "parentColumnSpace": 29.9375,
+  "parentId": "fxnek2stux",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "rightColumn": 37,
+  "topRow": 0,
+  "type": "RADIO_GROUP_WIDGET",
+  "version": 1,
+  "widgetId": "hrv6pghdgx",
+  "widgetName": "RadioFilterCompetitorProducts"
+}

@@ -10,6 +10,16 @@ WHERE
         OR row_to_json(competitor_products)::text
            ILIKE '%' || '{{InputSearchCompetitorProducts.text}}' || '%'
     )
+    AND (
+        '{{RadioFilterCompetitorProducts.selectedOptionValue}}' = 'all'
+        OR handle = ANY (
+            ARRAY(
+                SELECT jsonb_array_elements_text(
+                    '{{ JSON.stringify(TableShopProducts.selectedRow.competitor_urls || []) }}'::jsonb
+                )
+            )
+        )
+    )
 ORDER BY
     vendor_normalized,
     title;

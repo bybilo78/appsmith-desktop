@@ -1,1 +1,2 @@
-SELECT * FROM public."validation_issues";
+SELECT * FROM public."validation_issues"
+WHERE service = 'competitor_analysi';

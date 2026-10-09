@@ -5,7 +5,7 @@
   "pluginType": "DB",
   "unpublishedAction": {
     "actionConfiguration": {
-      "body": "SELECT *\nFROM public.\"competitor_products\"\nWHERE\n    (\n        '{{SelectVendor.selectedOptionValue}}' = ''\n        OR vendor_normalized = '{{SelectVendor.selectedOptionValue}}'\n    )\n    AND (\n        '{{InputSearchCompetitorProducts.text}}' = ''\n        OR row_to_json(competitor_products)::text\n           ILIKE '%' || '{{InputSearchCompetitorProducts.text}}' || '%'\n    )\nORDER BY\n    vendor_normalized,\n    title;",
+      "body": "SELECT *\nFROM public.\"competitor_products\"\nWHERE\n    (\n        '{{SelectVendor.selectedOptionValue}}' = ''\n        OR vendor_normalized = '{{SelectVendor.selectedOptionValue}}'\n    )\n    AND (\n        '{{InputSearchCompetitorProducts.text}}' = ''\n        OR row_to_json(competitor_products)::text\n           ILIKE '%' || '{{InputSearchCompetitorProducts.text}}' || '%'\n    )\n    AND (\n        '{{RadioFilterCompetitorProducts.selectedOptionValue}}' = 'all'\n        OR handle = ANY (\n            ARRAY(\n                SELECT jsonb_array_elements_text(\n                    '{{ JSON.stringify(TableShopProducts.selectedRow.competitor_urls || []) }}'::jsonb\n                )\n            )\n        )\n    )\nORDER BY\n    vendor_normalized,\n    title;",
       "encodeParamsToggle": true,
       "paginationType": "NONE",
       "pluginSpecifiedTemplates": [

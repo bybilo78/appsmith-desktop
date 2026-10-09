@@ -1,11 +1,11 @@
 {
-  "gitSyncId": "6aab83e91270770ca42ebfb6_e7d216a0-68a0-4c7a-a452-681efaded6e4",
-  "id": "Pricing Strategy_GetValidationIssues",
+  "gitSyncId": "6aab83e91270770ca42ebfb6_ca9bf148-dc12-45a2-8b62-282ca6ea93a4",
+  "id": "Inventory Sync_GetValidationIssues",
   "pluginId": "postgres-plugin",
   "pluginType": "DB",
   "unpublishedAction": {
     "actionConfiguration": {
-      "body": "SELECT * FROM public.\"validation_issues\"\nWHERE service = 'competitor_analysi';",
+      "body": "SELECT * FROM public.\"validation_issues\";",
       "encodeParamsToggle": true,
       "paginationType": "NONE",
       "pluginSpecifiedTemplates": [
@@ -24,7 +24,7 @@
     },
     "dynamicBindingPathList": [],
     "name": "GetValidationIssues",
-    "pageId": "Pricing Strategy",
+    "pageId": "Inventory Sync",
     "runBehaviour": "AUTOMATIC",
     "userSetOnLoad": false
   }

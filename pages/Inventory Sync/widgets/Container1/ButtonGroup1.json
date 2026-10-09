@@ -32,19 +32,28 @@
     },
     {
       "key": "groupButtons.groupButtoneo5juefiy9.onClick"
+    },
+    {
+      "key": "groupButtons.groupButton3.menuItems.menuItembla9tetvpi.onClick"
+    },
+    {
+      "key": "groupButtons.groupButton3.menuItems.menuItemyebtxr9xqf.onClick"
+    },
+    {
+      "key": "groupButtons.groupButton3.menuItems.menuItem8w726ipgp9.onClick"
     }
   ],
   "groupButtons": {
     "groupButton3": {
       "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
-      "buttonType": "SIMPLE",
+      "buttonType": "MENU",
       "disabledWhenInvalid": false,
       "iconName": "refresh",
       "id": "groupButton3",
       "index": 0,
       "isDisabled": false,
       "isVisible": true,
-      "label": "Topic History",
+      "label": "Refresh Data",
       "menuItems": {
         "menuItem1": {
           "backgroundColor": "#FFFFFF",
@@ -56,6 +65,41 @@
           "label": "Topic History",
           "onClick": "{{GetTopicHistory.run()}}",
           "widgetId": ""
+        },
+        "menuItem104i8wxcwm": {
+          "id": "menuItem104i8wxcwm",
+          "index": 2,
+          "isDisabled": false,
+          "isVisible": true,
+          "label": "Warehouse",
+          "widgetId": "03d9fony9c"
+        },
+        "menuItem8w726ipgp9": {
+          "id": "menuItem8w726ipgp9",
+          "index": 4,
+          "isDisabled": false,
+          "isVisible": true,
+          "label": "Supplier Products",
+          "onClick": "{{GetSupplierProducts.run()}}",
+          "widgetId": "othf31zmyr"
+        },
+        "menuItembla9tetvpi": {
+          "id": "menuItembla9tetvpi",
+          "index": 1,
+          "isDisabled": false,
+          "isVisible": true,
+          "label": "Validation Issues",
+          "onClick": "{{GetWarehouse.run()}}",
+          "widgetId": "oj4nipjbc5"
+        },
+        "menuItemyebtxr9xqf": {
+          "id": "menuItemyebtxr9xqf",
+          "index": 3,
+          "isDisabled": false,
+          "isVisible": true,
+          "label": "Shop Products",
+          "onClick": "{{GetShopProducts.run()}}",
+          "widgetId": "a2jnx0doez"
         }
       },
       "onClick": "{{GetTopicHistory.run()}}",
@@ -72,7 +116,7 @@
       "isSeparator": false,
       "isVisible": true,
       "itemType": "BUTTON",
-      "label": "Supplier Products",
+      "label": "Not Implemented",
       "menuItems": {},
       "onClick": "{{GetSupplierProducts.run()}}",
       "placement": "START",
@@ -89,9 +133,9 @@
       "isSeparator": false,
       "isVisible": true,
       "itemType": "BUTTON",
-      "label": "Shop Products",
+      "label": "Clear Clipboard",
       "menuItems": {},
-      "onClick": "{{GetShopProducts.run()}}",
+      "onClick": "{{removeValue('clipboard');}}",
       "placement": "START",
       "variant": "filled",
       "widgetId": "pnrcxpxcfa"

@@ -32,7 +32,6 @@
     }
   },
   "columnOrder": [
-    "customColumn1",
     "status",
     "barcodes",
     "vendor",
@@ -44,7 +43,7 @@
     "supplier_quantity",
     "type"
   ],
-  "columnUpdatedAt": 1790927041025,
+  "columnUpdatedAt": 1791567194444,
   "columnWidthMap": {
     "barcode": 163,
     "barcodes": 160,
@@ -110,15 +109,6 @@
     },
     {
       "key": "primaryColumns.type.computedValue"
-    },
-    {
-      "key": "primaryColumns.customColumn1.menuColor"
-    },
-    {
-      "key": "primaryColumns.customColumn1.borderRadius"
-    },
-    {
-      "key": "primaryColumns.customColumn1.boxShadow"
     }
   ],
   "dynamicPropertyPathList": [
@@ -126,14 +116,7 @@
       "key": "tableData"
     }
   ],
-  "dynamicTriggerPathList": [
-    {
-      "key": "primaryColumns.customColumn1.menuItems.menuItemyggavgmd9x.onClick"
-    },
-    {
-      "key": "primaryColumns.customColumn1.menuItems.menuItem8ak27f9y1j.onClick"
-    }
-  ],
+  "dynamicTriggerPathList": [],
   "enableClientSideSearch": true,
   "endOfData": false,
   "flexVerticalAlignment": "start",
@@ -225,69 +208,6 @@
       "originalId": "content",
       "sticky": "",
       "textColor": "",
-      "textSize": "0.875rem",
-      "thousandSeparator": true,
-      "validation": {},
-      "verticalAlignment": "TOP",
-      "width": 150
-    },
-    "customColumn1": {
-      "alias": "menu",
-      "allowCellWrapping": false,
-      "allowSameOptionsInNewRow": true,
-      "borderRadius": "{{TableShopProducts.processedTableData.map((currentRow, currentIndex) => ( (appsmith.theme.borderRadius.appBorderRadius)))}}",
-      "boxShadow": "{{TableShopProducts.processedTableData.map((currentRow, currentIndex) => ( \"none\"))}}",
-      "buttonStyle": "rgb(3, 179, 101)",
-      "columnType": "menuButton",
-      "computedValue": "",
-      "currencyCode": "USD",
-      "customAlias": "",
-      "decimals": 0,
-      "enableFilter": true,
-      "enableSort": true,
-      "horizontalAlignment": "LEFT",
-      "iconAlign": "left",
-      "id": "customColumn1",
-      "index": 10,
-      "isCellEditable": false,
-      "isCellVisible": true,
-      "isCompact": false,
-      "isDerived": true,
-      "isDisabled": false,
-      "isDiscardVisible": true,
-      "isEditable": false,
-      "isSaveVisible": true,
-      "isVisible": true,
-      "label": "menu",
-      "labelColor": "#FFFFFF",
-      "menuButtonLabel": "Menu",
-      "menuButtoniconName": "menu",
-      "menuColor": "{{TableShopProducts.processedTableData.map((currentRow, currentIndex) => ( (appsmith.theme.colors.primaryColor)))}}",
-      "menuItems": {
-        "menuItem8ak27f9y1j": {
-          "id": "menuItem8ak27f9y1j",
-          "index": 1,
-          "isDisabled": false,
-          "isVisible": true,
-          "label": "Filter Supplier Products",
-          "onClick": "{{JSObject1.filterCurrentRowToSupplierProducts();}}",
-          "widgetId": "xz8f6645lq"
-        },
-        "menuItemyggavgmd9x": {
-          "id": "menuItemyggavgmd9x",
-          "index": 0,
-          "isDisabled": false,
-          "isVisible": true,
-          "label": "Copy Shop Product",
-          "onClick": "{{JSObject1.loadCurrentRowToForm();}}",
-          "widgetId": "9nvh2e1xwc"
-        }
-      },
-      "menuItemsSource": "STATIC",
-      "menuVariant": "PRIMARY",
-      "notation": "standard",
-      "originalId": "customColumn1",
-      "sticky": "",
       "textSize": "0.875rem",
       "thousandSeparator": true,
       "validation": {},
