@@ -83,26 +83,36 @@
     },
     {
       "key": "primaryColumns.created_at_de.computedValue"
+    },
+    {
+      "key": "primaryColumns.created_at_de.outputFormat"
     }
   ],
   "dynamicPropertyPathList": [
     {
       "key": "tableData"
+    },
+    {
+      "key": "primaryColumns.created_at_de.outputFormat"
     }
   ],
-  "dynamicTriggerPathList": [],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onRowSelected"
+    }
+  ],
   "enableClientSideSearch": true,
   "endOfData": false,
   "flexVerticalAlignment": "start",
   "horizontalAlignment": "LEFT",
   "inlineEditingSaveOption": "ROW_LEVEL",
   "isLoading": false,
-  "isSortable": false,
+  "isSortable": true,
   "isVisible": true,
-  "isVisibleDownload": false,
+  "isVisibleDownload": true,
   "isVisibleFilters": false,
   "isVisiblePagination": false,
-  "isVisibleSearch": false,
+  "isVisibleSearch": true,
   "key": "udpqe6xnuz",
   "label": "Data",
   "leftColumn": 0,
@@ -112,6 +122,7 @@
   "mobileRightColumn": 54,
   "mobileTopRow": 0,
   "needsErrorInfo": false,
+  "onRowSelected": "{{storeValue('clipboard', TableTopicHistory.selectedRow.message?.replace(/<[^>]*>/g, ' ').replace(/&nbsp;|&#160;/gi, ' ').replace(/&amp;/gi, '&').replace(/\\s*,\\s*/g, ', ').replace(/\\s+/g, ' ').trim());}}",
   "originalBottomRow": 86,
   "originalTopRow": 42,
   "parentColumnSpace": 29.9375,
@@ -184,7 +195,7 @@
       "alias": "created_at_de",
       "allowCellWrapping": false,
       "allowSameOptionsInNewRow": true,
-      "columnType": "text",
+      "columnType": "date",
       "computedValue": "{{(() => { const tableData = TableTopicHistory.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"created_at_de\"])) : created_at_de })()}}",
       "currencyCode": "USD",
       "decimals": 0,
@@ -193,6 +204,7 @@
       "horizontalAlignment": "LEFT",
       "id": "created_at_de",
       "index": 6,
+      "inputFormat": "YYYY-MM-DD HH:mm",
       "isCellEditable": false,
       "isCellVisible": true,
       "isDerived": false,
@@ -204,6 +216,7 @@
       "label": "created",
       "notation": "standard",
       "originalId": "created_at_de",
+      "outputFormat": "{{(() => { const tableData = TableTopicHistory.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( new Date(currentRow.created_at).toLocaleString('de-DE', {\n  timeZone: 'Europe/Berlin',\n  day: '2-digit',\n  month: '2-digit',\n  year: 'numeric',\n  hour: '2-digit',\n  minute: '2-digit'\n}) )) :  new Date(currentRow.created_at).toLocaleString('de-DE', {\n  timeZone: 'Europe/Berlin',\n  day: '2-digit',\n  month: '2-digit',\n  year: 'numeric',\n  hour: '2-digit',\n  minute: '2-digit'\n})  })()}}",
       "sticky": "",
       "textSize": "0.875rem",
       "thousandSeparator": true,

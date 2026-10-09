@@ -33,9 +33,10 @@
   },
   "columnOrder": [
     "service",
-    "message"
+    "message",
+    "created_at"
   ],
-  "columnUpdatedAt": 1791567071010,
+  "columnUpdatedAt": 1791574472261,
   "columnWidthMap": {},
   "customIsLoading": false,
   "customIsLoadingValue": "",
@@ -63,6 +64,9 @@
     },
     {
       "key": "primaryColumns.message.computedValue"
+    },
+    {
+      "key": "primaryColumns.created_at.computedValue"
     }
   ],
   "dynamicPropertyPathList": [
@@ -96,6 +100,40 @@
   "parentId": "rl9k7ziukm",
   "parentRowSpace": 10,
   "primaryColumns": {
+    "created_at": {
+      "alias": "created_at",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "",
+      "columnType": "text",
+      "computedValue": "{{(() => { const tableData = Table2.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"created_at\"])) : created_at })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "",
+      "horizontalAlignment": "LEFT",
+      "id": "created_at",
+      "index": 2,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": true,
+      "label": "created_at",
+      "notation": "standard",
+      "originalId": "created_at",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "0.875rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
     "message": {
       "alias": "message",
       "allowCellWrapping": false,

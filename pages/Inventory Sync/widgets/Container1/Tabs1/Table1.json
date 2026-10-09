@@ -98,7 +98,7 @@
   "isVisibleDownload": true,
   "isVisibleFilters": false,
   "isVisiblePagination": true,
-  "isVisibleSearch": false,
+  "isVisibleSearch": true,
   "key": "2ggwptxuiy",
   "label": "Data",
   "leftColumn": 0,

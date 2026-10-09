@@ -126,7 +126,7 @@
   "isSortable": true,
   "isVisible": true,
   "isVisibleDownload": true,
-  "isVisibleFilters": true,
+  "isVisibleFilters": false,
   "isVisiblePagination": true,
   "isVisibleSearch": true,
   "key": "ushk3rs09f",
