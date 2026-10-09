@@ -32,13 +32,15 @@
     }
   },
   "columnOrder": [
+    "created_at",
     "service",
     "message"
   ],
-  "columnUpdatedAt": 1791491295661,
+  "columnUpdatedAt": 1791569814562,
   "columnWidthMap": {
+    "created_at": 183,
     "message": 1527,
-    "service": 168
+    "service": 181
   },
   "compactMode": "SHORT",
   "customIsLoading": false,
@@ -64,11 +66,20 @@
     },
     {
       "key": "primaryColumns.message.computedValue"
+    },
+    {
+      "key": "primaryColumns.created_at.computedValue"
+    },
+    {
+      "key": "primaryColumns.created_at.outputFormat"
     }
   ],
   "dynamicPropertyPathList": [
     {
       "key": "tableData"
+    },
+    {
+      "key": "primaryColumns.created_at.outputFormat"
     }
   ],
   "dynamicTriggerPathList": [
@@ -104,6 +115,42 @@
   "parentId": "ca9fp2xvmr",
   "parentRowSpace": 10,
   "primaryColumns": {
+    "created_at": {
+      "alias": "created_at",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "",
+      "columnType": "date",
+      "computedValue": "{{(() => { const tableData = TableValidationIssues.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"created_at\"])) : created_at })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "",
+      "horizontalAlignment": "LEFT",
+      "id": "created_at",
+      "index": 2,
+      "inputFormat": "YYYY-MM-DDTHH:mm:ss",
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": true,
+      "label": "created_at",
+      "notation": "standard",
+      "originalId": "created_at",
+      "outputFormat": "{{(() => { const tableData = TableValidationIssues.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( new Date(currentRow.created_at).toLocaleString('de-DE', {\n  timeZone: 'Europe/Berlin',\n  day: '2-digit',\n  month: '2-digit',\n  year: 'numeric',\n  hour: '2-digit',\n  minute: '2-digit'\n}) )) :  new Date(currentRow.created_at).toLocaleString('de-DE', {\n  timeZone: 'Europe/Berlin',\n  day: '2-digit',\n  month: '2-digit',\n  year: 'numeric',\n  hour: '2-digit',\n  minute: '2-digit'\n})  })()}}",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "0.875rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
     "message": {
       "alias": "message",
       "allowCellWrapping": false,

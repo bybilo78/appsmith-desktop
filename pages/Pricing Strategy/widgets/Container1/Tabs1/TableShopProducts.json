@@ -32,7 +32,6 @@
     }
   },
   "columnOrder": [
-    "customColumn1",
     "competitor_sync_active",
     "status",
     "vendor",
@@ -64,7 +63,7 @@
     "variant_id",
     "competitor_urls"
   ],
-  "columnUpdatedAt": 1791299127824,
+  "columnUpdatedAt": 1791569994161,
   "columnWidthMap": {
     "barcode": 163,
     "barcodes": 158,
@@ -135,9 +134,6 @@
     },
     {
       "key": "primaryColumns.margin_percent.computedValue"
-    },
-    {
-      "key": "primaryColumns.customColumn1.menuColor"
     },
     {
       "key": "primaryColumns.variant_id.computedValue"
@@ -220,12 +216,6 @@
   "dynamicTriggerPathList": [
     {
       "key": "onRowSelected"
-    },
-    {
-      "key": "primaryColumns.customColumn1.menuItems.menuItemwcopkrwqcr.onClick"
-    },
-    {
-      "key": "primaryColumns.customColumn1.menuItems.menuItemisfvfxmoab.onClick"
     }
   ],
   "enableClientSideSearch": true,
@@ -249,7 +239,7 @@
   "mobileRightColumn": 10,
   "mobileTopRow": 0,
   "needsErrorInfo": false,
-  "onRowSelected": "{{storeValue('clipboard', [TableShopProducts.selectedRow.title, TableShopProducts.selectedRow.variant, TableShopProducts.selectedRow.content_amount, TableShopProducts.selectedRow.content_unit, (TableShopProducts.selectedRow.barcodes || []).join(\", \")].filter(Boolean).join(\", \"));}}",
+  "onRowSelected": "{{storeValue('clipboard', [TableShopProducts.selectedRow.title, TableShopProducts.selectedRow.variant, [TableShopProducts.selectedRow.content_amount, TableShopProducts.selectedRow.content_unit].filter(Boolean).join(\" \"), (TableShopProducts.selectedRow.barcodes || []).join(\", \")].filter(Boolean).join(\", \"));}}",
   "parentColumnSpace": 29.9375,
   "parentId": "siewbv4g2b",
   "parentRowSpace": 10,
@@ -658,79 +648,6 @@
       "originalId": "content_unit",
       "sticky": "",
       "textColor": "",
-      "textSize": "0.875rem",
-      "thousandSeparator": true,
-      "validation": {},
-      "verticalAlignment": "TOP",
-      "width": 150
-    },
-    "customColumn1": {
-      "alias": "menu",
-      "allowCellWrapping": false,
-      "allowSameOptionsInNewRow": true,
-      "buttonStyle": "rgb(3, 179, 101)",
-      "columnType": "menuButton",
-      "computedValue": "",
-      "configureMenuItems": {
-        "config": {
-          "id": "config",
-          "isDisabled": false,
-          "isVisible": true,
-          "label": "Menu Item"
-        },
-        "id": "config",
-        "label": "Configure menu items"
-      },
-      "currencyCode": "USD",
-      "customAlias": "",
-      "decimals": 0,
-      "enableFilter": true,
-      "enableSort": true,
-      "horizontalAlignment": "LEFT",
-      "iconAlign": "left",
-      "id": "customColumn1",
-      "index": 10,
-      "isCellEditable": false,
-      "isCellVisible": true,
-      "isCompact": false,
-      "isDerived": true,
-      "isDisabled": false,
-      "isDiscardVisible": true,
-      "isEditable": false,
-      "isSaveVisible": true,
-      "isVisible": true,
-      "label": "menu",
-      "labelColor": "#FFFFFF",
-      "menuButtonLabel": "Menu",
-      "menuButtoniconName": "menu",
-      "menuColor": "{{TableShopProducts.processedTableData.map((currentRow, currentIndex) => ( (appsmith.theme.colors.primaryColor)))}}",
-      "menuItems": {
-        "menuItemisfvfxmoab": {
-          "id": "menuItemisfvfxmoab",
-          "index": 1,
-          "isDisabled": false,
-          "isVisible": true,
-          "label": "Filter Competitor Urls",
-          "onClick": "{{JSObject1.filterCurrentRowToCompetitorProducts();}}",
-          "widgetId": "jusc2yn9aq"
-        },
-        "menuItemwcopkrwqcr": {
-          "iconAlign": "left",
-          "id": "menuItemwcopkrwqcr",
-          "index": 0,
-          "isDisabled": false,
-          "isVisible": true,
-          "label": "Copy Shop Product",
-          "onClick": "{{JSObject1.loadCurrentRowToForm();}}",
-          "widgetId": "e56j1vt4qk"
-        }
-      },
-      "menuItemsSource": "STATIC",
-      "menuVariant": "PRIMARY",
-      "notation": "standard",
-      "originalId": "customColumn1",
-      "sourceData": [],
-      "sticky": "",
       "textSize": "0.875rem",
       "thousandSeparator": true,
       "validation": {},
