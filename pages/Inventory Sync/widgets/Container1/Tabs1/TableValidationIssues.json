@@ -3,9 +3,9 @@
   "animateLoading": true,
   "borderColor": "#E0DEDE",
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-  "borderWidth": "1",
+  "borderWidth": "0",
   "bottomRow": 77,
-  "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
+  "boxShadow": "none",
   "cachedTableData": {},
   "canFreezeColumn": true,
   "childStylesheet": {
@@ -37,7 +37,9 @@
     "message"
   ],
   "columnUpdatedAt": 1791575562797,
-  "columnWidthMap": {},
+  "columnWidthMap": {
+    "service": 204
+  },
   "customIsLoading": false,
   "customIsLoadingValue": "",
   "defaultPageSize": 0,
@@ -52,9 +54,6 @@
     },
     {
       "key": "borderRadius"
-    },
-    {
-      "key": "boxShadow"
     },
     {
       "key": "tableData"

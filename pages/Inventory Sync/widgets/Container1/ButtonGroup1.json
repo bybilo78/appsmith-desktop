@@ -41,6 +41,12 @@
     },
     {
       "key": "groupButtons.groupButton3.menuItems.menuItem8w726ipgp9.onClick"
+    },
+    {
+      "key": "groupButtons.groupButton3.menuItems.menuItem104i8wxcwm.onClick"
+    },
+    {
+      "key": "groupButtons.groupButton3.menuItems.menuItemrrjo14ze8f.onClick"
     }
   ],
   "groupButtons": {
@@ -59,7 +65,7 @@
           "backgroundColor": "#FFFFFF",
           "disabledWhenInvalid": false,
           "id": "menuItem1",
-          "index": 0,
+          "index": 1,
           "isDisabled": false,
           "isVisible": true,
           "label": "Topic History",
@@ -68,15 +74,16 @@
         },
         "menuItem104i8wxcwm": {
           "id": "menuItem104i8wxcwm",
-          "index": 2,
+          "index": 3,
           "isDisabled": false,
           "isVisible": true,
           "label": "Warehouse",
+          "onClick": "{{GetWarehouse.run()}}",
           "widgetId": "03d9fony9c"
         },
         "menuItem8w726ipgp9": {
           "id": "menuItem8w726ipgp9",
-          "index": 4,
+          "index": 5,
           "isDisabled": false,
           "isVisible": true,
           "label": "Supplier Products",
@@ -85,16 +92,25 @@
         },
         "menuItembla9tetvpi": {
           "id": "menuItembla9tetvpi",
-          "index": 1,
+          "index": 2,
           "isDisabled": false,
           "isVisible": true,
           "label": "Validation Issues",
-          "onClick": "{{GetWarehouse.run()}}",
+          "onClick": "{{GetValidationIssues.run()}}",
           "widgetId": "oj4nipjbc5"
+        },
+        "menuItemrrjo14ze8f": {
+          "id": "menuItemrrjo14ze8f",
+          "index": 0,
+          "isDisabled": false,
+          "isVisible": true,
+          "label": "KPI",
+          "onClick": "{{GetKPIs.run()}}",
+          "widgetId": "4om6jv4s2z"
         },
         "menuItemyebtxr9xqf": {
           "id": "menuItemyebtxr9xqf",
-          "index": 3,
+          "index": 4,
           "isDisabled": false,
           "isVisible": true,
           "label": "Shop Products",

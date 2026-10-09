@@ -32,6 +32,7 @@
     }
   },
   "columnOrder": [
+    "supplier_sync_active",
     "status",
     "barcodes",
     "vendor",
@@ -43,7 +44,7 @@
     "supplier_quantity",
     "type"
   ],
-  "columnUpdatedAt": 1791567194444,
+  "columnUpdatedAt": 1791578897763,
   "columnWidthMap": {
     "barcode": 163,
     "barcodes": 160,
@@ -56,6 +57,7 @@
     "status": 117,
     "supplier_count": 91,
     "supplier_quantity": 128,
+    "supplier_sync_active": 103,
     "suppliers": 176,
     "title": 428,
     "variant": 128,
@@ -109,6 +111,9 @@
     },
     {
       "key": "primaryColumns.type.computedValue"
+    },
+    {
+      "key": "primaryColumns.supplier_sync_active.computedValue"
     }
   ],
   "dynamicPropertyPathList": [
@@ -342,6 +347,40 @@
       "label": "supplier",
       "notation": "standard",
       "originalId": "supplier_quantity",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "0.875rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "TOP",
+      "width": 150
+    },
+    "supplier_sync_active": {
+      "alias": "supplier_sync_active",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "",
+      "columnType": "text",
+      "computedValue": "{{(() => { const tableData = TableShopProducts.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"supplier_sync_active\"])) : supplier_sync_active })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "",
+      "horizontalAlignment": "LEFT",
+      "id": "supplier_sync_active",
+      "index": 5,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": true,
+      "label": "sync",
+      "notation": "standard",
+      "originalId": "supplier_sync_active",
       "sticky": "",
       "textColor": "",
       "textSize": "0.875rem",
