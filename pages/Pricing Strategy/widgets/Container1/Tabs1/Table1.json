@@ -421,7 +421,7 @@
   "responsiveBehavior": "fill",
   "rightColumn": 64,
   "searchKey": "",
-  "tableData": "{{\n  GetCompetitorProducts.data.filter(row =>\n    !appsmith.store.competitorHandles?.length ||\n    appsmith.store.competitorHandles.includes(\n      String(row.handle)\n    )\n  )\n}}",
+  "tableData": "{{ GetCompetitorProducts.data }}",
   "textSize": "0.875rem",
   "topRow": 0,
   "totalRecordsCount": 0,

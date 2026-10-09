@@ -2,7 +2,7 @@ export default {
 	loadCurrentRowToForm () {
 		const row = TableShopProducts.triggeredRow;
 
-		InputProductTitle.setValue(row.title || "");
+		InputClipboard.setValue(row.title || "");
 
 		InputProductBarcodes.setValue(
 			Array.isArray(row.barcodes)
@@ -14,7 +14,7 @@ export default {
 	},
 	
 	resetForm () {	
-		InputProductTitle.setValue("");
+		InputClipboard.setValue("");
 		InputProductBarcodes.setValue("");		
 		InputProductContent.setValue("");
 	},

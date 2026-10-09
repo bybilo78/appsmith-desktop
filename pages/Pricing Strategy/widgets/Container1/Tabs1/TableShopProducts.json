@@ -249,7 +249,7 @@
   "mobileRightColumn": 10,
   "mobileTopRow": 0,
   "needsErrorInfo": false,
-  "onRowSelected": "{{storeValue('product_embedding_text', TableShopProducts.selectedRow.title + ' ' + TableShopProducts.selectedRow.variant + ' ' + TableShopProducts.selectedRow.content);\nstoreValue('product_barcodes', TableShopProducts.selectedRow.barcodes);}}",
+  "onRowSelected": "{{storeValue('clipboard', [TableShopProducts.selectedRow.title, TableShopProducts.selectedRow.variant, TableShopProducts.selectedRow.content_amount, TableShopProducts.selectedRow.content_unit, (TableShopProducts.selectedRow.barcodes || []).join(\", \")].filter(Boolean).join(\", \"));}}",
   "parentColumnSpace": 29.9375,
   "parentId": "siewbv4g2b",
   "parentRowSpace": 10,

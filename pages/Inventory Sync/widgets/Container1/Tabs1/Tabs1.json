@@ -5,7 +5,7 @@
   "borderColor": "#E0DEDE",
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
   "borderWidth": "0",
-  "bottomRow": 88,
+  "bottomRow": 78,
   "boxShadow": "none",
   "children": [
     {
@@ -106,7 +106,7 @@
     },
     {
       "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-      "bottomRow": 720,
+      "bottomRow": 540,
       "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
       "canExtend": false,
       "containerStyle": "none",
@@ -145,15 +145,60 @@
       "rightColumn": 1936,
       "shouldScrollContents": true,
       "tabId": "tabtjn98hpf9v",
-      "tabName": "Dashboard",
+      "tabName": "Topic History",
       "topRow": 1,
       "type": "CANVAS_WIDGET",
       "version": 1,
       "widgetId": "jk57hc24c0",
       "widgetName": "Canvas6"
+    },
+    {
+      "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+      "bottomRow": 630,
+      "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
+      "canExtend": false,
+      "containerStyle": "none",
+      "detachFromLayout": true,
+      "dynamicBindingPathList": [
+        {
+          "key": "borderRadius"
+        },
+        {
+          "key": "boxShadow"
+        }
+      ],
+      "dynamicHeight": "AUTO_HEIGHT",
+      "dynamicTriggerPathList": [],
+      "flexLayers": [],
+      "isLoading": false,
+      "isVisible": true,
+      "key": "5b7hg1kaeo",
+      "leftColumn": 0,
+      "maxDynamicHeight": 9000,
+      "minDynamicHeight": 4,
+      "minHeight": 580,
+      "minWidth": 450,
+      "mobileBottomRow": 581,
+      "mobileLeftColumn": 0,
+      "mobileRightColumn": 1905.75,
+      "mobileTopRow": 1,
+      "needsErrorInfo": false,
+      "parentColumnSpace": 1,
+      "parentId": "klkhm0uiob",
+      "parentRowSpace": 1,
+      "renderMode": "CANVAS",
+      "responsiveBehavior": "fill",
+      "rightColumn": 1905.75,
+      "tabId": "tab2ds5j520ae",
+      "tabName": "Warehouse",
+      "topRow": 1,
+      "type": "CANVAS_WIDGET",
+      "version": 1,
+      "widgetId": "1igro8uvid",
+      "widgetName": "Canvas16"
     }
   ],
-  "defaultTab": "Dashboard",
+  "defaultTab": "Topic History",
   "dynamicBindingPathList": [
     {
       "key": "accentColor"
@@ -178,8 +223,8 @@
   "mobileRightColumn": 13,
   "mobileTopRow": 19,
   "needsErrorInfo": false,
-  "originalBottomRow": 88,
-  "originalTopRow": 12,
+  "originalBottomRow": 78,
+  "originalTopRow": 20,
   "parentColumnSpace": 30.25,
   "parentId": "7k9juzu1ol",
   "parentRowSpace": 10,
@@ -191,7 +236,7 @@
   "tabsObj": {
     "tab1": {
       "id": "tab1",
-      "index": 1,
+      "index": 2,
       "isDuplicateLabel": false,
       "isVisible": true,
       "label": "Shop Products",
@@ -200,23 +245,31 @@
     },
     "tab2": {
       "id": "tab2",
-      "index": 2,
+      "index": 3,
       "isDuplicateLabel": false,
       "isVisible": true,
       "label": "Supplier Products",
       "positioning": "vertical",
       "widgetId": "0xiqna6psg"
     },
+    "tab2ds5j520ae": {
+      "id": "tab2ds5j520ae",
+      "index": 1,
+      "isDuplicateLabel": false,
+      "isVisible": true,
+      "label": "Warehouse",
+      "widgetId": "1igro8uvid"
+    },
     "tabtjn98hpf9v": {
       "id": "tabtjn98hpf9v",
       "index": 0,
       "isDuplicateLabel": false,
       "isVisible": true,
-      "label": "Dashboard",
+      "label": "Topic History",
       "widgetId": "jk57hc24c0"
     }
   },
-  "topRow": 12,
+  "topRow": 20,
   "type": "TABS_WIDGET",
   "version": 3,
   "widgetId": "klkhm0uiob",

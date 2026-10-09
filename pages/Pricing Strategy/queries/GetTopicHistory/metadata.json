@@ -5,7 +5,7 @@
   "pluginType": "DB",
   "unpublishedAction": {
     "actionConfiguration": {
-      "body": "SELECT\n    *,\n    TO_CHAR(\n        created_at AT TIME ZONE 'Europe/Berlin',\n        'DD.MM.YYYY HH24:MI:SS'\n    ) AS created_at_de\nFROM public.\"topic_history\"\nWHERE service = 'competitor_analysis'\nORDER BY created_at DESC\nLIMIT 50;",
+      "body": "SELECT *\nFROM public.\"topic_history\"\nWHERE service = 'competitor_analysis'\nORDER BY created_at DESC\nLIMIT 50;",
       "encodeParamsToggle": true,
       "paginationType": "NONE",
       "pluginSpecifiedTemplates": [

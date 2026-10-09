@@ -1,0 +1,10 @@
+SELECT    
+    COUNT(DISTINCT variant_id) FILTER (WHERE status = 'ACTIVE') AS active,
+    COUNT(DISTINCT variant_id) FILTER (WHERE status = 'DRAFT') AS draft,
+    COUNT(DISTINCT variant_id) FILTER (WHERE status = 'ARCHIVED') AS archive,    
+    COUNT(DISTINCT variant_id) AS variants,    
+    COALESCE(SUM(quantity) FILTER (WHERE status = 'ACTIVE'), 0) AS stock,		 
+    COUNT(DISTINCT variant_id) FILTER (WHERE status = 'ACTIVE' AND inventory_policy = 'CONTINUE') AS policy_continue,
+    COUNT(DISTINCT variant_id) FILTER (WHERE status = 'ACTIVE' AND inventory_policy = 'DENY') AS policy_deny	
+
+FROM public."products" p;

@@ -44,6 +44,9 @@
     },
     {
       "key": "groupButtons.groupButton3l0k43t9fo.menuItems.menuItemdbulvxsd1j.onClick"
+    },
+    {
+      "key": "groupButtons.groupButton3.onClick"
     }
   ],
   "groupButtons": {
@@ -56,7 +59,7 @@
       "index": 1,
       "isDisabled": false,
       "isVisible": true,
-      "label": "Not Implemented",
+      "label": "Clear Clipboard",
       "menuItems": {
         "menuItem1": {
           "backgroundColor": "#FFFFFF",
@@ -70,7 +73,7 @@
           "widgetId": ""
         }
       },
-      "onClick": "",
+      "onClick": "{{removeValue('clipboard');}}",
       "placement": "START",
       "widgetId": ""
     },
@@ -123,7 +126,7 @@
           "widgetId": "bbw3fa7ka7"
         }
       },
-      "onClick": "{{GetMatchingKPIs.run()}}",
+      "onClick": "{{GetKPIs.run()}}",
       "placement": "START",
       "variant": "filled",
       "widgetId": "z7g9rwi4kn"

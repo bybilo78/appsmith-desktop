@@ -1,12 +1,15 @@
-SELECT * 
-FROM public."competitor_products" 
-
-WHERE  
-		(
+SELECT *
+FROM public."competitor_products"
+WHERE
+    (
         '{{SelectVendor.selectedOptionValue}}' = ''
         OR vendor_normalized = '{{SelectVendor.selectedOptionValue}}'
-    )    
-
+    )
+    AND (
+        '{{InputSearchCompetitorProducts.text}}' = ''
+        OR row_to_json(competitor_products)::text
+           ILIKE '%' || '{{InputSearchCompetitorProducts.text}}' || '%'
+    )
 ORDER BY
     vendor_normalized,
     title;
