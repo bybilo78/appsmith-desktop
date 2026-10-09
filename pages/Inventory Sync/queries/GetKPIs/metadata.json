@@ -5,7 +5,7 @@
   "pluginType": "DB",
   "unpublishedAction": {
     "actionConfiguration": {
-      "body": "SELECT    \n    COUNT(DISTINCT variant_id) FILTER (WHERE status = 'ACTIVE') AS active,\n    COUNT(DISTINCT variant_id) FILTER (WHERE status = 'DRAFT') AS draft,\n    COUNT(DISTINCT variant_id) FILTER (WHERE status = 'ARCHIVED') AS archive,    \n    COUNT(DISTINCT variant_id) AS variants,    \n    COALESCE(SUM(quantity) FILTER (WHERE status = 'ACTIVE'), 0) AS stock,\t\t \n    COUNT(DISTINCT variant_id) FILTER (WHERE status = 'ACTIVE' AND inventory_policy = 'CONTINUE') AS policy_continue,\n    COUNT(DISTINCT variant_id) FILTER (WHERE status = 'ACTIVE' AND inventory_policy = 'DENY') AS policy_deny\t\n\nFROM public.\"products\" p;",
+      "body": "SELECT    \n    COUNT(DISTINCT variant_id) FILTER (WHERE status = 'ACTIVE') AS active,\n    COUNT(DISTINCT variant_id) FILTER (WHERE status = 'DRAFT') AS draft,\n    COUNT(DISTINCT variant_id) FILTER (WHERE status = 'ARCHIVED') AS archive,    \n    COUNT(DISTINCT variant_id) AS variants,    \n    COALESCE(SUM(quantity) FILTER (WHERE status = 'ACTIVE'), 0) AS stock,\t\t \n    COUNT(DISTINCT variant_id) FILTER (WHERE status = 'ACTIVE' AND inventory_policy = 'CONTINUE') AS policy_continue,\n    COUNT(DISTINCT variant_id) FILTER (WHERE status = 'ACTIVE' AND inventory_policy = 'DENY') AS policy_deny,\n\t\t\n\t\t-- ACTIVE: Wettbewerber-Abgleich deaktiviert\n    COUNT(DISTINCT p.variant_id) FILTER (\n        WHERE p.status = 'ACTIVE'\n          AND p.supplier_sync_active = FALSE\n    ) AS sync_disabled\n\nFROM public.\"products\" p;",
       "encodeParamsToggle": true,
       "paginationType": "NONE",
       "pluginSpecifiedTemplates": [

@@ -5,6 +5,12 @@ SELECT
     COUNT(DISTINCT variant_id) AS variants,    
     COALESCE(SUM(quantity) FILTER (WHERE status = 'ACTIVE'), 0) AS stock,		 
     COUNT(DISTINCT variant_id) FILTER (WHERE status = 'ACTIVE' AND inventory_policy = 'CONTINUE') AS policy_continue,
-    COUNT(DISTINCT variant_id) FILTER (WHERE status = 'ACTIVE' AND inventory_policy = 'DENY') AS policy_deny	
+    COUNT(DISTINCT variant_id) FILTER (WHERE status = 'ACTIVE' AND inventory_policy = 'DENY') AS policy_deny,
+		
+		-- ACTIVE: Wettbewerber-Abgleich deaktiviert
+    COUNT(DISTINCT p.variant_id) FILTER (
+        WHERE p.status = 'ACTIVE'
+          AND p.supplier_sync_active = FALSE
+    ) AS sync_disabled
 
 FROM public."products" p;

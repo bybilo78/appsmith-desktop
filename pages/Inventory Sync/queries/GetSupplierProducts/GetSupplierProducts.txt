@@ -36,10 +36,17 @@ WHERE
     )
 
     AND (
-        '{{InputSearchSupplierProducts.text}}' = ''
-        OR row_to_json(si)::text
-           ILIKE '%' || '{{InputSearchSupplierProducts.text}}' || '%'
-    )
+				'{{InputSearchSupplierProducts.text}}' = ''
+				OR NOT EXISTS (
+						SELECT 1
+						FROM regexp_split_to_table(
+								lower(trim('{{InputSearchSupplierProducts.text}}')),
+								'\s+'
+						) AS term
+						WHERE term <> ''
+							AND row_to_json(si)::text NOT ILIKE '%' || term || '%'
+				)
+		)
 
     AND (
         '{{RadioFilterSupplierProducts.selectedOptionValue}}' = 'all'
