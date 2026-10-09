@@ -32,11 +32,11 @@
     }
   },
   "columnOrder": [
+    "created_at",
     "service",
-    "message",
-    "created_at"
+    "message"
   ],
-  "columnUpdatedAt": 1791574472261,
+  "columnUpdatedAt": 1791575562797,
   "columnWidthMap": {},
   "customIsLoading": false,
   "customIsLoadingValue": "",
@@ -67,14 +67,24 @@
     },
     {
       "key": "primaryColumns.created_at.computedValue"
+    },
+    {
+      "key": "primaryColumns.created_at.outputFormat"
     }
   ],
   "dynamicPropertyPathList": [
     {
       "key": "tableData"
+    },
+    {
+      "key": "primaryColumns.created_at.outputFormat"
     }
   ],
-  "dynamicTriggerPathList": [],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onRowSelected"
+    }
+  ],
   "enableClientSideSearch": true,
   "endOfData": false,
   "flexVerticalAlignment": "start",
@@ -96,6 +106,7 @@
   "mobileRightColumn": 13,
   "mobileTopRow": 5,
   "needsErrorInfo": false,
+  "onRowSelected": "{{storeValue('clipboard', TableValidationIssues.selectedRow.message?.replace(/<[^>]*>/g, ' ').replace(/&nbsp;|&#160;/gi, ' ').replace(/&amp;/gi, '&').replace(/\\s*,\\s*/g, ', ').replace(/\\s+/g, ' ').trim());}}",
   "parentColumnSpace": 29.625,
   "parentId": "rl9k7ziukm",
   "parentRowSpace": 10,
@@ -105,8 +116,8 @@
       "allowCellWrapping": false,
       "allowSameOptionsInNewRow": true,
       "cellBackground": "",
-      "columnType": "text",
-      "computedValue": "{{(() => { const tableData = Table2.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"created_at\"])) : created_at })()}}",
+      "columnType": "date",
+      "computedValue": "{{(() => { const tableData = TableValidationIssues.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"created_at\"])) : created_at })()}}",
       "currencyCode": "USD",
       "decimals": 0,
       "enableFilter": true,
@@ -126,6 +137,7 @@
       "label": "created_at",
       "notation": "standard",
       "originalId": "created_at",
+      "outputFormat": "{{(() => { const tableData = TableValidationIssues.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( new Date(currentRow.created_at).toLocaleString('de-DE', {\n  timeZone: 'Europe/Berlin',\n  day: '2-digit',\n  month: '2-digit',\n  year: 'numeric',\n  hour: '2-digit',\n  minute: '2-digit'\n}) )) :  new Date(currentRow.created_at).toLocaleString('de-DE', {\n  timeZone: 'Europe/Berlin',\n  day: '2-digit',\n  month: '2-digit',\n  year: 'numeric',\n  hour: '2-digit',\n  minute: '2-digit'\n})  })()}}",
       "sticky": "",
       "textColor": "",
       "textSize": "0.875rem",
@@ -140,7 +152,7 @@
       "allowSameOptionsInNewRow": true,
       "cellBackground": "",
       "columnType": "html",
-      "computedValue": "{{(() => { const tableData = Table2.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"message\"])) : message })()}}",
+      "computedValue": "{{(() => { const tableData = TableValidationIssues.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"message\"])) : message })()}}",
       "currencyCode": "USD",
       "decimals": 0,
       "enableFilter": true,
@@ -174,7 +186,7 @@
       "allowSameOptionsInNewRow": true,
       "cellBackground": "",
       "columnType": "text",
-      "computedValue": "{{(() => { const tableData = Table2.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"service\"])) : service })()}}",
+      "computedValue": "{{(() => { const tableData = TableValidationIssues.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"service\"])) : service })()}}",
       "currencyCode": "USD",
       "decimals": 0,
       "enableFilter": true,
@@ -215,5 +227,5 @@
   "version": 2,
   "verticalAlignment": "CENTER",
   "widgetId": "n2kz43yha1",
-  "widgetName": "Table2"
+  "widgetName": "TableValidationIssues"
 }
