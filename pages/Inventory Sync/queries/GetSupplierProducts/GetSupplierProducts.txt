@@ -1,3 +1,4 @@
+
 SELECT
     si.barcode,
     si.title,
@@ -36,21 +37,18 @@ WHERE
 
     AND (
         '{{InputSearchSupplierProducts.text}}' = ''
-        OR string_to_array(
-            lower(
-                regexp_replace(
-                    si.title,
-                    '[^a-zA-Z0-9äöüÄÖÜß]+',
-                    ' ',
-                    'g'
+        OR row_to_json(si)::text
+           ILIKE '%' || '{{InputSearchSupplierProducts.text}}' || '%'
+    )
+
+    AND (
+        '{{RadioFilterSupplierProducts.selectedOptionValue}}' = 'all'
+        OR si.barcode = ANY (
+            ARRAY(
+                SELECT jsonb_array_elements_text(
+                    '{{ JSON.stringify(TableShopProducts.selectedRow.barcodes || []) }}'::jsonb
                 )
-            ),
-            ' '
-        )
-        @>
-        string_to_array(
-            lower(trim('{{InputSearchSupplierProducts.text}}')),
-            ' '
+            )
         )
     )
 

@@ -17,30 +17,20 @@ SELECT
 
 FROM public."products" p
 
-LEFT JOIN (
+LEFT JOIN LATERAL (
     SELECT
-        barcode,
-        SUM(quantity) AS supplier_quantity
-
+        SUM(barcode_totals.supplier_quantity) AS supplier_quantity
     FROM (
         SELECT
-            barcode,
-            supplier,
-            MAX(quantity) AS quantity
-
-        FROM public."supplier_inventory"
-
-        WHERE barcode IS NOT NULL
-          AND barcode <> ''
-
-        GROUP BY
-            barcode,
-            supplier
-    ) x
-
-    GROUP BY barcode
-) s
-    ON s.barcode = ANY(p.barcodes)
+            si.barcode,
+            SUM(si.quantity) AS supplier_quantity
+        FROM public."supplier_inventory" si
+        WHERE si.barcode = ANY(p.barcodes)
+          AND si.barcode IS NOT NULL
+          AND si.barcode <> ''
+        GROUP BY si.barcode
+    ) barcode_totals
+) s ON TRUE
 
 WHERE
     (
