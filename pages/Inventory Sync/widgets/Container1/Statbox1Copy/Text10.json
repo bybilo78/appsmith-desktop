@@ -39,9 +39,9 @@
   "parentId": "zastitjefa",
   "renderMode": "CANVAS",
   "responsiveBehavior": "fill",
-  "rightColumn": 37,
+  "rightColumn": 62,
   "shouldTruncate": false,
-  "text": "{{GetKPIs.data[0].variants}}",
+  "text": "{{GetKPIs.data[0].variants + \" / \" + GetKPIs.data[0].active}}",
   "textAlign": "LEFT",
   "textColor": "#231F20",
   "topRow": 4,
@@ -49,5 +49,5 @@
   "type": "TEXT_WIDGET",
   "version": 1,
   "widgetId": "cxygwgt5s0",
-  "widgetName": "Text2Copy1"
+  "widgetName": "Text10"
 }

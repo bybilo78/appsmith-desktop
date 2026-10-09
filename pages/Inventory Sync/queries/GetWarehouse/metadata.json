@@ -1,6 +1,6 @@
 {
   "gitSyncId": "6aab83e91270770ca42ebfb6_82cc4268-c387-4af0-b3f3-c54b1d34b691",
-  "id": "Inventory Sync_GetStorageLocationsByShelf",
+  "id": "Inventory Sync_GetWarehouse",
   "pluginId": "postgres-plugin",
   "pluginType": "DB",
   "unpublishedAction": {
@@ -23,7 +23,7 @@
       "pluginId": "postgres-plugin"
     },
     "dynamicBindingPathList": [],
-    "name": "GetStorageLocationsByShelf",
+    "name": "GetWarehouse",
     "pageId": "Inventory Sync",
     "runBehaviour": "AUTOMATIC",
     "userSetOnLoad": false

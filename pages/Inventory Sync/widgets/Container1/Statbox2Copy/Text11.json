@@ -41,7 +41,7 @@
   "responsiveBehavior": "fill",
   "rightColumn": 37,
   "shouldTruncate": false,
-  "text": "{{GetKPIs.data[0].active}}",
+  "text": "{{GetKPIs.data[0].draft + \" / \" + GetKPIs.data[0].archive}}",
   "textAlign": "LEFT",
   "textColor": "#231F20",
   "topRow": 4,
@@ -49,5 +49,5 @@
   "type": "TEXT_WIDGET",
   "version": 1,
   "widgetId": "tjudpk05kn",
-  "widgetName": "Text2CopyCopy4"
+  "widgetName": "Text11"
 }

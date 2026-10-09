@@ -41,7 +41,7 @@
   "responsiveBehavior": "fill",
   "rightColumn": 37,
   "shouldTruncate": false,
-  "text": "{{GetKPIs.data[0].archive}}",
+  "text": "{{GetKPIs.data[0].stock}}",
   "textAlign": "LEFT",
   "textColor": "#231F20",
   "topRow": 4,
