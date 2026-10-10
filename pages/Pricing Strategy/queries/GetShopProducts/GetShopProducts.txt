@@ -9,31 +9,13 @@ SELECT
     p.content_unit,
     p.barcodes,
     p.competitor_urls,
-		COALESCE(array_length(p.competitor_urls, 1), 0) AS competitor_urls_count,
-
-    CONCAT(p.content_amount, ' ', p.content_unit) AS content,
-
-    CASE
-        WHEN p.variant = 'Default Title' THEN ''
-        ELSE p.variant
-    END AS variant,
-
-    p.unit_cost,
+		p.unit_cost,
     p.price,
-
-    -- Eigene Marge
-    ROUND(
-        (p.price / 1.19) - p.unit_cost,
-        2
-    ) AS margin_eur,
-
-    ROUND(
-        (
-            ((p.price / 1.19) - p.unit_cost)
-            / NULLIF((p.price / 1.19), 0)
-        ) * 100,
-        2
-    ) AS margin_percent,
+		COALESCE(array_length(p.competitor_urls, 1), 0) AS competitor_urls_count,
+    CONCAT(p.content_amount, ' ', p.content_unit) AS content,		
+    CASE WHEN p.variant = 'Default Title' THEN '' ELSE p.variant END AS variant,        
+    ROUND((p.price / 1.19) - p.unit_cost, 2) AS margin_eur,
+    ROUND((((p.price / 1.19) - p.unit_cost) / NULLIF((p.price / 1.19), 0)) * 100, 2) AS margin_percent,
 
     -- Competitor Pricing   
     cpa.competitor_min_price,
@@ -41,23 +23,23 @@ SELECT
     cpa.competitor_median_price,
     cpa.competitor_max_price,
     cpa.reference_price,
-
     cpa.target_margin,
     cpa.minimum_price,
     cpa.target_price,
-
     cpa.final_price,
     cpa.final_action,
     cpa.final_price_change,
     cpa.final_price_change_percent,
 
-    -- Anzahl gefundener Wettbewerber
-    (
-        SELECT COUNT(DISTINCT cp.id)
-        FROM unnest(p.competitor_urls) AS u(handle)
-        JOIN public.competitor_products cp
-            ON cp.handle = u.handle
-    ) AS competitors
+   	-- Anzahl gefundener Wettbewerber
+		(
+				SELECT COUNT(DISTINCT cp.id)
+				FROM unnest(p.competitor_urls) AS u(handle)
+				JOIN public.competitor_products cp
+						ON POSITION(u.handle IN cp.handle) > 0
+				WHERE u.handle IS NOT NULL
+					AND u.handle <> ''
+		) AS competitors
 
 FROM public.products p
 
