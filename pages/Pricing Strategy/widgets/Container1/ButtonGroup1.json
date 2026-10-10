@@ -53,6 +53,9 @@
     },
     {
       "key": "groupButtons.groupButtonzd519vjc05.menuItems.menuItembb3whcb7ft.onClick"
+    },
+    {
+      "key": "groupButtons.groupButtonzd519vjc05.menuItems.menuItemf5kz0gzadm.onClick"
     }
   ],
   "groupButtons": {
@@ -166,6 +169,15 @@
           "label": "Check For Issues",
           "onClick": "{{CheckForIssues.run()}}",
           "widgetId": "opvpwg95gw"
+        },
+        "menuItemf5kz0gzadm": {
+          "id": "menuItemf5kz0gzadm",
+          "index": 1,
+          "isDisabled": false,
+          "isVisible": true,
+          "label": "Import All Products",
+          "onClick": "{{ImportAllProducts.run()}}",
+          "widgetId": "7bwzc6dkm2"
         }
       },
       "onClick": "",

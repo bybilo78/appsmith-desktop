@@ -203,6 +203,9 @@
     },
     {
       "key": "primaryColumns.competitor_urls_count.computedValue"
+    },
+    {
+      "key": "primaryColumns.competitor_sync_active.cellBackground"
     }
   ],
   "dynamicPropertyPathList": [
@@ -211,6 +214,9 @@
     },
     {
       "key": "primaryColumns.final_price_change.textColor"
+    },
+    {
+      "key": "primaryColumns.competitor_sync_active.cellBackground"
     }
   ],
   "dynamicTriggerPathList": [
@@ -419,7 +425,7 @@
       "alias": "competitor_sync_active",
       "allowCellWrapping": false,
       "allowSameOptionsInNewRow": true,
-      "cellBackground": "",
+      "cellBackground": "{{(() => { const tableData = TableShopProducts.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( currentRow[\"competitor_sync_active\"] === false ? \"#FFCC80\" : \"transparent\" )) :  currentRow[\"competitor_sync_active\"] === false ? \"#FFCC80\" : \"transparent\"  })()}}",
       "columnType": "html",
       "computedValue": "{{(() => { const tableData = TableShopProducts.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"competitor_sync_active\"])) : competitor_sync_active })()}}",
       "currencyCode": "USD",

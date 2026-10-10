@@ -114,11 +114,17 @@
     },
     {
       "key": "primaryColumns.supplier_sync_active.computedValue"
+    },
+    {
+      "key": "primaryColumns.supplier_sync_active.cellBackground"
     }
   ],
   "dynamicPropertyPathList": [
     {
       "key": "tableData"
+    },
+    {
+      "key": "primaryColumns.supplier_sync_active.cellBackground"
     }
   ],
   "dynamicTriggerPathList": [],
@@ -359,7 +365,7 @@
       "alias": "supplier_sync_active",
       "allowCellWrapping": false,
       "allowSameOptionsInNewRow": true,
-      "cellBackground": "",
+      "cellBackground": "{{(() => { const tableData = TableShopProducts.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( currentRow[\"supplier_sync_active\"] === false ? \"#FFCC80\" : \"transparent\" )) :  currentRow[\"supplier_sync_active\"] === false ? \"#FFCC80\" : \"transparent\"  })()}}",
       "columnType": "text",
       "computedValue": "{{(() => { const tableData = TableShopProducts.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"supplier_sync_active\"])) : supplier_sync_active })()}}",
       "currencyCode": "USD",
