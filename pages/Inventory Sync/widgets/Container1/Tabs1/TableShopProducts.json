@@ -132,7 +132,11 @@
       "key": "primaryColumns.supplier_sync_active.cellBackground"
     }
   ],
-  "dynamicTriggerPathList": [],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onRowSelected"
+    }
+  ],
   "enableClientSideSearch": true,
   "endOfData": false,
   "flexVerticalAlignment": "start",
@@ -154,7 +158,7 @@
   "mobileRightColumn": 10,
   "mobileTopRow": 0,
   "needsErrorInfo": false,
-  "onRowSelected": "",
+  "onRowSelected": "{{storeValue('clipboard', [TableShopProducts.selectedRow.title, TableShopProducts.selectedRow.variant, [TableShopProducts.selectedRow.content_amount, TableShopProducts.selectedRow.content_unit].filter(Boolean).join(\" \"), (TableShopProducts.selectedRow.barcodes || []).join(\", \")].filter(Boolean).join(\", \"));}}",
   "parentColumnSpace": 29.9375,
   "parentId": "d3m5yqyrd3",
   "parentRowSpace": 10,
