@@ -34,6 +34,7 @@
   "columnOrder": [
     "created_at",
     "vendor",
+    "product_competitor_urls",
     "title",
     "price",
     "shop_url",
@@ -42,10 +43,12 @@
     "vendor_normalized",
     "title_normalized"
   ],
-  "columnUpdatedAt": 1791262874082,
+  "columnUpdatedAt": 1791639588802,
   "columnWidthMap": {
     "created_at": 161,
+    "handle": 507,
     "price": 137,
+    "product_competitor_urls": 329,
     "shop_url": 245,
     "title": 450.99999999999994,
     "title_normalized": 434,
@@ -102,11 +105,20 @@
     },
     {
       "key": "primaryColumns.title.displayText"
+    },
+    {
+      "key": "primaryColumns.product_competitor_urls.computedValue"
+    },
+    {
+      "key": "primaryColumns.created_at.outputFormat"
     }
   ],
   "dynamicPropertyPathList": [
     {
       "key": "tableData"
+    },
+    {
+      "key": "primaryColumns.created_at.outputFormat"
     }
   ],
   "dynamicTriggerPathList": [],
@@ -159,7 +171,7 @@
       "label": "created_at",
       "notation": "standard",
       "originalId": "created_at",
-      "outputFormat": "Do MMM YYYY",
+      "outputFormat": "{{(() => { const tableData = Table1.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( new Date(currentRow.created_at).toLocaleString('de-DE', {\n  timeZone: 'Europe/Berlin',\n  day: '2-digit',\n  month: '2-digit',\n  year: 'numeric',\n  hour: '2-digit',\n  minute: '2-digit'\n}) )) :  new Date(currentRow.created_at).toLocaleString('de-DE', {\n  timeZone: 'Europe/Berlin',\n  day: '2-digit',\n  month: '2-digit',\n  year: 'numeric',\n  hour: '2-digit',\n  minute: '2-digit'\n})  })()}}",
       "sticky": "",
       "textSize": "0.875rem",
       "thousandSeparator": true,
@@ -254,6 +266,40 @@
       "notation": "standard",
       "originalId": "price",
       "sticky": "",
+      "textSize": "0.875rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "product_competitor_urls": {
+      "alias": "product_competitor_urls",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "",
+      "columnType": "text",
+      "computedValue": "{{(() => { const tableData = Table1.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"product_competitor_urls\"])) : product_competitor_urls })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "",
+      "horizontalAlignment": "LEFT",
+      "id": "product_competitor_urls",
+      "index": 9,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": true,
+      "label": "product_competitor_urls",
+      "notation": "standard",
+      "originalId": "product_competitor_urls",
+      "sticky": "",
+      "textColor": "",
       "textSize": "0.875rem",
       "thousandSeparator": true,
       "validation": {},

@@ -1,26 +1,36 @@
-SELECT *
-FROM public."competitor_products"
+SELECT
+    cp.*,
+    (
+        SELECT string_agg(u.url, ', ')
+        FROM jsonb_array_elements_text(
+            '{{ JSON.stringify(TableShopProducts.selectedRow.competitor_urls || []) }}'::jsonb
+        ) AS u(url)
+        WHERE POSITION(u.url IN cp.handle) > 0
+    ) AS product_competitor_urls
+
+FROM public.competitor_products cp
+
 WHERE
     (
         '{{SelectVendor.selectedOptionValue}}' = ''
-        OR vendor_normalized = '{{SelectVendor.selectedOptionValue}}'
+        OR cp.vendor_normalized = '{{SelectVendor.selectedOptionValue}}'
     )
     AND (
         '{{InputSearchCompetitorProducts.text}}' = ''
-        OR row_to_json(competitor_products)::text
+        OR row_to_json(cp)::text
            ILIKE '%' || '{{InputSearchCompetitorProducts.text}}' || '%'
     )
-		
-		 AND (
-			'{{RadioFilterCompetitorProducts.selectedOptionValue}}' = 'all'
-			OR EXISTS (
-					SELECT 1
-					FROM jsonb_array_elements_text(
-							'{{ JSON.stringify(TableShopProducts.selectedRow.competitor_urls || []) }}'::jsonb
-					) AS u(url)
-					WHERE POSITION(u.url IN competitor_products.handle) > 0
-			)
-		)
+    AND (
+        '{{RadioFilterCompetitorProducts.selectedOptionValue}}' = 'all'
+        OR EXISTS (
+            SELECT 1
+            FROM jsonb_array_elements_text(
+                '{{ JSON.stringify(TableShopProducts.selectedRow.competitor_urls || []) }}'::jsonb
+            ) AS u(url)
+            WHERE POSITION(u.url IN cp.handle) > 0
+        )
+    )
+
 ORDER BY
-    vendor_normalized,
-    title;
+    cp.vendor_normalized,
+    cp.title;
