@@ -32,7 +32,7 @@
     }
   },
   "columnOrder": [
-    "competitor_sync_active",
+    "competitor_sync",
     "status",
     "vendor",
     "type",
@@ -63,7 +63,7 @@
     "variant_id",
     "competitor_urls"
   ],
-  "columnUpdatedAt": 1791614402071,
+  "columnUpdatedAt": 1791635889021,
   "columnWidthMap": {
     "barcode": 163,
     "barcodes": 158,
@@ -151,9 +151,6 @@
       "key": "primaryColumns.content.computedValue"
     },
     {
-      "key": "primaryColumns.competitor_sync_active.computedValue"
-    },
-    {
       "key": "primaryColumns.competitor_urls.computedValue"
     },
     {
@@ -205,7 +202,10 @@
       "key": "primaryColumns.competitor_urls_count.computedValue"
     },
     {
-      "key": "primaryColumns.competitor_sync_active.cellBackground"
+      "key": "primaryColumns.competitor_sync.computedValue"
+    },
+    {
+      "key": "primaryColumns.competitor_sync.cellBackground"
     }
   ],
   "dynamicPropertyPathList": [
@@ -216,7 +216,7 @@
       "key": "primaryColumns.final_price_change.textColor"
     },
     {
-      "key": "primaryColumns.competitor_sync_active.cellBackground"
+      "key": "primaryColumns.competitor_sync.cellBackground"
     }
   ],
   "dynamicTriggerPathList": [
@@ -421,21 +421,20 @@
       "verticalAlignment": "TOP",
       "width": 150
     },
-    "competitor_sync_active": {
-      "alias": "competitor_sync_active",
+    "competitor_sync": {
+      "alias": "competitor_sync",
       "allowCellWrapping": false,
       "allowSameOptionsInNewRow": true,
-      "cellBackground": "{{(() => { const tableData = TableShopProducts.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( currentRow[\"competitor_sync_active\"] === false ? \"#FFCC80\" : \"transparent\" )) :  currentRow[\"competitor_sync_active\"] === false ? \"#FFCC80\" : \"transparent\"  })()}}",
-      "columnType": "html",
-      "computedValue": "{{(() => { const tableData = TableShopProducts.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"competitor_sync_active\"])) : competitor_sync_active })()}}",
+      "cellBackground": "{{(() => { const tableData = TableShopProducts.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( currentRow[\"competitor_sync\"] !== \"ACTIVE\" ? \"#FFF3CD\" : \"transparent\" )) :  currentRow[\"competitor_sync\"] !== \"ACTIVE\" ? \"#FFF3CD\" : \"transparent\"  })()}}",
+      "columnType": "text",
+      "computedValue": "{{(() => { const tableData = TableShopProducts.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"competitor_sync\"])) : competitor_sync })()}}",
       "currencyCode": "USD",
-      "customAlias": "",
       "decimals": 0,
       "enableFilter": true,
       "enableSort": true,
       "fontStyle": "",
       "horizontalAlignment": "LEFT",
-      "id": "competitor_sync_active",
+      "id": "competitor_sync",
       "index": 1,
       "isCellEditable": false,
       "isCellVisible": true,
@@ -445,9 +444,9 @@
       "isEditable": false,
       "isSaveVisible": true,
       "isVisible": true,
-      "label": "sync",
+      "label": "competitor_sync",
       "notation": "standard",
-      "originalId": "competitor_sync_active",
+      "originalId": "competitor_sync",
       "sticky": "",
       "textColor": "",
       "textSize": "0.875rem",

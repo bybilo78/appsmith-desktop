@@ -15,12 +15,11 @@ SELECT
     COUNT(DISTINCT p.variant_id) FILTER (
         WHERE p.status = 'ARCHIVED'
     ) AS archive,
-
-
-    -- ACTIVE: Wettbewerber-Abgleich deaktiviert
-    COUNT(DISTINCT p.variant_id) FILTER (
-        WHERE p.status = 'ACTIVE'
-          AND p.competitor_sync_active = FALSE
-    ) AS sync_disabled
+		
+    -- Wettbewerber-Abgleich deaktiviert
+		COUNT(DISTINCT p.variant_id) FILTER (
+				WHERE p.status = 'ACTIVE'
+					AND p.competitor_sync <> 'ACTIVE'
+		) AS sync_disabled
 
 FROM public.products p;

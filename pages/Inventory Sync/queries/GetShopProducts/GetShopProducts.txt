@@ -4,7 +4,7 @@ SELECT
     p.vendor,
     p.title,
     p.type,
-		p.supplier_sync_active,
+		p.supplier_sync,
 		p.sku,
 
     CASE

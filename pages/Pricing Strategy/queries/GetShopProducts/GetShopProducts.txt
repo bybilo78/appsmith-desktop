@@ -1,6 +1,6 @@
 SELECT 
     p.status,
-    p.competitor_sync_active,
+    p.competitor_sync,
     p.variant_id,
     p.vendor,
     p.type,

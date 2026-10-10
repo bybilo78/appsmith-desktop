@@ -32,7 +32,7 @@
     }
   },
   "columnOrder": [
-    "supplier_sync_active",
+    "supplier_sync",
     "status",
     "barcodes",
     "sku",
@@ -45,7 +45,7 @@
     "policy",
     "supplier_quantity"
   ],
-  "columnUpdatedAt": 1791618242326,
+  "columnUpdatedAt": 1791635571083,
   "columnWidthMap": {
     "barcode": 163,
     "barcodes": 160,
@@ -59,9 +59,10 @@
     "status": 99,
     "supplier_count": 91,
     "supplier_quantity": 128,
+    "supplier_sync": 154,
     "supplier_sync_active": 103,
     "suppliers": 176,
-    "title": 428,
+    "title": 458,
     "variant": 128,
     "vendor": 139
   },
@@ -115,13 +116,13 @@
       "key": "primaryColumns.type.computedValue"
     },
     {
-      "key": "primaryColumns.supplier_sync_active.computedValue"
-    },
-    {
-      "key": "primaryColumns.supplier_sync_active.cellBackground"
-    },
-    {
       "key": "primaryColumns.sku.computedValue"
+    },
+    {
+      "key": "primaryColumns.supplier_sync.computedValue"
+    },
+    {
+      "key": "primaryColumns.supplier_sync.cellBackground"
     }
   ],
   "dynamicPropertyPathList": [
@@ -129,7 +130,7 @@
       "key": "tableData"
     },
     {
-      "key": "primaryColumns.supplier_sync_active.cellBackground"
+      "key": "primaryColumns.supplier_sync.cellBackground"
     }
   ],
   "dynamicTriggerPathList": [
@@ -404,20 +405,20 @@
       "verticalAlignment": "TOP",
       "width": 150
     },
-    "supplier_sync_active": {
-      "alias": "supplier_sync_active",
+    "supplier_sync": {
+      "alias": "supplier_sync",
       "allowCellWrapping": false,
       "allowSameOptionsInNewRow": true,
-      "cellBackground": "{{(() => { const tableData = TableShopProducts.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( currentRow[\"supplier_sync_active\"] === false ? \"#FFCC80\" : \"transparent\" )) :  currentRow[\"supplier_sync_active\"] === false ? \"#FFCC80\" : \"transparent\"  })()}}",
+      "cellBackground": "{{(() => { const tableData = TableShopProducts.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( currentRow[\"supplier_sync\"] !== \"ACTIVE\" ? \"#FFF3CD\" : \"transparent\" )) :  currentRow[\"supplier_sync\"] !== \"ACTIVE\" ? \"#FFF3CD\" : \"transparent\"  })()}}",
       "columnType": "text",
-      "computedValue": "{{(() => { const tableData = TableShopProducts.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"supplier_sync_active\"])) : supplier_sync_active })()}}",
+      "computedValue": "{{(() => { const tableData = TableShopProducts.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"supplier_sync\"])) : supplier_sync })()}}",
       "currencyCode": "USD",
       "decimals": 0,
       "enableFilter": true,
       "enableSort": true,
       "fontStyle": "",
       "horizontalAlignment": "LEFT",
-      "id": "supplier_sync_active",
+      "id": "supplier_sync",
       "index": 5,
       "isCellEditable": false,
       "isCellVisible": true,
@@ -427,9 +428,9 @@
       "isEditable": false,
       "isSaveVisible": true,
       "isVisible": true,
-      "label": "sync",
+      "label": "supplier_sync",
       "notation": "standard",
-      "originalId": "supplier_sync_active",
+      "originalId": "supplier_sync",
       "sticky": "",
       "textColor": "",
       "textSize": "0.875rem",
