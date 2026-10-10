@@ -5,6 +5,7 @@ SELECT
     p.title,
     p.type,
 		p.supplier_sync_active,
+		p.sku,
 
     CASE
         WHEN p.variant = 'Default Title' THEN ''

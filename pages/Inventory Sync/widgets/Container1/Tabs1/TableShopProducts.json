@@ -35,16 +35,17 @@
     "supplier_sync_active",
     "status",
     "barcodes",
+    "sku",
     "vendor",
+    "type",
     "title",
     "variant",
     "content",
     "quantity",
     "policy",
-    "supplier_quantity",
-    "type"
+    "supplier_quantity"
   ],
-  "columnUpdatedAt": 1791578897763,
+  "columnUpdatedAt": 1791618242326,
   "columnWidthMap": {
     "barcode": 163,
     "barcodes": 160,
@@ -54,14 +55,15 @@
     "policy": 130,
     "quantity": 98,
     "shop_quantity": 106.00000000000001,
-    "status": 117,
+    "sku": 87,
+    "status": 99,
     "supplier_count": 91,
     "supplier_quantity": 128,
     "supplier_sync_active": 103,
     "suppliers": 176,
     "title": 428,
     "variant": 128,
-    "vendor": 164
+    "vendor": 139
   },
   "compactMode": "SHORT",
   "customIsLoading": false,
@@ -117,6 +119,9 @@
     },
     {
       "key": "primaryColumns.supplier_sync_active.cellBackground"
+    },
+    {
+      "key": "primaryColumns.sku.computedValue"
     }
   ],
   "dynamicPropertyPathList": [
@@ -293,6 +298,40 @@
       "verticalAlignment": "TOP",
       "width": 150
     },
+    "sku": {
+      "alias": "sku",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "",
+      "columnType": "text",
+      "computedValue": "{{(() => { const tableData = TableShopProducts.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"sku\"])) : sku })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "",
+      "horizontalAlignment": "LEFT",
+      "id": "sku",
+      "index": 6,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": true,
+      "label": "sku",
+      "notation": "standard",
+      "originalId": "sku",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "0.875rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "TOP",
+      "width": 150
+    },
     "status": {
       "alias": "status",
       "allowCellWrapping": false,
@@ -448,7 +487,7 @@
       "isDiscardVisible": true,
       "isEditable": false,
       "isSaveVisible": true,
-      "isVisible": false,
+      "isVisible": true,
       "label": "type",
       "notation": "standard",
       "originalId": "type",
