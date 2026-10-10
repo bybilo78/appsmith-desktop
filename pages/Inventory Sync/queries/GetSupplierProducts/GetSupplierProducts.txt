@@ -6,6 +6,7 @@ SELECT
     si.vendor_normalized,
     si.supplier,
     si.quantity,
+		si.price,
 
     EXISTS (
         SELECT 1
